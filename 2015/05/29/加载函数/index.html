@@ -3,18 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>小代码设计模式之 - 加载函数 | 武林的博客</title>
+  <title>设计模式微架构之  - 加载函器 | 武林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="superstarwulin">
+  <meta name="description" content="加载器/**
+ *根据加载函数实现加载器
+ *@param {Function} load 加载函数
+ *@returns {Function} 加载器
+ */
+function createLoader(load) {
+    var value, loading, handles = [], h;
+    return function (handle, type) {
+        //t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小代码设计模式之 - 加载函数">
+<meta property="og:title" content="设计模式微架构之  - 加载函器">
 <meta property="og:url" content="superstarwulin.github.io/2015/05/29/加载函数/index.html">
 <meta property="og:site_name" content="武林的博客">
-<meta property="og:description" content="superstarwulin">
-<meta property="og:updated_time" content="2015-05-29T07:03:30.000Z">
+<meta property="og:description" content="加载器/**
+ *根据加载函数实现加载器
+ *@param {Function} load 加载函数
+ *@returns {Function} 加载器
+ */
+function createLoader(load) {
+    var value, loading, handles = [], h;
+    return function (handle, type) {
+        //t">
+<meta property="og:updated_time" content="2015-06-02T07:27:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小代码设计模式之 - 加载函数">
-<meta name="twitter:description" content="superstarwulin">
+<meta name="twitter:title" content="设计模式微架构之  - 加载函器">
+<meta name="twitter:description" content="加载器/**
+ *根据加载函数实现加载器
+ *@param {Function} load 加载函数
+ *@returns {Function} 加载器
+ */
+function createLoader(load) {
+    var value, loading, handles = [], h;
+    return function (handle, type) {
+        //t">
   
     <link rel="alternative" href="/atom.xml" title="武林的博客" type="application/atom+xml">
   
@@ -109,7 +133,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/微架构/" style="font-size: 20px;">微架构</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+						<a href="/tags/微架构/" style="font-size: 10px;">微架构</a>
 					</div>
 				</section>
 				
@@ -190,7 +214,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      小代码设计模式之 - 加载函数
+      设计模式微架构之  - 加载函器
     </h1>
   
 
@@ -214,7 +238,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="加载器">加载器</h3><pre><code><span class="comment">/**
+ *根据加载函数实现加载器
+ *<span class="doctag">@param</span> {Function} load 加载函数
+ *<span class="doctag">@returns</span> {Function} 加载器
+ */</span>
+<span class="function"><span class="keyword">function</span> <span class="title">createLoader</span><span class="params">(load)</span> </span>{
+    <span class="keyword">var</span> value, loading, handles = [], h;
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(handle, type)</span> </span>{
+        <span class="comment">//type默认为1</span>
+        <span class="comment">//0:    不立即加载，不过加载完成之后执行回调函数</span>
+        <span class="comment">//1:    立即加载，并在完成之后执行回调函数</span>
+        <span class="comment">//2:    不立即加载，只在当前已经存在的情况下执行回调函数</span>
+        <span class="keyword">if</span> (type !== <span class="number">0</span> &amp;&amp; !type) {
+            type = <span class="number">1</span>;
+        }
+        <span class="keyword">if</span> ((type &amp; <span class="number">1</span>) &amp;&amp; !loading) {
+            loading = <span class="keyword">true</span>;
+            load(<span class="function"><span class="keyword">function</span> <span class="params">(v)</span> </span>{
+                value = v;
+                <span class="keyword">while</span> (h = handles.shift()) {
+                    <span class="keyword">try</span> {
+                        h &amp;&amp; h.apply(<span class="keyword">null</span>, [value]);
+                    }
+                    <span class="keyword">catch</span> (err) {
+                        setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
+                            <span class="keyword">throw</span> err;
+                        }, <span class="number">0</span>)
+                    }
+                }
+            })
+        }
+        <span class="keyword">if</span> (value!==undefined) {
+            handle &amp;&amp; handle.apply(<span class="keyword">null</span>, [value]);
+            <span class="keyword">return</span> value;
+        }
+        <span class="keyword">if</span> (!(type &amp; <span class="number">2</span>)) {
+            handle &amp;&amp; handles.push(handle);
+        }<span class="comment">//如果只在存在的情况下回调，则退出</span>
+        <span class="keyword">return</span> value;
+    }
+}
+</code></pre><h3 id="模式特性">模式特性</h3><ol>
+<li>模式对象分为加载器和执行环境调用器。</li>
+<li>如果没有调用器，加载器代码不执行。</li>
+<li>调用器多次调用不阻塞</li>
+<li>调用器多次调用，如果数据接口未加载到数据，则执行加载器。如果加载完毕，则不再发出请求而是直接读取缓存数据</li>
+</ol>
+<h3 id="总结">总结</h3><p>对前端这样的富交互应用，大量的异步接口数据调用，上则提到加载器和调用器分离开来可以更好的维护代码以及分清模式，那一次加载，多次调用则让调用器更加广泛的应用到更多的逻辑中。</p>
+
       
     </div>
     
@@ -223,18 +295,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/05/29/example/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          example
-        
-      </div>
-    </a>
-  
   
     <a href="/2015/05/29/preload/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">小代码设计模式之 - 预加载函数</div>
+      <div class="article-nav-title">设计模式微架构之 - 预加载函数</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -263,7 +326,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="加载函数" data-title="小代码设计模式之 - 加载函数" data-url="superstarwulin.github.io/2015/05/29/加载函数/"></div>
+	<div class="ds-thread" data-thread-key="加载函数" data-title="设计模式微架构之  - 加载函器" data-url="superstarwulin.github.io/2015/05/29/加载函数/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
