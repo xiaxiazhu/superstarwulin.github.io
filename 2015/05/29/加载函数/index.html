@@ -31,7 +31,7 @@ function createLoader(load) {
 function createLoader(load) {
     var value, loading, handles = [], h;
     return function (handle, type) {">
-<meta property="og:updated_time" content="2015-06-02T08:08:19.000Z">
+<meta property="og:updated_time" content="2015-08-20T03:29:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式微架构之  - 加载函器">
 <meta name="twitter:description" content="加载器通用类
@@ -69,7 +69,7 @@ function createLoader(load) {
 		</hgroup>
 
 		
-		<p class="header-subtitle">耕耘技术的点滴</p>
+		<p class="header-subtitle">技术自由，耕耘点滴</p>
 		
 
 		
@@ -117,7 +117,7 @@ function createLoader(load) {
 				        
 							<li><a href="/archives">所有文章</a></li>
 				        
-							<li><a href="/photo/相册">相册</a></li>
+							<li><a href="/photo/">相册</a></li>
 				        
 						</ul>
 					</nav>
@@ -126,9 +126,9 @@ function createLoader(load) {
 							
 								<a class="github" target="_blank" href="https://github.com/superstarwulin" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+								<a class="weibo" target="_blank" href="http://weibo.com/2434748684/profile?topnav=1&wvr=6" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+								<a class="mail" target="_blank" href="/wulin.zwl@taobao.com" title="mail">mail</a>
 					        
 								<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/zhuwulin" title="linkedin">linkedin</a>
 					        
@@ -150,7 +150,7 @@ function createLoader(load) {
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">就职于阿里巴巴天猫，花名五零；geek精神，技术自由，致力于web前端；</div>
+					<div id="js-aboutme">朱武林，2013年毕业于华南理工大学电子与信息学院，获得硕士学位。曾就职于百度hao123团队，现就职于阿里巴巴天猫前端团队，花名五零；geek精神，技术自由。</div>
 				</section>
 				
 			</div>
@@ -173,7 +173,7 @@ function createLoader(load) {
 			  <h1 class="header-author">leo</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">耕耘技术的点滴</p>
+			<p class="header-subtitle">技术自由，耕耘点滴</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -182,7 +182,7 @@ function createLoader(load) {
 		        
 					<li><a href="/archives">所有文章</a></li>
 		        
-					<li><a href="/photo/相册">相册</a></li>
+					<li><a href="/photo/">相册</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -192,9 +192,9 @@ function createLoader(load) {
 					
 						<a class="github" target="_blank" href="https://github.com/superstarwulin" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="http://weibo.com/2434748684/profile?topnav=1&wvr=6" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+						<a class="mail" target="_blank" href="/wulin.zwl@taobao.com" title="mail">mail</a>
 			        
 						<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/zhuwulin" title="linkedin">linkedin</a>
 			        
@@ -290,38 +290,31 @@ function createLoader(load) {
 }
 </code></pre><h3 id="调用方式">调用方式</h3><ol>
 <li><p>加载器实例<code>onDatalazyload</code>定义，createLoader定义为上文<code>加载器通用类</code></p>
-<pre><code><span class="keyword">var</span> onDatalazyload = createLoader(<span class="function"><span class="keyword">function</span><span class="params">(callback)</span> </span>{
-
-    <span class="comment">// 这里做网络请求或者数据与数据之间的联动触发，</span>
-    <span class="comment">// 由callback(value)函数返回所获取的数据，</span>
-
-    <span class="comment">// 下面是天猫detail的获取网络请求公共组件js文件，并且获取组件实例的例子</span>
-    S.<span class="keyword">use</span>(<span class="string">"mui/datalazyload"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(S, Datalazyload)</span> </span>{
-        <span class="keyword">var</span> dl = <span class="keyword">new</span> Datalazyload(document.body, {
-            autoDestroy: <span class="literal">false</span>,
-            diff: {
-                top: <span class="number">0</span>,
-                bottom: <span class="number">10</span>
-            }
-        });
-        callback(dl);
+<p> var onDatalazyload = createLoader(function(callback) {<br> // 这里做网络请求或者数据与数据之间的联动触发，<br> // 由callback(value)函数返回所获取的数据，<br> // 下面是获取网络请求公共组件js文件，并且获取组件实例的例子</p>
+<pre><code>S.<span class="keyword">use</span>(<span class="string">"mui/datalazyload"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(S, Datalazyload)</span> </span>{
+    <span class="keyword">var</span> dl = <span class="keyword">new</span> Datalazyload(document.body, {
+        autoDestroy: <span class="literal">false</span>,
+        diff: {
+            top: <span class="number">0</span>,
+            bottom: <span class="number">10</span>
+        }
     });
-
-})
-</code></pre></li>
-<li><p>所定义的加载器使用 — 执行器实例</p>
-<pre><code> onDatalazyload(<span class="function"><span class="keyword">function</span><span class="params">(DL)</span></span>{
- <span class="comment">// 以这样的方式获取定义的加载器所需要加载的内容</span>
-   <span class="comment">// 通过DL拿到调用实例</span>
-
-      DL.addElements(<span class="keyword">self</span>.<span class="variable">$el</span>.getDOMNode());
-           <span class="keyword">self</span>.page.on(<span class="string">'hide'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-                   DL.pause();
-             }).on(<span class="string">'show'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-                       DL.resume();
-          });
+    callback(dl);
 });
-</code></pre></li>
+</code></pre><p> })</p>
+</li>
+<li><p>所定义的加载器使用 — 执行器实例</p>
+<p> onDatalazyload(function(DL){</p>
+<pre><code><span class="comment">// 以这样的方式获取定义的加载器所需要加载的内容</span>
+<span class="comment">// 通过DL拿到调用实例</span>
+DL.addElements(<span class="keyword">self</span>.<span class="variable">$el</span>.getDOMNode());
+    <span class="keyword">self</span>.page.on(<span class="string">'hide'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        DL.pause();
+        }).on(<span class="string">'show'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+            DL.resume();
+    });
+</code></pre><p> });</p>
+</li>
 </ol>
 <h3 id="优秀的特性以及代码解析">优秀的特性以及代码解析</h3><p>  如果用这样的方式管理数据，或者管理远程的组件实例，就可以将管理对象集中起来，比如集中到一个文件道中，而调用实例，可以分布到各种各样的调用逻辑里面来执行。</p>
 <p>  执行器可以调用多次，加载器只发出一次网络请求，其他的从本地缓存获取。执行器如果没定义或者没执行，加载器不执行。</p>
