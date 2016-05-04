@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/微架构/" style="font-size: 20px;">微架构</a>
+						<a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/微架构/" style="font-size: 20px;">微架构</a>
 					</div>
 				</section>
 				
@@ -221,6 +221,141 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/体验优化/">体验优化</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/03/正则表达式/" class="article-date">
+  	<time datetime="2016-05-03T08:48:28.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/正则表达式/">正则表达式收集</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言">前言</h2><p>作为IT老鸟，不能手快脚快的敲几个正则出来也是很不牛逼的，本文就是为了学习正则的一些过程以及常用的工具整理。</p>
+<p><strong>正则是什么</strong>：在编写处理字符串程序或者网页时候，经常会有查找符合某些规则的字符串的需要，正则表达式就是为了描述这些规则的工具。换句话说，正则表达式就是为了记录文本规则的代码。来自Jeffrey Friedl 的精通正则表达式的定义：正则表达式是强大、便捷、高效的文本处理工具。正则表达式本身，加上如同一门袖珍编程语言的通用模式表示法，富裕使用者描述和分析文本的能力。配合上特定工具提供的额外支持，正则表达式能够<code>添加、删除、分离、叠加、插入和修正</code>各类型的文本和数据 </p>
+<h2 id="基本规则">基本规则</h2><p><strong>完整的正则表达式</strong>由两种字符构成，<strong>特殊字符</strong>成为<strong>元字符</strong>，以及其他普通字符组成。元字符提供了更加强大的描述能力。</p>
+<h2 id="工具">工具</h2><p>egrep：很多操作系统-例如DOS，MacOS，Windows，Unix等有对应免费提供egrep。在指定了正则表达式以及需要检索的文件之后，egrep会蚕食用正则表达式匹配每个文件的每一行，并且显示能够匹配的行。<br>基本语法见 <a href="http://www.macworld.com/article/1041504/software-development/jangeekfactor.html" target="_blank" rel="external">macworld</a><br>如图：<br><img src="https://img.alicdn.com/tps/TB1J.qUJFXXXXalXpXXXXXXXXXX-1744-178.png" alt=""></p>
+<h2 id="基础例子">基础例子</h2><h3 id="匹配行-行的起始和结束">匹配行-行的起始和结束</h3><p><code>^cat$</code> ：以cat开始以及结束的行，没有空格等。</p>
+<p><code>^&amp;</code>： 开始以及结束，无符号，空行</p>
+<p><code>^</code>： 开头，无意义，所有行都有开头</p>
+<h3 id="若干字符之一">若干字符之一</h3><p><code>&lt;H[1-6]&gt;</code>与<code>&lt;H[123456]&gt;</code>完全一样，<strong>‘-’连字符</strong>，<strong>表示一个范围</strong>。</p>
+<p><code>[0123456780abcdefABCDEF]</code>和<code>[0-9a-fA-F]</code>是一样的。<br>还可以随心所欲的把字符范围和普通文本结合起来，例如<code>[0-9A-Z._?!]</code>。</p>
+<h3 id="排除型字符组">排除型字符组</h3><p>元字符<code>^</code></p>
+<p><code>[^...]</code>不希望匹配<code>...</code></p>
+<p>[^1-6]不匹配1-6。</p>
+<h3 id="用点号匹配任意字符">用点号匹配任意字符</h3><p>元字符 <code>.</code>(通常称点好dot或者小点point)— 任意字符</p>
+<p>03/19/76 、03-19-76、03.19.76麻烦的写法 03[-./]19[-./]76，简便的也可以写成03.19.76</p>
+<h3 id="多选结构-匹配任意子表达式">多选结构-匹配任意子表达式</h3><p>元字符 <code>|</code>   — 或(or),依靠他，可以吧不同的子表达式组合成一个总的表达式，而这个总的表达式有能够匹配任意的子表达式。例如 bob|robert ，子表达式称为多选分支</p>
+<p>gray|ey 意思是 gra 或ey；gr(a|e)y 也就是gray|grey;不能写成gr[a|e]y,这里|是和ae一样的普通字符。</p>
+<p>多选表达式使用开始结束符号时候：<br>^From|Subject|Date:<em> 匹配过程是 ^From 或者Subject或者Date:</em>，几乎无实用性。</p>
+<p>需要用<strong>括号</strong>来限制这些<strong>多选分支</strong>：<br>^(From|Subject|Date):<em> ,匹配是： 1 起始From，然后：，2 起始subject，然后 ： 3 起始Date，然后：，这就可以<em>*匹配邮件的开头信息</em></em>。</p>
+<h3 id="忽略大小写">忽略大小写</h3><p>邮件头一般是忽略大小写的，一般的办法 [Ff] [Rr] [Oo] [Mm]取代From<br>egrep 的命令行 -i 可以忽略大小写匹配<br>例如： <code>egrep -i “^(From|Subject|Date): ”</code> mailbox</p>
+<h3 id="单词分界符">单词分界符</h3><h3 id="小结">小结</h3><p><img src="https://img.alicdn.com/tps/TB1BLGEJFXXXXbIXVXXXXXXXXXX-1444-624.png" alt=""></p>
+<h3 id="可选项元素">可选项元素</h3><p>元字符 <code>？</code> —代表可选项，把它加在一个字符后面，就表示此处容许出现这个字符。</p>
+<p>colou?r 来匹配 color或者colour；不匹配semicolon。</p>
+<p>4th|4 等价于 4(th)?，括号内可以任意复杂。</p>
+<h3 id="重复出现">重复出现</h3><p>元字符 <code>+</code> 和<code>*</code>的作用于问好类似，     <code>+</code>表示之前紧邻的元素出现<strong>一次或者多次</strong>；<code>*</code>表示之前紧邻的元素出现<strong>任意多次，或者不出现</strong>。<br>例如：<br>…+ 意思 匹配尽可能多的次数，如果一次匹配无法完成，则失败。<br>…* 意思 丕尽可能多次，如果实在无法匹配也不要紧。</p>
+<p>？+ * 称为量词，因为它先顶了所作用元素的匹配次数。</p>
+<p>重复出现次数的区间 …{min,max}，称为<strong>区间量词</strong></p>
+<p>例如： …{3,12}重复次数在3到12直接。 [a-zA-Z{1,5}]类匹配美国股票代码（1到5个字母）<br>问好对应区间量词{0,1}</p>
+<h3 id="小结-量词">小结-量词</h3><p><img src="https://img.alicdn.com/tps/TB1mEyvJFXXXXbqaXXXXXXXXXXX-1434-328.png" alt=""></p>
+<h3 id="括号及反向引用">括号及反向引用</h3><p>括号除了限制多选项的范围之外，还能够记住他们保护的字表达式匹配的文本。</p>
+<p>元字符序列 <code>\1</code>、<code>\2</code>、<code>\3</code>分别表示第一、第二、第三组括号匹配的文本</p>
+<h3 id="神奇的转义">神奇的转义</h3><p>如果需要匹配的某个字符本身就是元字符，需要用转义符\<br>他的作用是使得元字符失去特殊含义，成为普通字符。<br><a>df</a></p>
+<p>例如：([a-zA-Z]+)来匹配括号内的单词 (very)</p>
+<h3 id="更多例子">更多例子</h3><p>引号内字符串： “[^”]*”</p>
+<p>美元金额（可能包含小数点）： \$[0-9]+(.[0-9][0-9])?</p>
+<p>HTTp: \<http: [^="" ]*\.html?\=""></http:></p>
+<p>HTML tag：<br>URL： </p>
+<h3 id="小结-1">小结</h3><p><img src="https://img.alicdn.com/tps/TB1E7SNJFXXXXbLXFXXXXXXXXXX-1434-1228.png" alt=""></p>
+<h2 id="更多元字符标">更多元字符标</h2><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母或数字或下划线或汉字</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意的空白符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配数字</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词的开始或结束</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开始</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的结束</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考资料">参考资料</h2><ul>
+<li><a href="http://pan.baidu.com/s/1i5hgyGl" target="_blank" rel="external">精通正则表达式 【Jeffrey Friedl】</a></li>
+<li><a href="http://deerchao.net/tutorials/regex/regex.htm#metacode" target="_blank" rel="external">30分钟入门教程</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/正则表达式/">正则表达式</a>
 	</div>
 
 
