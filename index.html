@@ -34,7 +34,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">leo</a></h1>
+		  <h1 class="header-author"><a href="/">leo(天猫五零)</a></h1>
 		</hgroup>
 
 		
@@ -131,7 +131,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">leo</h1>
+  		<h1 class="header-author js-mobile-header hide">leo(天猫五零)</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -139,7 +139,7 @@
 				<img lazy-src="http://gtms01.alicdn.com/tps/i1/TB1x_.vHVXXXXXvXVXX2YSA3pXX-540-960.jpg_180x180xz.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author">leo</h1>
+			  <h1 class="header-author">leo(天猫五零)</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">技术自由，耕耘点滴</p>
@@ -706,81 +706,13 @@ DL.addElements(<span class="keyword">self</span>.<span class="variable">$el</spa
 
 
   
-    <article id="post-preload" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/29/preload/" class="article-date">
-  	<time datetime="2015-05-29T07:02:34.000Z" itemprop="datePublished">2015-05-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/29/preload/">设计模式微架构之 - 预加载函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="预加载器">预加载器</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preload</span><span class="params">(load)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> v;</span><br><span class="line">    load(<span class="function"><span class="keyword">function</span><span class="params">(rs)</span> </span>&#123;</span><br><span class="line">        v = (<span class="keyword">typeof</span> v == <span class="string">"function"</span>) ? v(rs) : rs;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(cb)</span> </span>&#123;</span><br><span class="line">        v = (v === <span class="literal">undefined</span>) ? cb : cb(v);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="代码要点解释">代码要点解释</h3><ol>
-<li>preload return一个function，该function无论执行多少次，都会都会在preload的运行时环境中</li>
-<li>load是加载器，load被立即执行，也就是注册时候就执行，通常是用来加载数据，所以被称为预加载</li>
-</ol>
-<h3 id="模式解决的问题">模式解决的问题</h3><p>很多时候，我们需要等数据加载完成之后，再写执行函数。也就是写成</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jsonp<span class="list">(<span class="quoted">'xxxxxurl</span>',function<span class="list">(<span class="keyword">data</span>)</span>&#123;</span><br><span class="line">   doSomething<span class="list">(<span class="keyword">data</span>)</span><span class="comment">;</span></span><br><span class="line">&#125;)</span></span><br></pre></td></tr></table></figure>
-<p>在大规模的集成和调用过程中，会有多层嵌套的情况，不利于维护，非常不合理。</p>
-<p>写在可以再运行时，把doSomething单独拎出来，写成</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载器</span></span><br><span class="line"><span class="keyword">var</span> preLoadWebToolKit = preload(<span class="function"><span class="keyword">function</span><span class="params">(callback)</span></span>&#123;</span><br><span class="line">    S.<span class="keyword">use</span>(<span class="string">'review-write/webComponentToolkit/main'</span>,<span class="function"><span class="keyword">function</span>  <span class="params">(S,WebToolKit)</span> </span>&#123;</span><br><span class="line">            callback(WebToolKit);</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行运行时</span></span><br><span class="line">preLoadWebToolKit(<span class="function"><span class="keyword">function</span><span class="params">(d)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>规范，简洁，利于维护</p>
-<h3 id="总结">总结</h3><p>模式设计的本质是让代码更加清晰可维护，也即是对加载器以及执行运行时在代码层面的分离.</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微架构/">微架构</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
   
 </div>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 leo
+    		&copy; 2016 leo(天猫五零)
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
