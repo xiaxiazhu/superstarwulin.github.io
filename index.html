@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/微架构/" style="font-size: 20px;">微架构</a>
+						<a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/微架构/" style="font-size: 20px;">微架构</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,134 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-js的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/js的封装和继承/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/js的封装和继承/">js的封装和继承</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="封装">封装</h3><pre><code>[<span class="link_label">封装</span>](<span class="link_url">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html</span>)
+</code></pre><h3 id="继承">继承</h3><pre><code>[<span class="link_label">构造函数的继承</span>](<span class="link_url">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html</span>)
+
+[<span class="link_label">分构造函数的继承</span>](<span class="link_url">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html</span>)
+</code></pre><h3 id="参考阮一峰大大的博客">参考阮一峰大大的博客</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-jquery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/jquery源码解析/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/jquery源码解析/">jquery源码学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" target="_blank" rel="external">version 2.0.3 googlecdn</a></p>
+<h1 id="大框架">大框架</h1><h4 id="自调匿名函数">自调匿名函数</h4><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">funciton</span><span class="list">()</span>&#123;</span><br><span class="line">	var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">	<span class="list">(<span class="keyword">21</span>,<span class="number">94</span>)</span> 定义了一些变量和函数。 </span><br><span class="line">	// 包括 </span><br><span class="line">	JQuery = funciton<span class="list">(<span class="keyword">selector</span> ,context)</span>&#123;</span><br><span class="line">		return new JQuery.fn.int<span class="list">(<span class="keyword">selector</span>,context,rootjQuery)</span><span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	funciton $<span class="list">()</span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	&#125;   // 变成局部函数和变量，与外部环境独立开来</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">96</span>,<span class="number">283</span>)</span> // 面向对象的程序，给jq对象添加属性和方法。 $<span class="list">()</span>.css<span class="list">()</span><span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">285</span>,<span class="number">347</span>)</span> //  jq的继承方法 （类似继承，原型继承）后期扩展，以及插件扩展</span><br><span class="line">	jQuery.extend =  </span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">349</span>,<span class="number">817</span>)</span> jquery.extend<span class="list">()</span> : // 扩展一些工具方法 $.trim<span class="list">()</span><span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">877</span>,<span class="number">2856</span>)</span> sizzle :复杂选择器的实现，$<span class="list">(<span class="variable">'ul</span> li + p input.class')</span><span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">2880</span>,<span class="number">3042</span>)</span> jQuery.Callbacks :回调对象 ：通过回调对象去管理函数，函数的统一管理</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3043</span>,<span class="number">3183</span>)</span> jQuery.extend<span class="list">(<span class="keyword">Deferrred</span>)</span> : 延迟对象：对异步的统一管理</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3184</span>,<span class="number">3295</span>)</span> support: 功能检测   // 判断浏览器版本不靠谱，判断功能</span><br><span class="line">	</span><br><span class="line">	（3308，3652）data<span class="list">()</span>： 数据缓存 // 操作方法避免元素内存泄漏</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3653</span>,<span class="number">3797</span>)</span> queue<span class="list">()</span>、 dqueue<span class="list">()</span>: 队列管理 //</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3803</span>,<span class="number">4299</span>)</span> attr<span class="list">()</span> prop<span class="list">()</span> val<span class="list">()</span> addClass<span class="list">()</span> 等： 对元素属性的操作</span><br><span class="line">	</span><br><span class="line">   （4300，5128） on<span class="list">()</span> rigger<span class="list">()</span>: 事件操作相关方法</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">5140</span>,<span class="number">6057</span>)</span> DOM操作：添加，删除，获取，包装 ，innertHMTL，筛选</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">6058</span>,<span class="number">6620</span>)</span> css<span class="list">()</span>：针对样式的操作，兼容性 boxsize</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">6621</span>,<span class="number">7854</span>)</span> 提交数据和ajax<span class="list">()</span>: ajax<span class="list">()</span>load<span class="list">()</span> getJSON<span class="list">()</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">7855</span>,<span class="number">8584</span>)</span> animate<span class="list">()</span>: 运动方法</span><br><span class="line">	</span><br><span class="line">	（8585，8792） offset<span class="list">()</span>: 位置与尺寸</span><br><span class="line">	</span><br><span class="line">	（8804，8821）Jq支持模块化模式</span><br><span class="line">	</span><br><span class="line">	// 对外提供接口$</span><br><span class="line">	<span class="list">(<span class="keyword">8826</span>)</span> window.JQuery=window.$= JQuery<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">&#125;)</span><span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="回调对象函数的统一管理">回调对象函数的统一管理</h3><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">funciton fn1<span class="params">()</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span><span class="params">()</span>&#123;</span>&#125;</span><br><span class="line"></span><br><span class="line">var cb = $Callbacks<span class="params">()</span>;</span><br><span class="line">cb.add<span class="params">(fn1)</span></span><br><span class="line">cb.add<span class="params">(fn2)</span></span><br><span class="line">cb.fire<span class="params">()</span>; <span class="comment">// 1,2</span></span><br><span class="line"></span><br><span class="line">cb.remove<span class="params">(fn2)</span></span><br><span class="line">c.fire<span class="params">()</span>; <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<h3 id="异步调用统一管理">异步调用统一管理</h3><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">setTimeout<span class="params">(funciton<span class="params">()</span>&#123;</span><br><span class="line">	alert<span class="params">(<span class="number">1</span>)</span></span><br><span class="line">&#125;,<span class="number">1000</span>)</span></span><br><span class="line">alert<span class="params">(<span class="number">2</span>)</span></span><br><span class="line"><span class="comment">// 2,1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 来回嵌套不易理解</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// deffer</span></span><br><span class="line">var def= $.Defferred<span class="params">()</span>;</span><br><span class="line">setTimeout<span class="params">(funciton<span class="params">()</span>&#123;</span><br><span class="line">	alert<span class="params">(<span class="number">1</span>)</span></span><br><span class="line">	def.resolve<span class="params">()</span></span><br><span class="line">		</span><br><span class="line">&#125;,<span class="number">1000</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// def.done(funciton()&#123;</span></span><br><span class="line">alert<span class="params">(<span class="number">2</span>)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="数据缓存">数据缓存</h3><p>$(‘#div1’).data(‘name’,’hello’);<br>$(‘#div’).data(‘name’);</p>
+<h3 id="extend">extend</h3><p> 一个对象自变量时候</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩展工具方法</span></span><br><span class="line">$.extend(&#123;</span><br><span class="line">aa:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">bb:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 ,2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  </span></span><br><span class="line">$.fn.extend(&#123;</span><br><span class="line">aa:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">bb:funciton()&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>当多个对象自变量时候，后面对象都是扩展到第一个对象身上</p>
+<p>var a = {};<br>$extend{a,{name:’hello’},{age:30}}</p>
+<p>// 还可以做深拷贝和浅拷贝。</p>
+<h3 id="常用方法的实现">常用方法的实现</h3><p>isArray: Array.isArray</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/基础/">基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
   
