@@ -3,33 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>弱网络下的前端 | 武林的博客</title>
+  <title>nodejs 制作命令行工具 | 武林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网络情况本文主要针对移动端。移动端用户客户端的网络情况大致为：wifi，2g，3g，4g。在网络无线带宽较小的时候，用wifi下同样的处理方法来做前端的UI初始化展现以及交互，会给用户带来不好的体验，所以针对这一类问题做处理。
-弱网判断方案
-通过对服务器打点时间来判断当前的网络状况
+  <meta name="description" content="制作命令行工具参考
+Nodejs-制作命令行工具
+Node.js 命令行程序开发教程
 
-弱网下主要考虑的优化方案
-图片的处理：弱网下在家清晰度较低、图片大小更小的图片。具体工程指标可参考天猫详情的主图">
+node.js command-line interfaces made easy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="弱网络下的前端">
-<meta property="og:url" content="superstarwulin.github.io/2016/05/03/weaknet/index.html">
+<meta property="og:title" content="nodejs 制作命令行工具">
+<meta property="og:url" content="superstarwulin.github.io/2016/05/09/命令行工具/index.html">
 <meta property="og:site_name" content="武林的博客">
-<meta property="og:description" content="网络情况本文主要针对移动端。移动端用户客户端的网络情况大致为：wifi，2g，3g，4g。在网络无线带宽较小的时候，用wifi下同样的处理方法来做前端的UI初始化展现以及交互，会给用户带来不好的体验，所以针对这一类问题做处理。
-弱网判断方案
-通过对服务器打点时间来判断当前的网络状况
+<meta property="og:description" content="制作命令行工具参考
+Nodejs-制作命令行工具
+Node.js 命令行程序开发教程
 
-弱网下主要考虑的优化方案
-图片的处理：弱网下在家清晰度较低、图片大小更小的图片。具体工程指标可参考天猫详情的主图">
-<meta property="og:updated_time" content="2016-05-04T03:17:02.000Z">
+node.js command-line interfaces made easy">
+<meta property="og:updated_time" content="2016-05-12T03:34:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="弱网络下的前端">
-<meta name="twitter:description" content="网络情况本文主要针对移动端。移动端用户客户端的网络情况大致为：wifi，2g，3g，4g。在网络无线带宽较小的时候，用wifi下同样的处理方法来做前端的UI初始化展现以及交互，会给用户带来不好的体验，所以针对这一类问题做处理。
-弱网判断方案
-通过对服务器打点时间来判断当前的网络状况
+<meta name="twitter:title" content="nodejs 制作命令行工具">
+<meta name="twitter:description" content="制作命令行工具参考
+Nodejs-制作命令行工具
+Node.js 命令行程序开发教程
 
-弱网下主要考虑的优化方案
-图片的处理：弱网下在家清晰度较低、图片大小更小的图片。具体工程指标可参考天猫详情的主图">
+node.js command-line interfaces made easy">
   
     <link rel="alternative" href="/atom.xml" title="武林的博客" type="application/atom+xml">
   
@@ -188,11 +185,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-weaknet" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/03/weaknet/" class="article-date">
-  	<time datetime="2016-05-03T08:48:28.000Z" itemprop="datePublished">2016-05-03</time>
+      <a href="/2016/05/09/命令行工具/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
 </a>
     </div>
   
@@ -205,7 +202,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      弱网络下的前端
+      nodejs 制作命令行工具
     </h1>
   
 
@@ -214,12 +211,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微架构/">微架构</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/体验优化/">体验优化</a>
+	<a class="article-category-link" href="/categories/基础/">基础</a>
 	</div>
 
 
@@ -229,14 +226,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="网络情况">网络情况</h2><p>本文主要针对移动端。移动端用户客户端的网络情况大致为：wifi，2g，3g，4g。在网络无线带宽较小的时候，用wifi下同样的处理方法来做前端的UI初始化展现以及交互，会给用户带来不好的体验，所以针对这一类问题做处理。</p>
-<h2 id="弱网判断方案">弱网判断方案</h2><ol>
-<li>通过对服务器打点时间来判断当前的网络状况</li>
-</ol>
-<h2 id="弱网下主要考虑的优化方案">弱网下主要考虑的优化方案</h2><ol>
-<li>图片的处理：弱网下在家清晰度较低、图片大小更小的图片。具体工程指标可参考天猫详情的主图   </li>
-<li>css处理：弱网络下加载不一样的css来做全局的处理</li>
-</ol>
+        <h2 id="制作命令行工具">制作命令行工具</h2><h3 id="参考">参考</h3><ul>
+<li><a href="http://jslite.io/2015/06/19/Nodejs-%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" target="_blank" rel="external">Nodejs-制作命令行工具</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">Node.js 命令行程序开发教程
+</a></li>
+<li><a href="node.js command-line interfaces made easy">node.js command-line interfaces made easy</a></li>
+</ul>
 
       
     </div>
@@ -246,18 +241,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/03/正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          正则表达式收集
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/03/webcompatibility/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">web 兼容性小结</div>
+    <a href="/2016/05/09/js的封装和继承/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js的封装和继承</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -286,7 +272,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="weaknet" data-title="弱网络下的前端" data-url="superstarwulin.github.io/2016/05/03/weaknet/"></div>
+	<div class="ds-thread" data-thread-key="命令行工具" data-title="nodejs 制作命令行工具" data-url="superstarwulin.github.io/2016/05/09/命令行工具/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
