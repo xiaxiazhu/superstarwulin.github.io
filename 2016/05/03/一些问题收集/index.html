@@ -3,17 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>武林的博客</title>
+  <title>基础学习 | 武林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="superstarwulin">
-<meta property="og:type" content="website">
-<meta property="og:title" content="武林的博客">
-<meta property="og:url" content="superstarwulin.github.io/index.html">
+  <meta name="description" content="前端开发面试题前言只看问题点这里 
+看全部问题和答案点这里
+本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
+前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础学习">
+<meta property="og:url" content="superstarwulin.github.io/2016/05/03/一些问题收集/index.html">
 <meta property="og:site_name" content="武林的博客">
-<meta property="og:description" content="superstarwulin">
+<meta property="og:description" content="前端开发面试题前言只看问题点这里 
+看全部问题和答案点这里
+本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
+前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说">
+<meta property="og:image" content="http://www.w3school.com.cn/i/ct_js_value.gif">
+<meta property="og:updated_time" content="2016-05-20T06:53:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="武林的博客">
-<meta name="twitter:description" content="superstarwulin">
+<meta name="twitter:title" content="基础学习">
+<meta name="twitter:description" content="前端开发面试题前言只看问题点这里 
+看全部问题和答案点这里
+本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
+前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说">
   
     <link rel="alternative" href="/atom.xml" title="武林的博客" type="application/atom+xml">
   
@@ -172,705 +183,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-jquery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/jquery源码解析/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/jquery源码解析/">jquery源码学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" target="_blank" rel="external">version 2.0.3 googlecdn</a></p>
-<h1 id="大框架">大框架</h1><h4 id="自调匿名函数">自调匿名函数</h4><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">funciton</span><span class="list">()</span>&#123;</span><br><span class="line">	var a = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">	<span class="list">(<span class="keyword">21</span>,<span class="number">94</span>)</span> 定义了一些变量和函数。 </span><br><span class="line">	// 包括 </span><br><span class="line">	JQuery = funciton<span class="list">(<span class="keyword">selector</span> ,context)</span>&#123;</span><br><span class="line">		return new JQuery.fn.int<span class="list">(<span class="keyword">selector</span>,context,rootjQuery)</span><span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	funciton $<span class="list">()</span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	&#125;   // 变成局部函数和变量，与外部环境独立开来</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">96</span>,<span class="number">283</span>)</span> // 面向对象的程序，给jq对象添加属性和方法。 $<span class="list">()</span>.css<span class="list">()</span><span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">285</span>,<span class="number">347</span>)</span> //  jq的继承方法 （类似继承，原型继承）后期扩展，以及插件扩展</span><br><span class="line">	jQuery.extend =  </span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">349</span>,<span class="number">817</span>)</span> jquery.extend<span class="list">()</span> : // 扩展一些工具方法 $.trim<span class="list">()</span><span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">877</span>,<span class="number">2856</span>)</span> sizzle :复杂选择器的实现，$<span class="list">(<span class="variable">'ul</span> li + p input.class')</span><span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">2880</span>,<span class="number">3042</span>)</span> jQuery.Callbacks :回调对象 ：通过回调对象去管理函数，函数的统一管理</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3043</span>,<span class="number">3183</span>)</span> jQuery.extend<span class="list">(<span class="keyword">Deferrred</span>)</span> : 延迟对象：对异步的统一管理</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3184</span>,<span class="number">3295</span>)</span> support: 功能检测   // 判断浏览器版本不靠谱，判断功能</span><br><span class="line">	</span><br><span class="line">	（3308，3652）data<span class="list">()</span>： 数据缓存 // 操作方法避免元素内存泄漏</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3653</span>,<span class="number">3797</span>)</span> queue<span class="list">()</span>、 dqueue<span class="list">()</span>: 队列管理 //</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">3803</span>,<span class="number">4299</span>)</span> attr<span class="list">()</span> prop<span class="list">()</span> val<span class="list">()</span> addClass<span class="list">()</span> 等： 对元素属性的操作</span><br><span class="line">	</span><br><span class="line">   （4300，5128） on<span class="list">()</span> rigger<span class="list">()</span>: 事件操作相关方法</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">5140</span>,<span class="number">6057</span>)</span> DOM操作：添加，删除，获取，包装 ，innertHMTL，筛选</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">6058</span>,<span class="number">6620</span>)</span> css<span class="list">()</span>：针对样式的操作，兼容性 boxsize</span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">6621</span>,<span class="number">7854</span>)</span> 提交数据和ajax<span class="list">()</span>: ajax<span class="list">()</span>load<span class="list">()</span> getJSON<span class="list">()</span></span><br><span class="line">	</span><br><span class="line">	<span class="list">(<span class="keyword">7855</span>,<span class="number">8584</span>)</span> animate<span class="list">()</span>: 运动方法</span><br><span class="line">	</span><br><span class="line">	（8585，8792） offset<span class="list">()</span>: 位置与尺寸</span><br><span class="line">	</span><br><span class="line">	（8804，8821）Jq支持模块化模式</span><br><span class="line">	</span><br><span class="line">	// 对外提供接口$</span><br><span class="line">	<span class="list">(<span class="keyword">8826</span>)</span> window.JQuery=window.$= JQuery<span class="comment">;</span></span><br><span class="line">	</span><br><span class="line">&#125;)</span><span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<h3 id="回调对象函数的统一管理">回调对象函数的统一管理</h3><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">funciton fn1<span class="params">()</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span><span class="params">()</span>&#123;</span>&#125;</span><br><span class="line"></span><br><span class="line">var cb = $Callbacks<span class="params">()</span>;</span><br><span class="line">cb.add<span class="params">(fn1)</span></span><br><span class="line">cb.add<span class="params">(fn2)</span></span><br><span class="line">cb.fire<span class="params">()</span>; <span class="comment">// 1,2</span></span><br><span class="line"></span><br><span class="line">cb.remove<span class="params">(fn2)</span></span><br><span class="line">c.fire<span class="params">()</span>; <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
-<h3 id="异步调用统一管理">异步调用统一管理</h3><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">setTimeout<span class="params">(funciton<span class="params">()</span>&#123;</span><br><span class="line">	alert<span class="params">(<span class="number">1</span>)</span></span><br><span class="line">&#125;,<span class="number">1000</span>)</span></span><br><span class="line">alert<span class="params">(<span class="number">2</span>)</span></span><br><span class="line"><span class="comment">// 2,1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 来回嵌套不易理解</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// deffer</span></span><br><span class="line">var def= $.Defferred<span class="params">()</span>;</span><br><span class="line">setTimeout<span class="params">(funciton<span class="params">()</span>&#123;</span><br><span class="line">	alert<span class="params">(<span class="number">1</span>)</span></span><br><span class="line">	def.resolve<span class="params">()</span></span><br><span class="line">		</span><br><span class="line">&#125;,<span class="number">1000</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// def.done(funciton()&#123;</span></span><br><span class="line">alert<span class="params">(<span class="number">2</span>)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="数据缓存">数据缓存</h3><p>$(‘#div1’).data(‘name’,’hello’);<br>$(‘#div’).data(‘name’);</p>
-<h3 id="extend">extend</h3><p> 一个对象自变量时候</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩展工具方法</span></span><br><span class="line">$.extend(&#123;</span><br><span class="line">aa:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">bb:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 ,2</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  </span></span><br><span class="line">$.fn.extend(&#123;</span><br><span class="line">aa:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">bb:funciton()&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>当多个对象自变量时候，后面对象都是扩展到第一个对象身上</p>
-<p>var a = {};<br>$extend{a,{name:’hello’},{age:30}}</p>
-<p>// 还可以做深拷贝和浅拷贝。</p>
-<h3 id="常用方法的实现">常用方法的实现</h3><p>isArray: Array.isArray</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/基础/">基础</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-js的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/js的封装和继承/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/js的封装和继承/">js的封装和继承</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="封装">封装</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">封装</a></p>
-<h3 id="继承">继承</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">构造函数的继承</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">分构造函数的继承</a></p>
-<h3 id="参考阮一峰大大的博客">参考阮一峰大大的博客</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/命令行工具/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/命令行工具/">nodejs 制作命令行工具</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="制作命令行工具">制作命令行工具</h2><h3 id="参考">参考</h3><ul>
-<li><a href="http://jslite.io/2015/06/19/Nodejs-%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" target="_blank" rel="external">Nodejs-制作命令行工具</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">Node.js 命令行程序开发教程
-</a></li>
-<li><a href="node.js command-line interfaces made easy">node.js command-line interfaces made easy</a></li>
-<li><a href="http://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="external">Building a simple command line tool with npm</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/基础/">基础</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-weaknet" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/03/weaknet/" class="article-date">
-  	<time datetime="2016-05-03T08:48:28.000Z" itemprop="datePublished">2016-05-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/weaknet/">弱网络下的前端</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网络情况">网络情况</h2><p>本文主要针对移动端。移动端用户客户端的网络情况大致为：wifi，2g，3g，4g。在网络无线带宽较小的时候，用wifi下同样的处理方法来做前端的UI初始化展现以及交互，会给用户带来不好的体验，所以针对这一类问题做处理。</p>
-<h2 id="弱网判断方案">弱网判断方案</h2><ol>
-<li>通过对服务器打点时间来判断当前的网络状况</li>
-</ol>
-<h2 id="弱网下主要考虑的优化方案">弱网下主要考虑的优化方案</h2><ol>
-<li>图片的处理：弱网下在家清晰度较低、图片大小更小的图片。具体工程指标可参考天猫详情的主图   </li>
-<li>css处理：弱网络下加载不一样的css来做全局的处理</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微架构/">微架构</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/体验优化/">体验优化</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/03/正则表达式/" class="article-date">
-  	<time datetime="2016-05-03T08:48:28.000Z" itemprop="datePublished">2016-05-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/正则表达式/">正则表达式收集</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言">前言</h2><p>作为IT老鸟，不能手快脚快的敲几个正则出来也是很不牛逼的，本文就是为了学习正则的一些过程以及常用的工具整理。</p>
-<p><strong>正则是什么</strong>：在编写处理字符串程序或者网页时候，经常会有查找符合某些规则的字符串的需要，正则表达式就是为了描述这些规则的工具。换句话说，正则表达式就是为了记录文本规则的代码。来自Jeffrey Friedl 的精通正则表达式的定义：正则表达式是强大、便捷、高效的文本处理工具。正则表达式本身，加上如同一门袖珍编程语言的通用模式表示法，富裕使用者描述和分析文本的能力。配合上特定工具提供的额外支持，正则表达式能够<code>添加、删除、分离、叠加、插入和修正</code>各类型的文本和数据 </p>
-<h2 id="基本规则">基本规则</h2><p><strong>完整的正则表达式</strong>由两种字符构成，<strong>特殊字符</strong>成为<strong>元字符</strong>，以及其他普通字符组成。元字符提供了更加强大的描述能力。</p>
-<h2 id="工具">工具</h2><p>egrep：很多操作系统-例如DOS，MacOS，Windows，Unix等有对应免费提供egrep。在指定了正则表达式以及需要检索的文件之后，egrep会蚕食用正则表达式匹配每个文件的每一行，并且显示能够匹配的行。<br>基本语法见 <a href="http://www.macworld.com/article/1041504/software-development/jangeekfactor.html" target="_blank" rel="external">macworld</a><br>如图：<br><img src="https://img.alicdn.com/tps/TB1J.qUJFXXXXalXpXXXXXXXXXX-1744-178.png" alt=""></p>
-<h2 id="基础例子">基础例子</h2><h3 id="匹配行-行的起始和结束">匹配行-行的起始和结束</h3><p><code>^cat$</code> ：以cat开始以及结束的行，没有空格等。</p>
-<p><code>^&amp;</code>： 开始以及结束，无符号，空行</p>
-<p><code>^</code>： 开头，无意义，所有行都有开头</p>
-<h3 id="若干字符之一">若干字符之一</h3><p><code>&lt;H[1-6]&gt;</code>与<code>&lt;H[123456]&gt;</code>完全一样，<strong>‘-’连字符</strong>，<strong>表示一个范围</strong>。</p>
-<p><code>[0123456780abcdefABCDEF]</code>和<code>[0-9a-fA-F]</code>是一样的。<br>还可以随心所欲的把字符范围和普通文本结合起来，例如<code>[0-9A-Z._?!]</code>。</p>
-<h3 id="排除型字符组">排除型字符组</h3><p>元字符<code>^</code></p>
-<p><code>[^...]</code>不希望匹配<code>...</code></p>
-<p>[^1-6]不匹配1-6。</p>
-<h3 id="用点号匹配任意字符">用点号匹配任意字符</h3><p>元字符 <code>.</code>(通常称点好dot或者小点point)— 任意字符</p>
-<p>03/19/76 、03-19-76、03.19.76麻烦的写法 03[-./]19[-./]76，简便的也可以写成03.19.76</p>
-<h3 id="多选结构-匹配任意子表达式">多选结构-匹配任意子表达式</h3><p>元字符 <code>|</code>   — 或(or),依靠他，可以吧不同的子表达式组合成一个总的表达式，而这个总的表达式有能够匹配任意的子表达式。例如 bob|robert ，子表达式称为多选分支</p>
-<p>gray|ey 意思是 gra 或ey；gr(a|e)y 也就是gray|grey;不能写成gr[a|e]y,这里|是和ae一样的普通字符。</p>
-<p>多选表达式使用开始结束符号时候：<br>^From|Subject|Date:<em> 匹配过程是 ^From 或者Subject或者Date:</em>，几乎无实用性。</p>
-<p>需要用<strong>括号</strong>来限制这些<strong>多选分支</strong>：<br>^(From|Subject|Date):<em> ,匹配是： 1 起始From，然后：，2 起始subject，然后 ： 3 起始Date，然后：，这就可以<em>*匹配邮件的开头信息</em></em>。</p>
-<h3 id="忽略大小写">忽略大小写</h3><p>邮件头一般是忽略大小写的，一般的办法 [Ff] [Rr] [Oo] [Mm]取代From<br>egrep 的命令行 -i 可以忽略大小写匹配<br>例如： <code>egrep -i “^(From|Subject|Date): ”</code> mailbox</p>
-<h3 id="单词分界符">单词分界符</h3><h3 id="小结">小结</h3><p><img src="https://img.alicdn.com/tps/TB1BLGEJFXXXXbIXVXXXXXXXXXX-1444-624.png" alt=""></p>
-<h3 id="可选项元素">可选项元素</h3><p>元字符 <code>？</code> —代表可选项，把它加在一个字符后面，就表示此处容许出现这个字符。</p>
-<p>colou?r 来匹配 color或者colour；不匹配semicolon。</p>
-<p>4th|4 等价于 4(th)?，括号内可以任意复杂。</p>
-<h3 id="重复出现">重复出现</h3><p>元字符 <code>+</code> 和<code>*</code>的作用于问好类似，     <code>+</code>表示之前紧邻的元素出现<strong>一次或者多次</strong>；<code>*</code>表示之前紧邻的元素出现<strong>任意多次，或者不出现</strong>。<br>例如：<br>…+ 意思 匹配尽可能多的次数，如果一次匹配无法完成，则失败。<br>…* 意思 丕尽可能多次，如果实在无法匹配也不要紧。</p>
-<p>？+ * 称为量词，因为它先顶了所作用元素的匹配次数。</p>
-<p>重复出现次数的区间 …{min,max}，称为<strong>区间量词</strong></p>
-<p>例如： …{3,12}重复次数在3到12直接。 [a-zA-Z{1,5}]类匹配美国股票代码（1到5个字母）<br>问好对应区间量词{0,1}</p>
-<h3 id="小结-量词">小结-量词</h3><p><img src="https://img.alicdn.com/tps/TB1mEyvJFXXXXbqaXXXXXXXXXXX-1434-328.png" alt=""></p>
-<h3 id="括号及反向引用">括号及反向引用</h3><p>括号除了限制多选项的范围之外，还能够记住他们保护的字表达式匹配的文本。</p>
-<p>元字符序列 <code>\1</code>、<code>\2</code>、<code>\3</code>分别表示第一、第二、第三组括号匹配的文本</p>
-<h3 id="神奇的转义">神奇的转义</h3><p>如果需要匹配的某个字符本身就是元字符，需要用转义符\<br>他的作用是使得元字符失去特殊含义，成为普通字符。<br><a>df</a></p>
-<p>例如：([a-zA-Z]+)来匹配括号内的单词 (very)</p>
-<h3 id="更多例子">更多例子</h3><p>引号内字符串： “[^”]*”</p>
-<p>美元金额（可能包含小数点）： \$[0-9]+(.[0-9][0-9])?</p>
-<p>HTTp: \<http: [^="" ]*\.html?\=""></http:></p>
-<p>HTML tag：<br>URL： </p>
-<h3 id="小结-1">小结</h3><p><img src="https://img.alicdn.com/tps/TB1E7SNJFXXXXbLXFXXXXXXXXXX-1434-1228.png" alt=""></p>
-<h2 id="更多元字符标">更多元字符标</h2><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.</td>
-<td>匹配除换行符以外的任意字符</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配字母或数字或下划线或汉字</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配任意的空白符</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配数字</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>匹配单词的开始或结束</td>
-</tr>
-<tr>
-<td>^</td>
-<td>匹配字符串的开始</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配字符串的结束</td>
-</tr>
-</tbody>
-</table>
-<h2 id="参考资料">参考资料</h2><ul>
-<li><a href="http://pan.baidu.com/s/1i5hgyGl" target="_blank" rel="external">精通正则表达式 【Jeffrey Friedl】</a></li>
-<li><a href="http://deerchao.net/tutorials/regex/regex.htm#metacode" target="_blank" rel="external">30分钟入门教程</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/正则表达式/">正则表达式</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-webcompatibility" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/03/webcompatibility/" class="article-date">
-  	<time datetime="2016-05-03T08:29:16.000Z" itemprop="datePublished">2016-05-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/webcompatibility/">web 兼容性小结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>虽然我们正忙着走向下一个时代，但是大型的面向消费人群的网站依赖需要做兼容，因为还有较为庞大的用户比例。如<a href="http://tongji.baidu.com/data/browser" target="_blank" rel="external">百度流量研究院</a>给出的数据：如图：<br>pc流量占比情况：<br><img src="https://gw.alicdn.com/tps/TB1rdyqJFXXXXaHXFXXXXXXXXXX-804-666.png_480x480.jpg" alt=""></p>
-<p>移动流量占比情况：</p>
-<p><img src="https://img.alicdn.com/tps/TB18dqmJFXXXXckXFXXXXXXXXXX-730-880.jpg_480x480.jpg" alt=""></p>
-<p>天猫已经全量引导用户升级到ie8及以上版本，如果不希望投入资源做兼容可以参考。</p>
-<p>但是，但是，我依然对浏览器历史留下的问题提供一些解决方法，见：</p>
-<h1 id="IE6-bugs">IE6-bugs</h1><p>注意: html文件夹中有对应bug重现的html页面</p>
-<p>最近发现项目方向越来越不对了，干脆用来放置浏览器的兼容性内容吧！</p>
-<h3 id="CSS兼容性或bug">CSS兼容性或bug</h3><h4 id="1-">1.</h4><p>计算一定要精确 不要让内容的宽高超出我们设置的宽高<br>在IE6下，内容会撑开设置好的宽高</p>
-<h4 id="2-">2.</h4><p>在IE6元素浮动，如果宽度需要内容撑开，就给里边的块元素都加浮动</p>
-<h4 id="3-">3.</h4><p>在IE6，7下元素要通过浮动并在同一行，就给这行元素都加浮动</p>
-<h4 id="4-">4.</h4><p>P标签中不要嵌套块元素</p>
-<h4 id="5-">5.</h4><p>IE6下最小高度问题<br>在IE6下元素的高度的小于19px的时候，会被当做19px来处理</p>
-<p>解决办法:overflow:hidden;</p>
-<h4 id="6-">6.</h4><p>1px dotted 在IE6下不支持 ，因为精度计算的问题，会显示成虚线，2px或大于2px的dotted就可以正常显示  </p>
-<p>解决办法:切背景平铺</p>
-<h4 id="7-">7.</h4><p>标准浏览器 解决子元素margin传递到父元素的bug </p>
-<p>解决方法: </p>
-<p>1.加float  </p>
-<p>2.overflow:hidden IE6下需要出发haslayout</p>
-<p>在IE6下解决margin传递要触发haslayout</p>
-<p>(如果有边框margin就不会传递到父元素上<br>在IE6下父级有边框的时候，子元素的margin值消失<br>解决办法:触发父级的haslayout ）</p>
-<h4 id="8-">8.</h4><p>IE6下双边距BUG<br>在IE6，块元素有浮动和和横向的margin值 ，横向的margin值会被放大成两倍</p>
-<p>解决办法: display:inline;</p>
-<h4 id="9-">9.</h4><p>基于上面的bug</p>
-<p>如果有一排浮动元素：</p>
-<p>margin-right 一行右侧第一个元素有双边距</p>
-<p>margin-left 一行左侧第一个元素有双边距</p>
-<h4 id="10-">10.</h4><p>在IE6，7下，li本身没浮动，但是li的内容有浮动，li下边就会产生一个间隙</p>
-<p>解决办法:</p>
-<p>1.给li加浮动</p>
-<p>2.给li加vertical-align</p>
-<h4 id="11-">11.</h4><p>在IE6，7下，li本身没浮动，但是li的内容有浮动，li下边就会产生一个间隙 4px</p>
-<p>解决办法:</p>
-<p>1.给li加浮动</p>
-<p>2.给li加vertical-align</p>
-<p>当IE6下最小高度问题，和 li的间隙问题共存的时候 给li加浮动</p>
-<p>解决方法: 先解决最小高度 overflow:hidden; 在加float处理li间隙</p>
-<h4 id="12-">12.</h4><p>当一行子元素占有的宽度之和和父级的宽度相差超过3px, 或者有不满行状态的时候,最后一行子元素的下margin在IE6下就会失效</p>
-<h4 id="13-">13.</h4><p>在IE6下的文字溢出BUG<br>子元素的宽度和父级的宽度相差小于3px的时候,两个浮动元素中间有注释或者内嵌元素</p>
-<p>解决办法:用div把注释或者内嵌元素用div包起来 </p>
-<h4 id="14-">14.</h4><p>当浮动元素和绝对定位元素是并列关系的时候，在IE6下绝对定位元素会消失</p>
-<p>解决办法: 给定位元素外面包个div</p>
-<h4 id="15-">15.</h4><p>在IE6，7下，子元素有相对定位的话，父级的overflow包不住子元素</p>
-<p>解决办法: 给父级也加相对定位</p>
-<h4 id="16-">16.</h4><p>在IE6下绝对定位元素的父级宽高是奇数的时候，元素的right值和bottom值会有1px的偏差</p>
-<p>解决方法: 不要给父元素设置奇数宽高</p>
-<h4 id="17-">17.</h4><p>IE6下 不支持fixed定位方法，</p>
-<p>解决方法: 通过js定位的方式</p>
-<h4 id="18-">18.</h4><p>IE6下就不要给tr和tbody同时加背景样式</p>
-<h4 id="19-">19.</h4><p>在IE6，7下输入类型的表单控件上下各有1px的间隙</p>
-<p>解决办法: 给input加浮动</p>
-<h4 id="20-">20.</h4><p>在IE6，7下输入类型的表单控件加border:none;</p>
-<p>解决办法: 重置input的背景</p>
-<h4 id="21-">21.</h4><p>在IE6，7下输入类型的表单控件输入文字的时候，背景图片会跟着一块移动</p>
-<p>解决办法: 把背景加给父级</p>
-<h4 id="22-">22.</h4><p>IE6不支持png24图片</p>
-<p>解决方法：</p>
-<p>1.使用js （<a href="http://dillerdesign.com/experiment/DD_belatedPNG/DD_belatedPNG_0.0.8a.js）" target="_blank" rel="external">http://dillerdesign.com/experiment/DD_belatedPNG/DD_belatedPNG_0.0.8a.js）</a></p>
-<p>2.使用filter</p>
-<h4 id="23：">23：</h4><p>在IE6下 在important 后边在家一条同样的样式，会破坏掉important的作用，会按照默认的优先级顺序来走</p>
-<h4 id="24:">24:</h4><p>IE6,7,8下，不加docType的话，页面盒模型出现怪异模式</p>
-<h3 id="DOM中的兼容性或bug">DOM中的兼容性或bug</h3><h4 id="25:">25:</h4><p>childNodes 在标准浏览器中包含了文本（注意：换行会被解析成文本）和元素类型的节点，非标准的IE6,7,8下，只包含元素节点。</p>
-<p>解决方法：</p>
-<p>使用children属性替代childNodes， 只取元素节点</p>
-<h4 id="26：">26：</h4><p>IE6,7,8不支持 firstElementChild, lastElementChild， nextElementSibling， previousElementSibling and parentElement</p>
-<p>解决方法:</p>
-<p>兼容写法 ofirst = ele.firstElementChild || firstChild, 但是这种写法会在下面的HTML结构情况（换行在标准浏览器下解析 成文本元素）下出问题</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line"><span class="comment">&lt;!--注意下面ul中有换行 上面的方法在标准浏览器会拿到文本节点--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>处理方法：</p>
-<p>ele.children[0]</p>
-<h4 id="27：">27：</h4><p>offsetParent 返回元素已定位的最近父级元素, 如果元素的所有父级元素都没有定位，则返回body</p>
-<p>在IE6,7中会存在两种特殊情况：</p>
-<ul>
-<li>如果当前元素没有定位默认是body，如果有定位则是html</li>
-<li>如果当前元素的某个父级触发了hasLayout，那么offsetParent就会被指向到这个触发了hasLayout特性的父节点上</li>
-</ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javascript</span><br><span class="line">ele<span class="class">.currentStyle</span><span class="class">.hasLayout</span></span><br></pre></td></tr></table></figure>
-<h4 id="28:">28:</h4><p>HTML结构对dom的影响 例如：<br><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">html</span></span><br><span class="line"><span class="tag">&lt;ul&gt;</span></span><br><span class="line"> <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span></span><br><span class="line"> <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span></span><br><span class="line"> <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span></span><br><span class="line"> <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span></span><br><span class="line"> <span class="tag">&lt;p&gt;</span><span class="tag">&lt;/p&gt;</span></span><br><span class="line"><span class="tag">&lt;/ul&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>上面的结构在IE6 7会将p元素解析成最后一个li元素的子元素，所以必须编写符合规范的HTML结构</p>
-<h4 id="29:">29:</h4><p>元素.offsetLeft[Top] :</p>
-<p>只读 属性 当前元素到定位父级的距离（偏移值）</p>
-<p>到当前元素的offsetParent的距离</p>
-<ul>
-<li><p>如果没有定位父级</p>
-<ul>
-<li>offsetParent -&gt; body</li>
-<li>offsetLeft -&gt; html</li>
-</ul>
-</li>
-<li><p>如果有定位父级</p>
-<ul>
-<li>ie7以下：<pre><code><span class="bullet">* </span>如果自己没有定位，那么offsetLeft[Top]是到body的距离
-<span class="bullet">* </span>如果自己有定位，那么就是到定位父级的距离
-</code></pre></li>
-<li>其他：到定位父级的距离</li>
-</ul>
-</li>
-</ul>
-<h4 id="30:">30:</h4><p>正常情况下是没有问题的：</p>
-<ul>
-<li>style.width : 样式宽</li>
-<li>clientWidth : 可视区宽 (样式宽 + padding) 注意滚动条情况下</li>
-<li>offsetWidth : 占位宽 (样式宽 + padding + border  可视区宽 + 边框)</li>
-</ul>
-<p>怪异盒模型（未测试）</p>
-<h4 id="31:">31:</h4><p>body.offsetLeft or body.offsetTop</p>
-<ul>
-<li>标准浏览器  0</li>
-<li>IE6,7 body的margin值</li>
-</ul>
-<h4 id="32:">32:</h4><p>标准浏览器支持 getElementsByClassName 方法<br>非标准浏览器不支持该方法</p>
-<h4 id="33:">33:</h4><p>创建一个table: 兼容写法<br>注意运用: </p>
-<ul>
-<li>insertRow and insertCell</li>
-<li>tBodies, tHead, tFoot, rows and cells</li>
-</ul>
-<p>解决方法：参见对应HTML页面</p>
-<h4 id="34:">34:</h4><p>onchange事件，触发时机</p>
-<ul>
-<li>text文本输入框:  当光标离开元素的时候再去判断值是否发生了变化，如果发生了变化则触发onchange事件</li>
-<li>radio/checkbox: <ul>
-<li>标准下，点击，值如果改变就触发onchange事件</li>
-<li>非标准下， 点击，并且焦点离开时，如果值发生改变，触发onchange事件</li>
-</ul>
-</li>
-</ul>
-<h3 id="BOM中的兼容性或bug">BOM中的兼容性或bug</h3><h4 id="35:">35:</h4><p>window.close()</p>
-<ul>
-<li>Firefox 无法关闭</li>
-<li>Chrome 立即关闭</li>
-<li>IE 询问是否关闭</li>
-</ul>
-<p>注意: window.open() 不存在兼容问题, 该方法返回打开新窗口的window对象</p>
-<h4 id="36：">36：</h4><p>可视区大小：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line"><span class="built_in">document</span>.documentElement.clientHeight</span><br></pre></td></tr></table></figure></p>
-<p>滚动距离：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.documentElement.scrollTop/scrollLeft <span class="comment">//在chrome下这个值始终为0</span></span><br><span class="line"><span class="built_in">document</span>.body.scrollTop/scrollLeft</span><br></pre></td></tr></table></figure></p>
-<p>兼容写法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br></pre></td></tr></table></figure></p>
-<p>内容高:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面在body margin为0情况下是一样的</span></span><br><span class="line"><span class="built_in">document</span>.body.scrollHeight</span><br><span class="line"><span class="built_in">document</span>.document.scrollHeight</span><br></pre></td></tr></table></figure></p>
-<p>文档高度：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.offsetHeight <span class="comment">//所以推荐使用body.offsetHeight</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.offsetHeight <span class="comment">//IE下不兼容，始终显示可视高度</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Event_中的兼容性或bug">Event 中的兼容性或bug</h3><h4 id="37:">37:</h4><p>event对象</p>
-<ul>
-<li>ie/chrome : event是一个内置全局对象</li>
-<li>标准下 : 事件对象是通过事件函数的第一个参数传入</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//兼容写法</span></span><br><span class="line">    <span class="keyword">var</span> e = evt || <span class="built_in">window</span>.event;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="38:">38:</h4><p>注册事件:</p>
-<ul>
-<li>非标准ie：obj.attachEvent(事件名称，事件函数);<ul>
-<li>没有捕获</li>
-<li>事件名称有on</li>
-<li>事件函数执行的顺序：标准ie -&gt;正序   非标准ie -&gt;倒序</li>
-<li>this指向window</li>
-</ul>
-</li>
-<li>标准：obj.addEventListener(事件名称，事件函数，是否捕获);<ul>
-<li>有捕获</li>
-<li>事件名称没有on</li>
-<li>事件执行的顺序是正序</li>
-<li>this触发该事件的对象</li>
-</ul>
-</li>
-</ul>
-<p>兼容写法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">obj, eventName, fn</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.addEventListener) &#123;</span><br><span class="line">        obj.addEventListener(eventName, fn, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        obj.attachEvent(<span class="string">"on"</span>+eventName, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            fn.call(obj);</span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="39:">39:</h4><p>事件捕获</p>
-<p>非标准ie不支持捕获<br>标准ie和标准浏览器addEventListener(eventName, fn, isCapture)</p>
-<p>isCapture: false -&gt; 冒泡 true -&gt; 捕获</p>
-<h4 id="40:">40:</h4><p>事件取消</p>
-<ul>
-<li>IE: detachEvent(‘on’ + eventName, fn);</li>
-<li>标准: removeEventListener(eventName, fn, isCapture);</li>
-</ul>
-<p>兼容写法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unBind</span>(<span class="params">obj, eventName, fn</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj.removeEventListener)&#123;</span><br><span class="line">        obj.removeEventListener(eventName, fn, <span class="literal">false</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        obj.detachEvent(<span class="string">'on'</span> + eventName, fn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="41:">41:</h4><p>全局捕获</p>
-<p>设置全局捕获 ，当我们给一个元素设置全局捕获以后，<br>那么这个元素就会监听后续发生的所有事件，<br>当有事件发生的时候，就会被当前设置了全局捕获的元素所触发</p>
-<ul>
-<li>IE : 有，并且有效果</li>
-<li>FF : 有，但是没效果</li>
-<li>Chrome : 没有</li>
-</ul>
-<h4 id="42:">42:</h4><p>getComputedStyle(object, false)</p>
-<p>非标准IE,没有该方法，但是有object.currentStyle方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">object, attr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> object.currentStyle ? object.currentStyle[attr] : getComputedStyle(object, <span class="literal">false</span>)[attr]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getStyle(<span class="built_in">document</span>.body, <span class="string">"width"</span>);</span><br></pre></td></tr></table></figure></p>
-<h4 id="43:">43:</h4><p>onmouseenter 和 onmouseleave 方法<br>IE下独有的事件，后来Chrome和Firefox加入该事件，用于处理onmouseover 和 onmouseout，子元素影响父元素问题</p>
-<h4 id="参考资料：">参考资料：</h4><p><a href="http://w3help.org/zh-cn/causes/index.html" target="_blank" rel="external">http://w3help.org/zh-cn/causes/index.html</a><br><a href="http://blog.163.com/hongshaoguoguo@126/blog/static/18046981201461824757380" target="_blank" rel="external">http://blog.163.com/hongshaoguoguo@126/blog/static/18046981201461824757380</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/兼容/">兼容</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-learn" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/03/learn/" class="article-date">
-  	<time datetime="2016-05-03T08:29:16.000Z" itemprop="datePublished">2016-05-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/learn/">学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="学无止境">学无止境</h1><blockquote>
-<p>记录一些常用的学习资料</p>
-</blockquote>
-<h3 id="基础">基础</h3><ul>
-<li><a href="https://segmentfault.com/t/javascript" target="_blank" rel="external">segmentfault</a></li>
-<li><a href="http://stackoverflow.com/questions/tagged/javascript" target="_blank" rel="external">stackoverflow</a></li>
-<li><a href="http://javascript.ruanyifeng.com/" target="_blank" rel="external">javascript基础</a></li>
-<li><a href="">面试题基础</a></li>
-</ul>
-<h3 id="论坛">论坛</h3><p>-<a href="http://www.html-js.com/" target="_blank" rel="external">html-js</a></p>
-<h4 id="一些精彩的例子">一些精彩的例子</h4><h3 id="最新技术">最新技术</h3><h3 id="高大上">高大上</h3><ul>
-<li><a href="http://study.163.com/course/courseMain.htm?courseId=465001" target="_blank" rel="external">jquery源码解析</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/学习/">学习</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-一些问题收集" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-一些问题收集" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/05/03/一些问题收集/" class="article-date">
@@ -886,12 +199,27 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/一些问题收集/">基础学习</a>
+    <h1 class="article-title" itemprop="name">
+      基础学习
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/学习/">学习</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -2564,267 +1892,70 @@ HTTP <span class="number">503</span>：由于超载或停机维护，服务器�
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/学习/">学习</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-  
-    <article id="post-css3入门" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/20/css3入门/" class="article-date">
-  	<time datetime="2015-08-20T07:25:15.000Z" itemprop="datePublished">2015-08-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+<nav id="article-nav">
+  
+    <a href="/2016/05/03/learn/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/20/css3入门/">css3动画基础</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="随便说的前言">随便说的前言</h2><p>最新的手机和操作系统对最新的css技术支持度越来越好，包括css3、<a href="http://johnhax.net/2014/es6-js-future/" target="_blank" rel="external">es6
-</a>等，网络情况增长也是<a href="http://tech.163.com/15/0624/21/ASTG9DK6000915BE.html" target="_blank" rel="external">非常快</a>。<a href="http://www.w3cplus.com/blog/css3" target="_blank" rel="external">css3</a>的动画、flex布局等效果也可以做到主流浏览器上，甚至做到像天猫detail这样高pv数量级的产品上。</p>
-<h2 id="这里一些css动画基础">这里一些css动画基础</h2><p>动画，分拆开来讲，就是一些状态和帧的变化。从某种状态过渡到另外一种状态。状态的定义是由某些css，包括不限于：</p>
-<pre><code><span class="attribute">width</span>：<span class="number">10px</span> 到 <span class="number">100px</span>
-<span class="attribute">padding</span>：<span class="number">0px</span> 到 <span class="number">20px</span>
-<span class="attribute">color</span>：<span class="hexcolor">#F00</span> 到 <span class="hexcolor">#00F</span>
-<span class="attribute">top</span>：<span class="number">0px</span> 到 <span class="number">10px</span>
-<span class="attribute">border-radius</span>：<span class="number">3px</span> 到 <span class="number">8px</span>
-<span class="attribute">transform</span>：<span class="function"><span class="title">rotate</span><span class="params">(<span class="number">0deg</span>)</span></span> 到 <span class="function"><span class="title">ratate</span><span class="params">(<span class="number">45deg</span>)</span></span>
-</code></pre><p>理论上来说，任何单独的css属性都可以拿来定义动画。但是那些从无到有，或者不确定的属性值做动画则不生效。</p>
-<pre><code><span class="id">#container</span> <span class="tag">p</span> <span class="rules">{
-<span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;
-<span class="rule"><span class="attribute">transition</span>:<span class="value"> all <span class="number">3s</span> ease</span></span>;
-}</span>
-<span class="id">#container</span><span class="pseudo">:hover</span> <span class="tag">p</span> <span class="rules">{
-<span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
-}</span>
-<span class="comment">/**********************/</span>
-<span class="id">#container</span> <span class="tag">p</span> <span class="rules">{
-<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0px</span></span></span>;
-<span class="rule"><span class="attribute">transition</span>:<span class="value"> all <span class="number">3s</span> ease</span></span>;
-}</span>
-<span class="id">#container</span><span class="pseudo">:hover</span> <span class="tag">p</span> <span class="rules">{
-<span class="rule"><span class="attribute">height</span>:<span class="value"> auto</span></span>;
-}</span>
-</code></pre><p>对于过渡，css给出了<code>transition</code>来定义一次过渡的时间以及过渡的类型，所有的后缀都是为这个过渡的定义服务。具体的<a href="https://github.com/superstarwulin/csst/blob/master/src/transition/index.less" target="_blank" rel="external">参见代码</a></p>
-<p>对于多次状态的过渡，css给出了<code>animate</code>来定义一系列过渡。 keyframes 定义中间态。<a href="https://github.com/superstarwulin/csst/blob/master/src/animate/index.less" target="_blank" rel="external">参见代码</a></p>
-<p>css给出了另外一个使得dom实体可以线性变化的技术:transform</p>
-<pre><code><span class="function"><span class="title">translate</span><span class="params">()</span></span> <span class="comment">//位移</span>
-<span class="function"><span class="title">rotate</span><span class="params">()</span></span> <span class="comment">// 旋转</span>
-<span class="function"><span class="title">scale</span><span class="params">()</span></span> <span class="comment">// 放大</span>
-<span class="function"><span class="title">skew</span><span class="params">()</span></span> <span class="comment">//扭曲</span>
-<span class="function"><span class="title">matrix</span><span class="params">()</span></span> <span class="comment">//以上的结合使用</span>
-</code></pre><p>具体<a href="https://github.com/superstarwulin/csst/blob/master/src/transform/index.less" target="_blank" rel="external">参见代码</a></p>
-<p>transform3d，则是dom元素在原有的x，y轴上增加了一个z轴，然后这个通过这个技术实现三维的变化。</p>
-<pre><code><span class="function"><span class="title">translate3d</span><span class="params">(tx,ty,tz)</span></span>：他定义了一个<span class="number">3</span>D的位移方法，增加了z轴的偏移量
-<span class="function"><span class="title">translateZ</span><span class="params">(tz)</span></span>：这个方法只在Z轴偏移，与<span class="function"><span class="title">translateX</span><span class="params">()</span></span>和<span class="function"><span class="title">translateY</span><span class="params">()</span></span>相似
-<span class="function"><span class="title">scale3d</span><span class="params">(sx,sy,sz)</span></span>：在原有的scale方法上增加了z轴的参数
-<span class="function"><span class="title">scaleZ</span><span class="params">(sz)</span></span>：同理，只放大z轴，与<span class="function"><span class="title">scaleX</span><span class="params">()</span></span>和<span class="function"><span class="title">scaleY</span><span class="params">()</span></span>类似
-<span class="function"><span class="title">rotate3d</span><span class="params">(rx,ry,rz)</span></span>：将元素以给定参数的某一个轴方向旋转
-<span class="function"><span class="title">rotateX</span><span class="params">(angle)</span></span>，<span class="function"><span class="title">rotateY</span><span class="params">(angle)</span></span>和<span class="function"><span class="title">rotateZ</span><span class="params">(angle)</span></span>：只按照某一个轴旋转，    <span class="function"><span class="title">rotate3d</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">30deg</span>)</span></span>相当于<span class="function"><span class="title">rotateX</span><span class="params">(<span class="number">30deg</span>)</span></span>，
-</code></pre><p>浏览器为了节省开销，并不是所有的html元素都具有三维视图的能力。需要通过<code>perspective</code>(远景)属性来激活。写法形式<a href="https://github.com/superstarwulin/csst/blob/master/src/transform3d/index.less" target="_blank" rel="external">参见代码</a></p>
-<h2 id="兼容性">兼容性</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-加载函数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/29/加载函数/" class="article-date">
-  	<time datetime="2015-05-29T07:02:34.000Z" itemprop="datePublished">2015-05-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          学习
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/29/加载函数/">设计模式微架构之  - 加载函器</a>
-    </h1>
   
+    <a href="/2015/08/20/css3入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css3动画基础</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="加载器通用类">加载器通用类</h3><blockquote>
-<p> 核心函数</p>
-</blockquote>
-<pre><code><span class="comment">/**
- *根据加载函数实现加载器
- *<span class="doctag">@param</span> {Function} load 加载函数
- *<span class="doctag">@returns</span> {Function} 加载器
- */</span>
-<span class="function"><span class="keyword">function</span> <span class="title">createLoader</span><span class="params">(load)</span> </span>{
-    <span class="keyword">var</span> value, loading, handles = [], h;
-    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(handle, type)</span> </span>{
-        <span class="comment">//type默认为1</span>
-        <span class="comment">//0:    不立即加载，不过加载完成之后执行回调函数</span>
-        <span class="comment">//1:    立即加载，并在完成之后执行回调函数</span>
-        <span class="comment">//2:    不立即加载，只在当前已经存在的情况下执行回调函数</span>
-        <span class="keyword">if</span> (type !== <span class="number">0</span> &amp;&amp; !type) {
-            type = <span class="number">1</span>;
-        }
-        <span class="keyword">if</span> ((type &amp; <span class="number">1</span>) &amp;&amp; !loading) {
-            loading = <span class="keyword">true</span>;
-            load(<span class="function"><span class="keyword">function</span> <span class="params">(v)</span> </span>{
-                value = v;
-                <span class="keyword">while</span> (h = handles.shift()) {
-                    <span class="keyword">try</span> {
-                        h &amp;&amp; h.apply(<span class="keyword">null</span>, [value]);
-                    }
-                    <span class="keyword">catch</span> (err) {
-                        setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
-                            <span class="keyword">throw</span> err;
-                        }, <span class="number">0</span>)
-                    }
-                }
-            })
-        }
-        <span class="keyword">if</span> (value!==undefined) {
-            handle &amp;&amp; handle.apply(<span class="keyword">null</span>, [value]);
-            <span class="keyword">return</span> value;
-        }
-        <span class="keyword">if</span> (!(type &amp; <span class="number">2</span>)) {
-            handle &amp;&amp; handles.push(handle);
-        }<span class="comment">//如果只在存在的情况下回调，则退出</span>
-        <span class="keyword">return</span> value;
-    }
-}
-</code></pre><h3 id="调用方式">调用方式</h3><ol>
-<li><p>加载器实例<code>onDatalazyload</code>定义，createLoader定义为上文<code>加载器通用类</code></p>
-<p> var onDatalazyload = createLoader(function(callback) {<br> // 这里做网络请求或者数据与数据之间的联动触发，<br> // 由callback(value)函数返回所获取的数据，<br> // 下面是获取网络请求公共组件js文件，并且获取组件实例的例子</p>
-<pre><code>S.<span class="keyword">use</span>(<span class="string">"mui/datalazyload"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(S, Datalazyload)</span> </span>{
-    <span class="keyword">var</span> dl = <span class="keyword">new</span> Datalazyload(document.body, {
-        autoDestroy: <span class="literal">false</span>,
-        diff: {
-            top: <span class="number">0</span>,
-            bottom: <span class="number">10</span>
-        }
-    });
-    callback(dl);
-});
-</code></pre><p> })</p>
-</li>
-<li><p>所定义的加载器使用 — 执行器实例</p>
-<p> onDatalazyload(function(DL){</p>
-<pre><code><span class="comment">// 以这样的方式获取定义的加载器所需要加载的内容</span>
-<span class="comment">// 通过DL拿到调用实例</span>
-DL.addElements(<span class="keyword">self</span>.<span class="variable">$el</span>.getDOMNode());
-    <span class="keyword">self</span>.page.on(<span class="string">'hide'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-        DL.pause();
-        }).on(<span class="string">'show'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-            DL.resume();
-    });
-</code></pre><p> });</p>
-</li>
-</ol>
-<h3 id="优秀的特性以及代码解析">优秀的特性以及代码解析</h3><p>  如果用这样的方式管理数据，或者管理远程的组件实例，就可以将管理对象集中起来，比如集中到一个文件道中，而调用实例，可以分布到各种各样的调用逻辑里面来执行。</p>
-<p>  执行器可以调用多次，加载器只发出一次网络请求，其他的从本地缓存获取。执行器如果没定义或者没执行，加载器不执行。</p>
-<h3 id="总结">总结</h3><p>   对前端这样的富交互应用，大量的异步接口数据调用，上则提到加载器和调用器分离开来可以更好的维护代码以及分清模式，那一次加载，多次调用则让调用器更加广泛的应用到更多的逻辑中。</p>
-<p>   优秀特性中所提到的集中管理这样的微架构，将所有的数据集中起来管理，<code>在大型网络富交互应用的前端部分可以让迭代开发更加容易，树形的模块结构显得更加可控，问题定位可以更快</code>。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微架构/">微架构</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="一些问题收集" data-title="基础学习" data-url="superstarwulin.github.io/2016/05/03/一些问题收集/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
+
+
 </div>
       <footer id="footer">
   <div class="outer">
