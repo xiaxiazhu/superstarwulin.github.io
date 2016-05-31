@@ -13,7 +13,9 @@
 <meta property="og:site_name" content="武林的博客">
 <meta property="og:description" content="基本概念设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 — 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。
 前端的设计模式前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开">
-<meta property="og:updated_time" content="2016-05-31T07:23:02.000Z">
+<meta property="og:image" content="http://i.stack.imgur.com/ocEWx.png">
+<meta property="og:image" content="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg">
+<meta property="og:updated_time" content="2016-05-31T08:06:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈前端的主流设计模式">
 <meta name="twitter:description" content="基本概念设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 — 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。
@@ -221,7 +223,12 @@
 <h1 id="前端的设计模式">前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题— UI和逻辑是一起的，但他们却不是一起的。</strong></p>
 <p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
 <p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
-<h2 id=""> </h2>
+<h2 id="Model_View_Control">Model View Control</h2><p><img src="http://i.stack.imgur.com/ocEWx.png" alt=""></p>
+<p>最原始的模型架构细分管理模型，MVC，相互关系如上图：推动业务的事件由用户与view交互，通过view向controller发动，然后触发数据更新。而mvc的使用发现的问题是当有变化发生时候，需要维护三个对象和三个三个交互，这让事情复杂化了。</p>
+<p>mvc的三角关系被认为给一些人带来了麻烦，所以需要催生更好的解决方案。</p>
+<h2 id="Model_View_Presenter">Model View Presenter</h2><h2 id="Model_View_ViewModel">Model View ViewModel</h2><p><img src="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg" alt=""></p>
+<p>ViewModel大致上就是MVP的Presenter和MVC的Controller了，而View和ViewModel间没有了MVP的界面接口，而是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
+
       
     </div>
     
