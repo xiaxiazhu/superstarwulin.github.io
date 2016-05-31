@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/微架构/" style="font-size: 15px;">微架构</a>
+						<a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/微架构/" style="font-size: 13.33px;">微架构</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,129 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-浅谈前端的主流设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/浅谈前端的主流设计模式/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/浅谈前端的主流设计模式/">浅谈前端的主流设计模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本概念">基本概念</h1><p>设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 — 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。</p>
+<h1 id="前端的设计模式">前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题— UI和逻辑是一起的，但他们却不是一起的。</strong></p>
+<p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
+<p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
+<h2 id=""> </h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/命令行工具/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/命令行工具/">nodejs 制作命令行工具</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="制作命令行工具">制作命令行工具</h2><h3 id="参考">参考</h3><ul>
+<li><a href="http://jslite.io/2015/06/19/Nodejs-%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" target="_blank" rel="external">Nodejs-制作命令行工具</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">Node.js 命令行程序开发教程
+</a></li>
+<li><a href="node.js command-line interfaces made easy">node.js command-line interfaces made easy</a></li>
+<li><a href="http://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="external">Building a simple command line tool with npm</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/基础/">基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-jquery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -284,69 +407,6 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/命令行工具/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/命令行工具/">nodejs 制作命令行工具</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="制作命令行工具">制作命令行工具</h2><h3 id="参考">参考</h3><ul>
-<li><a href="http://jslite.io/2015/06/19/Nodejs-%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" target="_blank" rel="external">Nodejs-制作命令行工具</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">Node.js 命令行程序开发教程
-</a></li>
-<li><a href="node.js command-line interfaces made easy">node.js command-line interfaces made easy</a></li>
-<li><a href="http://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="external">Building a simple command line tool with npm</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/基础/">基础</a>
 	</div>
 
 
@@ -837,7 +897,8 @@
 <li><a href="http://superstarwulin.github.io/2016/05/03/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%94%B6%E9%9B%86/">面试题基础</a></li>
 </ul>
 <h3 id="论坛">论坛</h3><p>-<a href="http://www.html-js.com/" target="_blank" rel="external">html-js</a></p>
-<h4 id="一些精彩的例子">一些精彩的例子</h4><h3 id="最新技术">最新技术</h3><h3 id="高大上">高大上</h3><ul>
+<h4 id="一些精彩的例子">一些精彩的例子</h4><h3 id="最新技术">最新技术</h3><h3 id="工具">工具</h3><p><a href="https://searchcode.com/" target="_blank" rel="external">search code</a></p>
+<h3 id="高大上">高大上</h3><ul>
 <li><a href="http://study.163.com/course/courseMain.htm?courseId=465001" target="_blank" rel="external">jquery源码解析</a></li>
 </ul>
 
@@ -2673,138 +2734,6 @@ HTTP <span class="number">503</span>：由于超载或停机维护，服务器�
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-加载函数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/29/加载函数/" class="article-date">
-  	<time datetime="2015-05-29T07:02:34.000Z" itemprop="datePublished">2015-05-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/29/加载函数/">设计模式微架构之  - 加载函器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="加载器通用类">加载器通用类</h3><blockquote>
-<p> 核心函数</p>
-</blockquote>
-<pre><code><span class="comment">/**
- *根据加载函数实现加载器
- *<span class="doctag">@param</span> {Function} load 加载函数
- *<span class="doctag">@returns</span> {Function} 加载器
- */</span>
-<span class="function"><span class="keyword">function</span> <span class="title">createLoader</span><span class="params">(load)</span> </span>{
-    <span class="keyword">var</span> value, loading, handles = [], h;
-    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(handle, type)</span> </span>{
-        <span class="comment">//type默认为1</span>
-        <span class="comment">//0:    不立即加载，不过加载完成之后执行回调函数</span>
-        <span class="comment">//1:    立即加载，并在完成之后执行回调函数</span>
-        <span class="comment">//2:    不立即加载，只在当前已经存在的情况下执行回调函数</span>
-        <span class="keyword">if</span> (type !== <span class="number">0</span> &amp;&amp; !type) {
-            type = <span class="number">1</span>;
-        }
-        <span class="keyword">if</span> ((type &amp; <span class="number">1</span>) &amp;&amp; !loading) {
-            loading = <span class="keyword">true</span>;
-            load(<span class="function"><span class="keyword">function</span> <span class="params">(v)</span> </span>{
-                value = v;
-                <span class="keyword">while</span> (h = handles.shift()) {
-                    <span class="keyword">try</span> {
-                        h &amp;&amp; h.apply(<span class="keyword">null</span>, [value]);
-                    }
-                    <span class="keyword">catch</span> (err) {
-                        setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
-                            <span class="keyword">throw</span> err;
-                        }, <span class="number">0</span>)
-                    }
-                }
-            })
-        }
-        <span class="keyword">if</span> (value!==undefined) {
-            handle &amp;&amp; handle.apply(<span class="keyword">null</span>, [value]);
-            <span class="keyword">return</span> value;
-        }
-        <span class="keyword">if</span> (!(type &amp; <span class="number">2</span>)) {
-            handle &amp;&amp; handles.push(handle);
-        }<span class="comment">//如果只在存在的情况下回调，则退出</span>
-        <span class="keyword">return</span> value;
-    }
-}
-</code></pre><h3 id="调用方式">调用方式</h3><ol>
-<li><p>加载器实例<code>onDatalazyload</code>定义，createLoader定义为上文<code>加载器通用类</code></p>
-<p> var onDatalazyload = createLoader(function(callback) {<br> // 这里做网络请求或者数据与数据之间的联动触发，<br> // 由callback(value)函数返回所获取的数据，<br> // 下面是获取网络请求公共组件js文件，并且获取组件实例的例子</p>
-<pre><code>S.<span class="keyword">use</span>(<span class="string">"mui/datalazyload"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(S, Datalazyload)</span> </span>{
-    <span class="keyword">var</span> dl = <span class="keyword">new</span> Datalazyload(document.body, {
-        autoDestroy: <span class="literal">false</span>,
-        diff: {
-            top: <span class="number">0</span>,
-            bottom: <span class="number">10</span>
-        }
-    });
-    callback(dl);
-});
-</code></pre><p> })</p>
-</li>
-<li><p>所定义的加载器使用 — 执行器实例</p>
-<p> onDatalazyload(function(DL){</p>
-<pre><code><span class="comment">// 以这样的方式获取定义的加载器所需要加载的内容</span>
-<span class="comment">// 通过DL拿到调用实例</span>
-DL.addElements(<span class="keyword">self</span>.<span class="variable">$el</span>.getDOMNode());
-    <span class="keyword">self</span>.page.on(<span class="string">'hide'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-        DL.pause();
-        }).on(<span class="string">'show'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-            DL.resume();
-    });
-</code></pre><p> });</p>
-</li>
-</ol>
-<h3 id="优秀的特性以及代码解析">优秀的特性以及代码解析</h3><p>  如果用这样的方式管理数据，或者管理远程的组件实例，就可以将管理对象集中起来，比如集中到一个文件道中，而调用实例，可以分布到各种各样的调用逻辑里面来执行。</p>
-<p>  执行器可以调用多次，加载器只发出一次网络请求，其他的从本地缓存获取。执行器如果没定义或者没执行，加载器不执行。</p>
-<h3 id="总结">总结</h3><p>   对前端这样的富交互应用，大量的异步接口数据调用，上则提到加载器和调用器分离开来可以更好的维护代码以及分清模式，那一次加载，多次调用则让调用器更加广泛的应用到更多的逻辑中。</p>
-<p>   优秀特性中所提到的集中管理这样的微架构，将所有的数据集中起来管理，<code>在大型网络富交互应用的前端部分可以让迭代开发更加容易，树形的模块结构显得更加可控，问题定位可以更快</code>。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微架构/">微架构</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 	</div>
 
 
