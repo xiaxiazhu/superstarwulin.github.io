@@ -174,6 +174,104 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-css3入门" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/20/css3入门/" class="article-date">
+  	<time datetime="2015-08-20T07:25:15.000Z" itemprop="datePublished">2015-08-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/20/css3入门/">css3动画基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="随便说的前言">随便说的前言</h2><p>最新的手机和操作系统对最新的css技术支持度越来越好，包括css3、<a href="http://johnhax.net/2014/es6-js-future/" target="_blank" rel="external">es6
+</a>等，网络情况增长也是<a href="http://tech.163.com/15/0624/21/ASTG9DK6000915BE.html" target="_blank" rel="external">非常快</a>。<a href="http://www.w3cplus.com/blog/css3" target="_blank" rel="external">css3</a>的动画、flex布局等效果也可以做到主流浏览器上，甚至做到像天猫detail这样高pv数量级的产品上。</p>
+<h2 id="这里一些css动画基础">这里一些css动画基础</h2><p>动画，分拆开来讲，就是一些状态和帧的变化。从某种状态过渡到另外一种状态。状态的定义是由某些css，包括不限于：</p>
+<pre><code><span class="attribute">width</span>：<span class="number">10px</span> 到 <span class="number">100px</span>
+<span class="attribute">padding</span>：<span class="number">0px</span> 到 <span class="number">20px</span>
+<span class="attribute">color</span>：<span class="hexcolor">#F00</span> 到 <span class="hexcolor">#00F</span>
+<span class="attribute">top</span>：<span class="number">0px</span> 到 <span class="number">10px</span>
+<span class="attribute">border-radius</span>：<span class="number">3px</span> 到 <span class="number">8px</span>
+<span class="attribute">transform</span>：<span class="function"><span class="title">rotate</span><span class="params">(<span class="number">0deg</span>)</span></span> 到 <span class="function"><span class="title">ratate</span><span class="params">(<span class="number">45deg</span>)</span></span>
+</code></pre><p>理论上来说，任何单独的css属性都可以拿来定义动画。但是那些从无到有，或者不确定的属性值做动画则不生效。</p>
+<pre><code><span class="id">#container</span> <span class="tag">p</span> <span class="rules">{
+<span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;
+<span class="rule"><span class="attribute">transition</span>:<span class="value"> all <span class="number">3s</span> ease</span></span>;
+}</span>
+<span class="id">#container</span><span class="pseudo">:hover</span> <span class="tag">p</span> <span class="rules">{
+<span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+}</span>
+<span class="comment">/**********************/</span>
+<span class="id">#container</span> <span class="tag">p</span> <span class="rules">{
+<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0px</span></span></span>;
+<span class="rule"><span class="attribute">transition</span>:<span class="value"> all <span class="number">3s</span> ease</span></span>;
+}</span>
+<span class="id">#container</span><span class="pseudo">:hover</span> <span class="tag">p</span> <span class="rules">{
+<span class="rule"><span class="attribute">height</span>:<span class="value"> auto</span></span>;
+}</span>
+</code></pre><p>对于过渡，css给出了<code>transition</code>来定义一次过渡的时间以及过渡的类型，所有的后缀都是为这个过渡的定义服务。具体的<a href="https://github.com/superstarwulin/csst/blob/master/src/transition/index.less" target="_blank" rel="external">参见代码</a></p>
+<p>对于多次状态的过渡，css给出了<code>animate</code>来定义一系列过渡。 keyframes 定义中间态。<a href="https://github.com/superstarwulin/csst/blob/master/src/animate/index.less" target="_blank" rel="external">参见代码</a></p>
+<p>css给出了另外一个使得dom实体可以线性变化的技术:transform</p>
+<pre><code><span class="function"><span class="title">translate</span><span class="params">()</span></span> <span class="comment">//位移</span>
+<span class="function"><span class="title">rotate</span><span class="params">()</span></span> <span class="comment">// 旋转</span>
+<span class="function"><span class="title">scale</span><span class="params">()</span></span> <span class="comment">// 放大</span>
+<span class="function"><span class="title">skew</span><span class="params">()</span></span> <span class="comment">//扭曲</span>
+<span class="function"><span class="title">matrix</span><span class="params">()</span></span> <span class="comment">//以上的结合使用</span>
+</code></pre><p>具体<a href="https://github.com/superstarwulin/csst/blob/master/src/transform/index.less" target="_blank" rel="external">参见代码</a></p>
+<p>transform3d，则是dom元素在原有的x，y轴上增加了一个z轴，然后这个通过这个技术实现三维的变化。</p>
+<pre><code><span class="function"><span class="title">translate3d</span><span class="params">(tx,ty,tz)</span></span>：他定义了一个<span class="number">3</span>D的位移方法，增加了z轴的偏移量
+<span class="function"><span class="title">translateZ</span><span class="params">(tz)</span></span>：这个方法只在Z轴偏移，与<span class="function"><span class="title">translateX</span><span class="params">()</span></span>和<span class="function"><span class="title">translateY</span><span class="params">()</span></span>相似
+<span class="function"><span class="title">scale3d</span><span class="params">(sx,sy,sz)</span></span>：在原有的scale方法上增加了z轴的参数
+<span class="function"><span class="title">scaleZ</span><span class="params">(sz)</span></span>：同理，只放大z轴，与<span class="function"><span class="title">scaleX</span><span class="params">()</span></span>和<span class="function"><span class="title">scaleY</span><span class="params">()</span></span>类似
+<span class="function"><span class="title">rotate3d</span><span class="params">(rx,ry,rz)</span></span>：将元素以给定参数的某一个轴方向旋转
+<span class="function"><span class="title">rotateX</span><span class="params">(angle)</span></span>，<span class="function"><span class="title">rotateY</span><span class="params">(angle)</span></span>和<span class="function"><span class="title">rotateZ</span><span class="params">(angle)</span></span>：只按照某一个轴旋转，    <span class="function"><span class="title">rotate3d</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">30deg</span>)</span></span>相当于<span class="function"><span class="title">rotateX</span><span class="params">(<span class="number">30deg</span>)</span></span>，
+</code></pre><p>浏览器为了节省开销，并不是所有的html元素都具有三维视图的能力。需要通过<code>perspective</code>(远景)属性来激活。写法形式<a href="https://github.com/superstarwulin/csst/blob/master/src/transform3d/index.less" target="_blank" rel="external">参见代码</a></p>
+<h2 id="兼容性">兼容性</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-加载函数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
