@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>我理解的阿里无线前端“架构”（半鸡汤，少干货） | 武林的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="写在前面的话：
+
+对于文中涉及“脱敏”的内容，链接经常一环套一环，无法输出，很抱歉…怀着一个酝酿了蛮长时间的念头，打开电脑，想对一些思考做一点记录。关于标题，关于“前端”，关于“架构” 。其实是有蛮多话想说的，但是前面这几个字却打上去了又删掉。想为下面的内容找一个合适的开始。但是似乎总是不那么如意。回到这个话题，或许应该从以前的认知慢慢说起。
+
+过往的认知不可否认的说，曾经很长的一段时间，当我大部">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我理解的阿里无线前端“架构”（半鸡汤，少干货）">
+<meta property="og:url" content="superstarwulin.github.io/2016/08/22/我理解的阿里无线前端“架构”/index.html">
+<meta property="og:site_name" content="武林的博客">
+<meta property="og:description" content="写在前面的话：
+
+对于文中涉及“脱敏”的内容，链接经常一环套一环，无法输出，很抱歉…怀着一个酝酿了蛮长时间的念头，打开电脑，想对一些思考做一点记录。关于标题，关于“前端”，关于“架构” 。其实是有蛮多话想说的，但是前面这几个字却打上去了又删掉。想为下面的内容找一个合适的开始。但是似乎总是不那么如意。回到这个话题，或许应该从以前的认知慢慢说起。
+
+过往的认知不可否认的说，曾经很长的一段时间，当我大部">
+<meta property="og:image" content="https://camo.githubusercontent.com/0bbaab5f13b2b3e3d013208ac02eb7abd06be7a9/687474703a2f2f696d67332e746263646e2e636e2f4c312f3436312f312f38363734303434313834363663666634353039636536633439646538633161666264353561626462">
+<meta property="og:image" content="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632">
+<meta property="og:image" content="https://camo.githubusercontent.com/2589d218d6c73c65c88af78c493404e5f5a66c01/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f5442316c4e494a4946585858586370585658585f5669454b5858582d313434382d313038322e706e675f33303078333030733135302e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/1cb23f28e4cb928a89df3673d03e6a3a990af7c9/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423132666e5649585858585861585856585832444b63464658582d313133322d3530382e706e675f33303078333030733135302e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/d99d2e7358e7e28fe9dea0c1955fdb7e11651b00/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423158514d33495858585858585f61705858734f33434f5858582d313631382d313232342e706e675f33303078333030733135302e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/6dcf389452e66fe2622aa44420a078b2993cdc31/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423174734a35494658585858616358565858686e5156304658582d313935322d3737302e706e675f34303078343030733135302e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/e55890736d3255d3eaa8cd987fa8ce9e939c6dd5/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f5442316749637949705858585862485846585850686f54517058582d313937322d313035362e706e675f34303078343030733135302e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/baafd3833c5f9cf9e01dfef218622ec1a150c5ad/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f30326530323865623235346331636537373964343437636463633166386262323066333333626666">
+<meta property="og:updated_time" content="2016-09-25T03:31:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我理解的阿里无线前端“架构”（半鸡汤，少干货）">
+<meta name="twitter:description" content="写在前面的话：
+
+对于文中涉及“脱敏”的内容，链接经常一环套一环，无法输出，很抱歉…怀着一个酝酿了蛮长时间的念头，打开电脑，想对一些思考做一点记录。关于标题，关于“前端”，关于“架构” 。其实是有蛮多话想说的，但是前面这几个字却打上去了又删掉。想为下面的内容找一个合适的开始。但是似乎总是不那么如意。回到这个话题，或许应该从以前的认知慢慢说起。
+
+过往的认知不可否认的说，曾经很长的一段时间，当我大部">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/0bbaab5f13b2b3e3d013208ac02eb7abd06be7a9/687474703a2f2f696d67332e746263646e2e636e2f4c312f3436312f312f38363734303434313834363663666634353039636536633439646538633161666264353561626462">
+  
+    <link rel="alternative" href="/atom.xml" title="武林的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img lazy-src="http://gtms01.alicdn.com/tps/i1/TB1x_.vHVXXXXXvXVXX2YSA3pXX-540-960.jpg_180x180xz.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">leo(天猫五零)</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">技术自由，耕耘点滴</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/photo/">相册</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/superstarwulin" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/2434748684/profile?topnav=1&wvr=6" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="/wulin.zwl@taobao.com" title="mail">mail</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/zhuwulin" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git-extras/" style="font-size: 10px;">git extras</a> <a href="/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/weex/" style="font-size: 10px;">weex</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/微架构/" style="font-size: 13.33px;">微架构</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">朱武林，2013年毕业于华南理工大学电子与信息学院，获得硕士学位。曾就职于百度hao123团队，现就职于阿里巴巴天猫前端团队，花名五零；geek精神，技术自由。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">leo(天猫五零)</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://gtms01.alicdn.com/tps/i1/TB1x_.vHVXXXXXvXVXX2YSA3pXX-540-960.jpg_180x180xz.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">leo(天猫五零)</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">技术自由，耕耘点滴</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/photo/">相册</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/superstarwulin" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/2434748684/profile?topnav=1&wvr=6" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="/wulin.zwl@taobao.com" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/zhuwulin" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-我理解的阿里无线前端“架构”" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/22/我理解的阿里无线前端“架构”/" class="article-date">
+  	<time datetime="2016-08-22T07:25:15.000Z" itemprop="datePublished">2016-08-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      我理解的阿里无线前端“架构”（半鸡汤，少干货）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/架构/">架构</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>写在前面的话：</p>
+<blockquote>
+<p>对于文中涉及“脱敏”的内容，链接经常一环套一环，无法输出，很抱歉…<br>怀着一个酝酿了蛮长时间的念头，打开电脑，想对一些思考做一点记录。关于标题，关于“前端”，关于“架构” 。<br>其实是有蛮多话想说的，但是前面这几个字却打上去了又删掉。想为下面的内容找一个合适的开始。但是似乎总是不那么如意。<br>回到这个话题，或许应该从以前的认知慢慢说起。</p>
+</blockquote>
+<h2 id="过往的认知"><a href="#过往的认知" class="headerlink" title="过往的认知"></a>过往的认知</h2><p>不可否认的说，曾经很长的一段时间，当我大部分时间还集中在业务上的时候，对“架构”这个词有点嗤之以鼻。尤其是“前端架构”。觉得说“前端”这个软件工程化都相对薄弱，还在拼死拼活的往成熟的语言领域，往已有的软件工程慢慢靠近的的方向，真的需要所谓的“架构”么。<br><a href="https://camo.githubusercontent.com/0bbaab5f13b2b3e3d013208ac02eb7abd06be7a9/687474703a2f2f696d67332e746263646e2e636e2f4c312f3436312f312f38363734303434313834363663666634353039636536633439646538633161666264353561626462" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/0bbaab5f13b2b3e3d013208ac02eb7abd06be7a9/687474703a2f2f696d67332e746263646e2e636e2f4c312f3436312f312f38363734303434313834363663666634353039636536633439646538633161666264353561626462" alt="dbf_contempt500"></a><br>总觉得在这个阶段，</p>
+<ul>
+<li>所谓的前端架构更多的是在纸上谈兵，拿以往的软件工程的思想和概念硬往自己身上套。</li>
+<li>所谓的做架构的同学更多的是在炫耀自己的技术深度和视野，看到前沿的技术不管合不合适就拿来做方案，硬往业务上推，来成全自己的KPI</li>
+<li>总觉的所谓的“技术架构”无非就是一些个人主观化的思路和概念，形成一些看起来成体系的代码组织方式，以便完成业务后可以说：看，基于我的架构有多好的通用性，扩展性，代码看起来多优雅…</li>
+</ul>
+<p>回到我现在的立场，我看到的当前团队中不同的同学对于“架构”这个词的认识和看法，无非有两种：</p>
+<ul>
+<li>要么和之前的我一样，嗤之以鼻，做架构的有什么了不起，无非是老板给你安排个“轻松点的活”，做做方案，不用受业务的压迫。还得逼着一线每天认真辛苦的码代码的同学接受你一时想出来的Idea。</li>
+<li>要么是另一个极端，觉得做架构的同学就NB，觉得比做业务的同学从概念上就高一个等级。然后死命的想要往“架构”这个方向靠。</li>
+</ul>
+<p>可是当有一天我自己需要站在团队的角度去思考基础建设的缺失，思考怎么才能帮助到团队的时候。才发现“架构”这个词既没有想象中那么“不堪”，当然也没有想象中那么“容易”。同时，也没有别人眼里那么NB，高人一等。<br>反而是越来越多的谦卑甚至恐慌，当沉下心来想想，确实，我们可能误会“架构”本身了。我们自己往他身上加了很多的主管臆想。</p>
+<h2 id="我理解的架构：是团队的，不是架构师的"><a href="#我理解的架构：是团队的，不是架构师的" class="headerlink" title="我理解的架构：是团队的，不是架构师的"></a>我理解的架构：是团队的，不是架构师的</h2><p>第一条我就想说这个，因为TA的确应该是大前提，如果做架构的同学不是站在团队的角度来思考问题，思考解决方案，而是以自己过往的经验，自我的判断说应该怎么怎么样。那必然是会沦落到被人嗤之以鼻，甚至拖业务和效率的后腿。</p>
+<ul>
+<li>架构一定不应该成为只是你想要的样子，也不能只是老板想要的样子，一定应该是团队想要的样子。</li>
+</ul>
+<p>在我正式接下为团队基础建设方向做规划和思考这件事情之前。去年在团队内做了一段时间的“SWAT”，也就是真正意义的上的“灵活资源”，做团队任意方向的支持。在做“团队支持”这个期间，参与了不同形态的业务项目，产品化的，运营化的，长线的，短线的，消费者端的，商家端的，前台重视内容和体验的，后台重视效率和结构化的，等等一系列不同的项目，包括一些不直接透明到业务的专项。当前参与程度深浅不一，但总体这个过程让我感受到了一件事情：</p>
+<ul>
+<li>不能凭想象和自我经验判断说团队需要什么？你要的答案一定要去和团队对话，和团队成员对话，或者参与到不同形态的“他们”当中去，去发掘他们想要什么。</li>
+</ul>
+<p>收集信息和问题是做决策和方案的第一步，这个观点说出来大家都知道，但是实际做的过程中可能不一定能想得到了。举个例子：</p>
+<ul>
+<li>你要做工具，做给新人的，就要站在新人的角度来使用它，发现它是不是真的有用。做给流程规范的就必须站在项目实践的角度去实践TA，而且不是你自己觉得好用就乐呵呵，因为你自己并不是“架构”这个方向的真正用户</li>
+<li>更典型的例子，前端的自动化测试。做之前第一件事情是弄清楚在当前时间节点下，当前团队状况下，团队是否需要TA。进而才是怎么在团队的层面上去落地这件事情。而不是自己想当然的做一套方案。当前的团队并不需要这个东西，那么方案再完善又有什么用？</li>
+</ul>
+<p>“架构是属于团队的”，这个观点一个方面是上面所说的，TA的需求和解决方案应该来源于当前团队。另一个方面是架构的进展和设计一定也是对团队透明和公开的。<br>如果进展和方案不能随时保持对于团队的公开和透明，也很难保证当到了最终产出的时候，还能保持最开始的方向一致性。</p>
+<p>今年上半年开始，我们的周会内容有了小小的变动，把以往的单纯的团队内分享的例会转变为一个始终围绕团队基础建设，团队发展，和个人发展的交流会。植入了一个每周固定的环节，就是“基础建设进展和问题一周汇总”。<br>保持公开和透明，也可以随时就问题进行讨论。给自己和团队一个面对面的机会。<br>确保是大家想要的，同时也希望能潜移默化的形成大家对于团队建设的方向感和全局观。</p>
+<h2 id="我理解的架构：是横向全局的"><a href="#我理解的架构：是横向全局的" class="headerlink" title="我理解的架构：是横向全局的"></a>我理解的架构：是横向全局的</h2><p>这应该是做“架构”最基础的要求。也就是需要对整个团队，结合整个行业的发展保持全局的观望和了解。并且可以在此基础上基于团队现状做出对未来的基本判断。<br>“做出判断”这件事情，说简单也简单，说难也难。简单的是无非就是做几个选择题，选出今年，或者近期内要做的事情。难得是怎么来保证你的选择在当前的团队来看，是正确的。什么阶段做什么事情。</p>
+<p>我记得今年上半年开始，我开始尝试担起前端团队的基础建设收敛相关的事情的时候。结合去年和今年的现状，整理过一个简单的框架图。在 <a href="%E8%84%B1%E6%95%8F">“手淘前端在工程化道路上的“匍匐””</a> 文章里面有Po过。后来有过一些更新和小调整。大致如下：<br><a href="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/3f9c3d51b6afe0784ca3b664ca346f78196d77ad/687474703a2f2f696d67322e746263646e2e636e2f4c312f3436312f312f37636164373432316231363761613436323462356666626233386230613435656535643130643632" alt="_"></a><br>归结起来是</p>
+<ul>
+<li>两个中心 （端和效率）</li>
+<li>八个方向<ul>
+<li>基础库+功能组件+UI框架 （对应“效率”）</li>
+<li>“端”的延伸 （对应“端”）</li>
+<li>规范和工程流程</li>
+<li>工具链路</li>
+<li>数据和性能</li>
+<li>自动化测试+持续集成</li>
+<li>前端安全</li>
+<li>服务和周边</li>
+</ul>
+</li>
+</ul>
+<p>八个方向中，落实到两个中心的必然是今年的重点。工具和性能是去年的重点，今年在已有基础上升级。其他的子方向在今年会开始探索。<br>这其中由于团队历史和现状的原因，其实有一些点是大家都在火热在抓的，但在我们团队中并没有放到今年的重点。比如</p>
+<ul>
+<li>前后端分离</li>
+</ul>
+<p>也有在当前团队现状还不到时候做的（并不紧迫）的事情，比如</p>
+<ul>
+<li>前端基础服务（包括构建和工程的服务化，新人系统，内部项目域名和服务资源申请和部署自动化.. 等等）</li>
+</ul>
+<p>以上的信息可以理解为“架构是横向全局” 这个观点的一个表现。<br>个人觉得做出判断的前提确实是需要了解别的优秀的团队在做什么，行业在做什么。再结合团队的现状才有可能知道我们需要做什么。<br>然而，了解别人的过程，其实反而也是让人“谦卑”的过程。</p>
+<p>有时候知道的越多，会让人觉得越渺小。</p>
+<p>你觉得自己在某方面做的还不错了，但是一定有人有团队有更优秀的方案和实践。</p>
+<p>所以，“全局”，不仅是对于自己团队现状的全局认知和判断，也是在其他团队放到一起的“全局”评估。</p>
+<ul>
+<li>全局意味着 - 清楚的知道团队在当前阶段应该做什么事情</li>
+<li>全局意味着 - 清楚的知道团队的现状，优势和问题<ul>
+<li>不至于高傲的迷失了方向</li>
+<li>也不至于卑微的找不到出路</li>
+</ul>
+</li>
+</ul>
+<h2 id="我理解的架构：也是垂直深入的"><a href="#我理解的架构：也是垂直深入的" class="headerlink" title="我理解的架构：也是垂直深入的"></a>我理解的架构：也是垂直深入的</h2><p>在我的理解里，所谓“做架构”的同学们，不应该只是单纯的有“全局观”。同时也需要对每个垂直的领域保持一定的“绝对深度”。</p>
+<p>就拿上面关于“全局”的几个子方向来说，我希望在当前定下的细分领域，想要做“架构”的同学在任何一个细分领域上都能保持一定的绝对深度。可能对于一个人的精力和资源会有一些挑战，但是我觉得在一定程度上是应该的。</p>
+<p>在精力允许的范围内，每一个子领域里应该都需要尽可能的参与方案的探讨，制定，代码的实现，团队的落地整个过程。</p>
+<p>拿我们自己团队的情况来说，至少应该知道：</p>
+<ul>
+<li>基础库和组件库，UI框架<ul>
+<li>未来形态的发展应该是什么样？</li>
+<li>CommonJS模块范式的迁移的自动化实现方案是什么？代码实现思路是什么？</li>
+<li>模块依赖关系弱关系到强关系的包装需要做哪些事情？</li>
+<li>控件的规范是否需要迁移到WebComponents？</li>
+<li>如果迁移，规范是什么，怎么定最小Feature的polyfill集合？</li>
+<li>polyfill代码应该怎么来实现？</li>
+<li>UI部分的组件复用应该怎么来做？可视化还是命令化？</li>
+<li>UI库的mixin部分的style-lib和组件层面的view-lib怎么更好的管理？</li>
+<li>…</li>
+</ul>
+</li>
+<li>端的部分<ul>
+<li>ReactNative的现状和痛点是什么？解决方案是什么？代码实现的难点在哪里？</li>
+<li>RN的组件库怎么来组织构建？一个RN的组件应该怎么来写？</li>
+<li>RN在性能和稳定性上的解法有哪些？现状是什么？</li>
+<li>业务层面的数据上报方案是什么？代码上的思路该怎么做？</li>
+<li>是否能明晰的判断未来，知道什么时候该坚持？什么时候该寻找别的出路？</li>
+<li>GDOS的目标和意义是什么？为什么要做GDOS？</li>
+<li>对接通用算法和选品的难点是什么？怎么样定商品化的json schema?</li>
+<li>甚至java的部分，hsf的对接是否也能够参与？</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<p>以上举例，提出每个子方向细化的问题，在心里对重要的细节有认知，有答案，也是我认为做“架构”的同学所必须要明白的事情。</p>
+<p>同理，<br>工具层面，规范层面，工程流程，性能，单元测试，前端安全等等，期望尽可能深的参与到具体的实践和落地上去。(包括代码的具体实现…)<br><a href="https://camo.githubusercontent.com/2589d218d6c73c65c88af78c493404e5f5a66c01/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f5442316c4e494a4946585858586370585658585f5669454b5858582d313434382d313038322e706e675f33303078333030733135302e6a7067" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/2589d218d6c73c65c88af78c493404e5f5a66c01/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f5442316c4e494a4946585858586370585658585f5669454b5858582d313434382d313038322e706e675f33303078333030733135302e6a7067" alt="tool1"></a> <a href="https://camo.githubusercontent.com/1cb23f28e4cb928a89df3673d03e6a3a990af7c9/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423132666e5649585858585861585856585832444b63464658582d313133322d3530382e706e675f33303078333030733135302e6a7067" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/1cb23f28e4cb928a89df3673d03e6a3a990af7c9/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423132666e5649585858585861585856585832444b63464658582d313133322d3530382e706e675f33303078333030733135302e6a7067" alt="tool2"></a> <a href="https://camo.githubusercontent.com/d99d2e7358e7e28fe9dea0c1955fdb7e11651b00/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423158514d33495858585858585f61705858734f33434f5858582d313631382d313232342e706e675f33303078333030733135302e6a7067" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/d99d2e7358e7e28fe9dea0c1955fdb7e11651b00/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423158514d33495858585858585f61705858734f33434f5858582d313631382d313232342e706e675f33303078333030733135302e6a7067" alt="vue"></a> <a href="https://camo.githubusercontent.com/6dcf389452e66fe2622aa44420a078b2993cdc31/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423174734a35494658585858616358565858686e5156304658582d313935322d3737302e706e675f34303078343030733135302e6a7067" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/6dcf389452e66fe2622aa44420a078b2993cdc31/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f54423174734a35494658585858616358565858686e5156304658582d313935322d3737302e706e675f34303078343030733135302e6a7067" alt="img2"></a> <a href="https://camo.githubusercontent.com/e55890736d3255d3eaa8cd987fa8ce9e939c6dd5/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f5442316749637949705858585862485846585850686f54517058582d313937322d313035362e706e675f34303078343030733135302e6a7067" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/e55890736d3255d3eaa8cd987fa8ce9e939c6dd5/687474703a2f2f67772e616c6963646e2e636f6d2f746673636f6d2f5442316749637949705858585862485846585850686f54517058582d313937322d313035362e706e675f34303078343030733135302e6a7067" alt="img3"></a></p>
+<p>做架构不是只有idea，然后全部推动别人去做，更重要的是自己需要深度的参与，才能保持清醒的认知。</p>
+<p>这是我个人的认知，不一定对，当然</p>
+<ul>
+<li>“在保持广度的情况下还要保持一定的深度”</li>
+</ul>
+<p>也会对于个人的时间精力有一定的挑战。</p>
+<p>反过来说，如果“架构”已经大到需要5个人以上的团队才能支撑，那时再做合理的分工也不迟。</p>
+<h2 id="我理解的架构：是海纳百川，是透明开放的"><a href="#我理解的架构：是海纳百川，是透明开放的" class="headerlink" title="我理解的架构：是海纳百川，是透明开放的"></a>我理解的架构：是海纳百川，是透明开放的</h2><p>在之前的表述中，提到“架构”至少是需要对团队透明的，来源于团队，尊重团队，也服务于团队。而这里说的海纳百川，开放透明更是侧指我们以公司单位，那么理应在公司内也是透明和开放的。</p>
+<ul>
+<li>对外不用多说，公司自有公司的壁垒，但至少对内，我们应该共享一片蓝天。</li>
+</ul>
+<p><a href="https://camo.githubusercontent.com/baafd3833c5f9cf9e01dfef218622ec1a150c5ad/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f30326530323865623235346331636537373964343437636463633166386262323066333333626666" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/baafd3833c5f9cf9e01dfef218622ec1a150c5ad/687474703a2f2f696d67312e746263646e2e636e2f4c312f3436312f312f30326530323865623235346331636537373964343437636463633166386262323066333333626666" alt="shot_1296383136"></a><br>当你不关注，不闻不问的时候，或许还不觉得，但是当有心想去了解一些事情的时候，却发现似乎并没有想象中那么透明。</p>
+<p>我在 <a href="%E8%84%B1%E6%95%8F">上周的周报:不聊技术，聊感受</a> 中其实提到了一些关于“技术栈”和“技术栈”之前的壁垒问题，也包含“前端”本身团队壁垒的问题。</p>
+<p>我的观点是：</p>
+<ul>
+<li>团队技术壁垒不是问题，毕竟每个团队的业务形态，抓的方向并不一致。但是不透明是问题，想发掘其他团队的好东西却要费点功夫。</li>
+</ul>
+<p>其实回过头来想想，集团内其实有不少的方式似乎想解决这个问题，比如淘宝的“懒懒”，支付宝的“芝士会” 等等，从定期主题分享的方式尝试抹平BU间不透明的问题。也有属于集团层面的技术博 ATA， 包括前端也有自己的 委员会，本质上也是希望打通BU间的信息。</p>
+<p>我们看起来有这些途径，理应可以解决不少壁垒不透明的问题才对，可是到我真实的感受却是还有好多有价值的信息，方案，项目等，我从上面的渠道获取不到的。</p>
+<p>可能是“粒度”的问题，可能是“传达”的问题。咋们暂时先不去细究。说实话，我个人觉得比较直接打破我觉得有壁垒的苦恼的事情是 @拔赤 公开的周报。</p>
+<p>我近期了解到很多航旅有价值的信息，他们近期着重发力的方向，不可置否的说，基本都是从 @拔赤 每周的周报中觅得的。当然，这和他向来高质量的周报内容有直接关系。</p>
+<p>所以，我做的第一件事也是把无线前端从今年上半年开始的每周基础建设，架构的方向和进展以周报的形式公开来。一方面从我们自己开始做到“透明化”，同时也愿意以谦卑的心态和大家进行讨论和交流。</p>
+<p>阿里内外的周报系统我觉得是个好的开始。既然有选择“公开”的选项，我觉得也应该加上“周报关注”的功能，只要我关注的人某一周的周报内容是“公开”的，不管他的周报有没有直接抄送我，我都可以收到。</p>
+<p>话题有点扯远了，我要表达的意思是，我期望寻得一种途径，可以让我短平快，高效的知道优秀的大家们都在做什么事情。</p>
+<p>最近在团队内开始推动一个叫做 <a href="%E8%84%B1%E6%95%8F">“取经之路”</a> 的计划，其实也就是希望团队的同学都能保持有心思去发掘其他团队的优秀的东西，以取经的形式主动去了解，再带回来传道授业解惑。<br>希望团队本身能从中开拓视野和思路，同时对于做“唐僧”的同学来说，本身也是一种成长。</p>
+<h2 id="我理解的架构：关键词不是“高精尖”，而是“合适”"><a href="#我理解的架构：关键词不是“高精尖”，而是“合适”" class="headerlink" title="我理解的架构：关键词不是“高精尖”，而是“合适”"></a>我理解的架构：关键词不是“高精尖”，而是“合适”</h2><p>最近越发的觉得“合适”这个词的精妙与深意。站在外人的角度，去评判一件事情的好坏，一个技术方案的优劣，不应该从你的角度去看，连行业的普适标准甚至都不一定受用。因为可能在你看来有失偏颇的方案在他的团队的当下就是“合适”的。</p>
+<p>换句话说：</p>
+<ul>
+<li>在我看来，技术方案优和劣或许没有绝对之分，只是因为团队的历史原因，团队现状，发展出了不同的样子。只要它对于当前的团队是合适的，我就认为它是好的。</li>
+</ul>
+<p>说到这里，我不免又想到了“恋爱”这件事。如果这么说来的话，不觉得和“恋爱”的情况略像么。通俗点说：</p>
+<ul>
+<li>爱美之心，人皆有之；漂亮的女孩子，谁都喜欢，你费劲心思去追一个大家公认的女神，这件事情能不能成，最终是变成“金童玉女”的千古流传段子还是变成“癞蛤蟆想吃天鹅肉”的恶俗剧情，前提是要认清自己。当前的自己如果如果就是配不上女神，那何必自讨苦吃，还不如努力锤炼自己，到有一天走上人生巅峰再去赢取白富美也不迟不是么 ;)</li>
+</ul>
+<p>比方不一定恰当，但是道理是通的。我想说的是，技术的方案和设计是不是好的，对的，不是看你用的技术，选的方案是不是够高精尖，够前沿。而是看TA是不是适合你当前的团队现状。</p>
+<p>举个例子：</p>
+<ul>
+<li>ES6 当下被好多团队在实践，吵得火热。可以理解为ES6的产品化，包括周边polyfill的完善，以及一整套方案的打通，在当下看起来是靠前沿的，面向未来的，高精尖的。 如果我们的团队就那么几个人，如果团队负责的业务就那么两三个，形态也相对单一，那么我觉得快速的拥抱ES6，尝鲜，玩新技术没有任何问题。而反过来，如果当前团队的体量，现状，团队组成不允许一个步子迈这么大，那么这件事如果硬按“拔苗助长”的方式推进，有可能会产生很大的副作用，开发效率，质量保障可能都会收到影响。</li>
+</ul>
+<p>所以，架构和方向不应该朝着“高精尖”的方向走，那不应该是目标，“合适”的，才是最好的。</p>
+<p>在适当的时候，用适当的方案去做对应适当的事情，<br>就好比，<br>在适当的时候，遇上对的人。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/25/瀑布流可视懒加载/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/20/weex/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">weex</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="我理解的阿里无线前端“架构”" data-title="我理解的阿里无线前端“架构”（半鸡汤，少干货）" data-url="superstarwulin.github.io/2016/08/22/我理解的阿里无线前端“架构”/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 leo(天猫五零)
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/mobile.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
