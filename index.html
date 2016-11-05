@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git-extras/" style="font-size: 10px;">git extras</a> <a href="/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/weex/" style="font-size: 10px;">weex</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/微架构/" style="font-size: 13.33px;">微架构</a>
+						<a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git-extras/" style="font-size: 10px;">git extras</a> <a href="/tags/reactnative/" style="font-size: 10px;">reactnative</a> <a href="/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/weex/" style="font-size: 10px;">weex</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/微架构/" style="font-size: 13.33px;">微架构</a>
 					</div>
 				</section>
 				
@@ -174,11 +174,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-瀑布流可视懒加载" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-rndevstack" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/25/瀑布流可视懒加载/" class="article-date">
-  	<time datetime="2016-09-25T03:31:12.000Z" itemprop="datePublished">2016-09-25</time>
+      <a href="/2016/11/05/rndevstack/" class="article-date">
+  	<time datetime="2016-11-05T07:25:15.000Z" itemprop="datePublished">2016-11-05</time>
 </a>
     </div>
   
@@ -187,19 +187,50 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/05/rndevstack/">react native 技术栈</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title:瀑布流可视懒加载<br>date: 2016-07-25 15:25:15<br>categories: 前端基础<br>tags:  </p>
-<h1 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h1><p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
-<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://output.jsbin.com/qirikayalo" target="_blank" rel="external">https://output.jsbin.com/qirikayalo</a></p>
-<h1 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h1><p><a href="https://wicg.github.io/IntersectionObserver/" target="_blank" rel="external">https://wicg.github.io/IntersectionObserver/</a></p>
+        <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><ul>
+<li>Webpack out of the box</li>
+<li>ES6 syntax and beyond</li>
+<li>Bluebird, window.fetch and other pollyfils</li>
+<li>PureRender everywhere</li>
+<li>Flux</li>
+<li>Store reducers</li>
+<li>Immutable app state</li>
+<li>Powerful inspired by React Router routing library</li>
+</ul>
+<h1 id="打包流程"><a href="#打包流程" class="headerlink" title="打包流程"></a>打包流程</h1><h3 id="rn官方的打包流程-ios版本"><a href="#rn官方的打包流程-ios版本" class="headerlink" title="rn官方的打包流程-ios版本"></a>rn官方的打包流程-ios版本</h3><h4 id="react-native-packager"><a href="#react-native-packager" class="headerlink" title="react-native-packager"></a>react-native-packager</h4><ul>
+<li>周边：<a href="https://github.com/facebook/react-native/issues/1924" target="_blank" rel="external">clean cache</a></li>
+<li>log:<br><img src="https://s16.postimg.org/k44c1qeat/2016_11_05_11_33_00.png" alt=""></li>
+</ul>
+<h3 id="替代方案：webpack打包，支持es6的优秀特性。"><a href="#替代方案：webpack打包，支持es6的优秀特性。" class="headerlink" title="替代方案：webpack打包，支持es6的优秀特性。"></a>替代方案：webpack打包，支持es6的优秀特性。</h3><h1 id="hotloading"><a href="#hotloading" class="headerlink" title="hotloading"></a>hotloading</h1><h3 id="react-native-webpack-server"><a href="#react-native-webpack-server" class="headerlink" title="react-native-webpack-server"></a><a href="https://github.com/mjohnston/react-native-webpack-server" target="_blank" rel="external">react-native-webpack-server</a></h3><h1 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h1><h3 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h3><p>在以前的项目中，我们选择 JSHint 和 JSCS 结合使用，WebStorm 等开发环境已经支持这些工具，使用起来很顺手。然而，最近使用 React JSX 语法时，却遇到了问题：JSHint 不支持 JSX 语法。虽然有 JSXHint 这样的 JSHint 衍生工具，但个人并不喜欢这样的实现方式：不是以插件的形式实现，而是重新重新包装了一个工具。Nicholas C. Zakas 也不喜欢，所以有了 ESLint</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://csspod.com/getting-started-with-eslint/" target="_blank" rel="external">https://csspod.com/getting-started-with-eslint/</a></p>
 
       
     </div>
     
     <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactnative/">reactnative</a></li></ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/reactnative/">reactnative</a>
+	</div>
+
 
       
       <div class="clearfix"></div>
@@ -237,6 +268,47 @@
 <li>迭代法 （猜解&gt;&gt;&gt; 数学归纳法 &gt;&gt;&gt; 证明成立）</li>
 <li></li>
 </ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-瀑布流可视懒加载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/25/瀑布流可视懒加载/" class="article-date">
+  	<time datetime="2016-09-25T03:31:12.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title:瀑布流可视懒加载<br>date: 2016-07-25 15:25:15<br>categories: 前端基础<br>tags:  </p>
+<h1 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h1><p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
+<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://output.jsbin.com/qirikayalo" target="_blank" rel="external">https://output.jsbin.com/qirikayalo</a></p>
+<h1 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h1><p><a href="https://wicg.github.io/IntersectionObserver/" target="_blank" rel="external">https://wicg.github.io/IntersectionObserver/</a></p>
 
       
     </div>
@@ -455,6 +527,76 @@
 
 
   
+    <article id="post-sketch tool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/20/sketch tool/" class="article-date">
+  	<time datetime="2016-08-20T07:25:15.000Z" itemprop="datePublished">2016-08-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/20/sketch tool/">sketch</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#sketch</p>
+<p>Sketch gives you the power, flexibility and speed you always wanted in a lightweight and easy-to-use package. Finally you can focus on what you do best: Design.</p>
+<h1 id="诸多优秀的特性"><a href="#诸多优秀的特性" class="headerlink" title="诸多优秀的特性"></a>诸多优秀的特性</h1><ul>
+<li>导出多倍图</li>
+<li>切图</li>
+<li>取色</li>
+<li>插件：<ul>
+<li><a href="http://tudou527.github.io/marketch/" target="_blank" rel="external">marketch</a>：可以导出sketch设计稿文件到html <ul>
+<li>安装:下载 sketchtoolbox 然后搜索“marketch”，安装后就可以在sketch的插件菜单中找到了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sketch/">sketch</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-weex" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -579,11 +721,11 @@
 
 
   
-    <article id="post-sketch tool" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-gitextras" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/20/sketch tool/" class="article-date">
-  	<time datetime="2016-08-20T07:25:15.000Z" itemprop="datePublished">2016-08-20</time>
+      <a href="/2016/08/03/gitextras/" class="article-date">
+  	<time datetime="2016-08-03T07:25:15.000Z" itemprop="datePublished">2016-08-03</time>
 </a>
     </div>
   
@@ -596,7 +738,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/20/sketch tool/">sketch</a>
+      <a class="article-title" href="/2016/08/03/gitextras/">git extras</a>
     </h1>
   
 
@@ -605,20 +747,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#sketch</p>
-<p>Sketch gives you the power, flexibility and speed you always wanted in a lightweight and easy-to-use package. Finally you can focus on what you do best: Design.</p>
-<h1 id="诸多优秀的特性"><a href="#诸多优秀的特性" class="headerlink" title="诸多优秀的特性"></a>诸多优秀的特性</h1><ul>
-<li>导出多倍图</li>
-<li>切图</li>
-<li>取色</li>
-<li>插件：<ul>
-<li><a href="http://tudou527.github.io/marketch/" target="_blank" rel="external">marketch</a>：可以导出sketch设计稿文件到html <ul>
-<li>安装:下载 sketchtoolbox 然后搜索“marketch”，安装后就可以在sketch的插件菜单中找到了</li>
+        <h1 id="Git-Extras"><a href="#Git-Extras" class="headerlink" title="Git Extras"></a>Git Extras</h1><p>Little git extras.</p>
+<h2 id="Screencasts"><a href="#Screencasts" class="headerlink" title="Screencasts"></a>Screencasts</h2><p>Just getting started? Check out these screencasts:</p>
+<ul>
+<li><a href="https://vimeo.com/45506445" target="_blank" rel="external">introduction</a> – covering git-ignore, git-setup, git-changelog, git-release, git-effort and more</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>See <a href="Installation.md">Installation</a> page.</p>
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p>Go to <a href="Commands.md">Commands</a> page for basic usage and examples.</p>
+<p><strong>GIT utilities</strong> – repo summary, repl, changelog population, author commit percentages and more</p>
 
       
     </div>
@@ -626,7 +762,7 @@
     <div class="article-info article-info-index">
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sketch/">sketch</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-extras/">git extras</a></li></ul>
 	</div>
 
       
@@ -713,303 +849,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-gitextras" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/03/gitextras/" class="article-date">
-  	<time datetime="2016-08-03T07:25:15.000Z" itemprop="datePublished">2016-08-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/03/gitextras/">git extras</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git-Extras"><a href="#Git-Extras" class="headerlink" title="Git Extras"></a>Git Extras</h1><p>Little git extras.</p>
-<h2 id="Screencasts"><a href="#Screencasts" class="headerlink" title="Screencasts"></a>Screencasts</h2><p>Just getting started? Check out these screencasts:</p>
-<ul>
-<li><a href="https://vimeo.com/45506445" target="_blank" rel="external">introduction</a> – covering git-ignore, git-setup, git-changelog, git-release, git-effort and more</li>
-</ul>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>See <a href="Installation.md">Installation</a> page.</p>
-<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p>Go to <a href="Commands.md">Commands</a> page for basic usage and examples.</p>
-<p><strong>GIT utilities</strong> – repo summary, repl, changelog population, author commit percentages and more</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-extras/">git extras</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/25/webpack/" class="article-date">
-  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/webpack/">webpack入门</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://webpack.github.io/assets/what-is-webpack.png" alt="enter image description here"></p>
-<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><blockquote>
-<p>demo 地址<br><a href="https://github.com/superstarwulin/webpackdemo.git" target="_blank" rel="external">https://github.com/superstarwulin/webpackdemo.git</a></p>
-</blockquote>
-<h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h1><p>This small tutorial will guide you through a simple example.</p>
-<p>You’ll learn:</p>
-<ul>
-<li>How to install webpack</li>
-<li>How to use webpack</li>
-<li>How to use loaders</li>
-<li>How to use the development server</li>
-</ul>
-<hr>
-<p><a id="installing-webpack"></a></p>
-<h1 id="Installing-webpack"><a href="#Installing-webpack" class="headerlink" title="Installing webpack"></a>Installing webpack</h1><p>You need to have <a href="https://nodejs.org" target="_blank" rel="external">node.js</a> installed.</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> webpack -g</div></pre></td></tr></table></figure>
-<blockquote>
-<p>This makes the webpack command available.</p>
-</blockquote>
-<hr>
-<p><a id="setup-compilation"></a></p>
-<h1 id="Setup-the-compilation"><a href="#Setup-the-compilation" class="headerlink" title="Setup the compilation"></a>Setup the compilation</h1><p>Start with a empty directory.</p>
-<p>Create these files:</p>
-<div class="panel panel-add"><br><br>### add <code>entry.js</code><br><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.write(<span class="string">"It works."</span>)<span class="comment">;</span></div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-add"><br><br>### add <code>index.html</code><br><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bundle.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure><br><br></div>
-
-<p>Then run the following:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
-<p>It will compile your file and create a bundle file.</p>
-<p>If successful it displays something like this:</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Version: webpack 1.12.11</div><div class="line"><span class="keyword">Time:</span> 51ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  1.42 kB       0  [emitted]  main</div><div class="line">chunk    &#123;0&#125; bundle.js (main) 28 bytes [rendered]</div><div class="line">    [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure>
-<p>Open <code>index.html</code> in your browser. It should display <code>It works.</code></p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/setup-compilation/index.html"></iframe>
-
-<hr>
-<p><a id="second-file"></a></p>
-<h1 id="Second-file"><a href="#Second-file" class="headerlink" title="Second file"></a>Second file</h1><p>Next, we will move some code into an extra file.</p>
-<div class="panel panel-add"><br><br>### add <code>content.js</code><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = <span class="string">"It works from content.js."</span>;</div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">document</span>.write(<span class="string">"It works."</span>);+ <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>And recompile with:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
-<p>Update your browser window and you should see the text <code>It works from content.js.</code>.</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/second-file/index.html"></iframe>
-
-<blockquote>
-<p>webpack will analyze your entry file for dependencies to other files. These files (called modules) are included in your <code>bundle.js</code> too. webpack will give each module a unique id and save all modules accessible by id in the <code>bundle.js</code> file. Only the entry module is executed on startup. A small runtime provides the <code>require</code> function and executes the dependencies when required.</p>
-</blockquote>
-<hr>
-<p><a id="first-loader"></a></p>
-<h1 id="The-first-loader"><a href="#The-first-loader" class="headerlink" title="The first loader"></a>The first loader</h1><p>We want to add a css file to our application.</p>
-<p>webpack can only handle JavaScript natively, so we need the <code>css-loader</code> to process CSS files. We also need the <code>style-loader</code> to apply the styles in the CSS file.</p>
-<p>Run <code>npm install css-loader style-loader</code> to install the loaders. (They need to be installed locally, without <code>-g</code>) This will create a <code>node_modules</code> folder for you, in which the loaders will live.</p>
-<p>Let’s use them:</p>
-<div class="panel panel-add"><br><br>### add <code>style.css</code><br><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+ <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Recompile and update your browser to see your application with yellow background.</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/first-loader/index.html"></iframe>
-
-<blockquote>
-<p>By prefixing loaders to a module request, the module went through a loader pipeline. These loaders transform the file content in specific ways. After these transformations are applied, the result is a JavaScript module.</p>
-</blockquote>
-<hr>
-<p><a id="binding-loaders"></a></p>
-<h1 id="Binding-loaders"><a href="#Binding-loaders" class="headerlink" title="Binding loaders"></a>Binding loaders</h1><p>We don’t want to write such long requires <code>require(&lt;span class=&quot;string&quot;&gt;&quot;!style!css!./style.css&quot;&lt;/span&gt;);</code>.</p>
-<p>We can bind file extensions to loaders so we just need to write: <code>require(&lt;span class=&quot;string&quot;&gt;&quot;./style.css&quot;&lt;/span&gt;)</code></p>
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">+ <span class="built_in">require</span>(<span class="string">"./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Run the compilation with:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack ./entry<span class="selector-class">.js</span> bundle<span class="selector-class">.js</span> --module-bind <span class="string">'css=style!css'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Some environments may require double quotes: –module-bind “css=style!css”</p>
-</blockquote>
-<p>You should see the same result:</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/binding-loaders/index.html"></iframe>
-
-<hr>
-<p><a id="config-file"></a></p>
-<h1 id="A-config-file"><a href="#A-config-file" class="headerlink" title="A config file"></a>A config file</h1><p>We want to move the config options into a config file:</p>
-<div class="panel panel-add"><br><br>### add <code>webpack.config.js</code><br><br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line"><span class="symbol">    entry:</span> <span class="string">"./entry.js"</span>,</div><div class="line"><span class="symbol">    output:</span> &#123;</div><div class="line"><span class="symbol">        path:</span> __dirname,</div><div class="line"><span class="symbol">        filename:</span> <span class="string">"bundle.js"</span></div><div class="line">    &#125;,</div><div class="line"><span class="symbol">    module:</span> &#123;</div><div class="line"><span class="symbol">        loaders:</span> [</div><div class="line">            &#123; test: /\.css$/, loader: <span class="string">"style!css"</span> &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Now we can just run:</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">webpack</span></div></pre></td></tr></table></figure>
-<p>to compile:</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">Version:</span> webpack <span class="number">1.12</span><span class="number">.11</span></div><div class="line"><span class="symbol">Time:</span> <span class="number">379</span>ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  <span class="number">10.7</span> kB       <span class="number">0</span>  [emitted]  main</div><div class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">8.86</span> kB [rendered]</div><div class="line">    [<span class="number">0</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>entry.js <span class="number">65</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">1</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">943</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">2</span>] ../~/css-loader!.<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">201</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">3</span>] ../~<span class="meta-keyword">/css-loader/</span>lib/css-base.js <span class="number">1.51</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">4</span>] ../~<span class="meta-keyword">/style-loader/</span>addStyles.js <span class="number">6.09</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">5</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>content.js <span class="number">45</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>The webpack command-line will try to load the file <code>webpack.config.js</code> in the current directory.</p>
-</blockquote>
-<hr>
-<p><a id="pretty-output"></a></p>
-<h1 id="A-prettier-output"><a href="#A-prettier-output" class="headerlink" title="A prettier output"></a>A prettier output</h1><p>If the project grows the compilation may take a bit longer. So we want to display some kind of progress bar. And we want colors…</p>
-<p>We can achieve this with</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
-<hr>
-<p><a id="watch-mode"></a></p>
-<h1 id="Watch-mode"><a href="#Watch-mode" class="headerlink" title="Watch mode"></a>Watch mode</h1><p>We don’t want to manually recompile after every change…</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">watch</span></div></pre></td></tr></table></figure>
-<p>Webpack can cache unchanged modules and output files between compilations.</p>
-<blockquote>
-<p>When using watch mode, webpack installs file watchers to all files, which were used in the compilation process. If any change is detected, it’ll run the compilation again. When caching is enabled, webpack keeps each module in memory and will reuse it if it isn’t changed.</p>
-</blockquote>
-<hr>
-<p><a id="development-server"></a></p>
-<h1 id="Development-server"><a href="#Development-server" class="headerlink" title="Development server"></a>Development server</h1><p>The development server is even better.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack-dev-<span class="keyword">server</span> -g</div></pre></td></tr></table></figure>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span><span class="literal">-</span><span class="comment">dev</span><span class="literal">-</span><span class="comment">server</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
-<p>This binds a small express server on localhost:8080 which serves your static assets as well as the bundle (compiled automatically). It automatically updates the browser page when a bundle is recompiled (SockJS). Open <a href="http://localhost:8080/webpack-dev-server/bundle" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/bundle</a> in your browser.</p>
-<blockquote>
-<p>The dev server uses webpack’s watch mode. It also prevents webpack from emitting the resulting files to disk. Instead it keeps and serves the resulting files from memory.</p>
-</blockquote>
-<p>参考：<br><a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">https://webpack.github.io/docs/tutorials/getting-started/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-browserify" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/25/browserify/" class="article-date">
-  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/browserify/">browserify入门</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>First install node, which ships with npm. Then do:<br>Hello World With Browserify<br>BUNDLE UP YOUR FIRST MODULE</p>
-<p>Browsers don’t have the require method defined, but Node.js does. With Browserify you can write code that uses require in the same way that you would use it in Node.</p>
-<p>Here is a tutorial on how to use Browserify on the command line to bundle up a simple file called main.js along with all of its dependencies:</p>
-<p>main.js<br>var unique = require(‘uniq’);</p>
-<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
-<p>console.log(unique(data));<br>Install the uniq module with npm:<br>npm install uniq<br>Now recursively bundle up all the required modules starting at main.js into a single file called bundle.js with the browserify command:<br>browserify main.js -o bundle.js<br>Browserify parses the AST for require() calls to traverse the entire dependency graph of your project.<br>Drop a single <script> tag into your html and you’re done!</p>
-<script src="bundle.js"></script></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
 	</div>
 
       
@@ -1136,6 +975,68 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-browserify" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/browserify/" class="article-date">
+  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/browserify/">browserify入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>First install node, which ships with npm. Then do:<br>Hello World With Browserify<br>BUNDLE UP YOUR FIRST MODULE</p>
+<p>Browsers don’t have the require method defined, but Node.js does. With Browserify you can write code that uses require in the same way that you would use it in Node.</p>
+<p>Here is a tutorial on how to use Browserify on the command line to bundle up a simple file called main.js along with all of its dependencies:</p>
+<p>main.js<br>var unique = require(‘uniq’);</p>
+<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
+<p>console.log(unique(data));<br>Install the uniq module with npm:<br>npm install uniq<br>Now recursively bundle up all the required modules starting at main.js into a single file called bundle.js with the browserify command:<br>browserify main.js -o bundle.js<br>Browserify parses the AST for require() calls to traverse the entire dependency graph of your project.<br>Drop a single <script> tag into your html and you’re done!</p>
+<script src="bundle.js"></script></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
 	</div>
 
 

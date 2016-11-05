@@ -3,24 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>浅谈前端的主流设计模式 | 武林的博客</title>
+  <title>react native 技术栈 | 武林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本概念设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。
-前端的设计模式前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开">
+  <meta name="description" content="概要
+Webpack out of the box
+ES6 syntax and beyond
+Bluebird, window.fetch and other pollyfils
+PureRender everywhere
+Flux
+Store reducers
+Immutable app state
+Powerful inspired by React Router routing libra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈前端的主流设计模式">
-<meta property="og:url" content="superstarwulin.github.io/2016/05/09/浅谈前端的主流设计模式/index.html">
+<meta property="og:title" content="react native 技术栈">
+<meta property="og:url" content="superstarwulin.github.io/2016/11/05/rndevstack/index.html">
 <meta property="og:site_name" content="武林的博客">
-<meta property="og:description" content="基本概念设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。
-前端的设计模式前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开">
-<meta property="og:image" content="http://i.stack.imgur.com/ocEWx.png">
-<meta property="og:image" content="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg">
-<meta property="og:updated_time" content="2016-09-25T03:31:12.000Z">
+<meta property="og:description" content="概要
+Webpack out of the box
+ES6 syntax and beyond
+Bluebird, window.fetch and other pollyfils
+PureRender everywhere
+Flux
+Store reducers
+Immutable app state
+Powerful inspired by React Router routing libra">
+<meta property="og:image" content="https://s16.postimg.org/k44c1qeat/2016_11_05_11_33_00.png">
+<meta property="og:updated_time" content="2016-11-05T04:12:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈前端的主流设计模式">
-<meta name="twitter:description" content="基本概念设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。
-前端的设计模式前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开">
-<meta name="twitter:image" content="http://i.stack.imgur.com/ocEWx.png">
+<meta name="twitter:title" content="react native 技术栈">
+<meta name="twitter:description" content="概要
+Webpack out of the box
+ES6 syntax and beyond
+Bluebird, window.fetch and other pollyfils
+PureRender everywhere
+Flux
+Store reducers
+Immutable app state
+Powerful inspired by React Router routing libra">
+<meta name="twitter:image" content="https://s16.postimg.org/k44c1qeat/2016_11_05_11_33_00.png">
   
     <link rel="alternative" href="/atom.xml" title="武林的博客" type="application/atom+xml">
   
@@ -179,11 +199,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-浅谈前端的主流设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-rndevstack" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/09/浅谈前端的主流设计模式/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+      <a href="/2016/11/05/rndevstack/" class="article-date">
+  	<time datetime="2016-11-05T07:25:15.000Z" itemprop="datePublished">2016-11-05</time>
 </a>
     </div>
   
@@ -196,7 +216,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈前端的主流设计模式
+      react native 技术栈
     </h1>
   
 
@@ -205,12 +225,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactnative/">reactnative</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
+	<a class="article-category-link" href="/categories/reactnative/">reactnative</a>
 	</div>
 
 
@@ -220,15 +240,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。</p>
-<h1 id="前端的设计模式"><a href="#前端的设计模式" class="headerlink" title="前端的设计模式"></a>前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题– UI和逻辑是一起的，但他们却不是一起的。</strong></p>
-<p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
-<p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
-<h2 id="Model-View-Control"><a href="#Model-View-Control" class="headerlink" title="Model View Control"></a>Model View Control</h2><p><img src="http://i.stack.imgur.com/ocEWx.png" alt=""></p>
-<p>最原始的模型架构细分管理模型，MVC，相互关系如上图：推动业务的事件由用户与view交互，通过view向controller发动，然后触发数据更新。而mvc的使用发现的问题是当有变化发生时候，需要维护三个对象和三个三个交互，这让事情复杂化了。</p>
-<p>mvc的三角关系被认为给一些人带来了麻烦，所以需要催生更好的解决方案。</p>
-<h2 id="Model-View-Presenter"><a href="#Model-View-Presenter" class="headerlink" title="Model View Presenter"></a>Model View Presenter</h2><h2 id="Model-View-ViewModel"><a href="#Model-View-ViewModel" class="headerlink" title="Model View ViewModel"></a>Model View ViewModel</h2><p><img src="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg" alt=""></p>
-<p>ViewModel大致上就是MVP的Presenter和MVC的Controller了，而View和ViewModel间没有了MVP的界面接口，而是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
+        <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><ul>
+<li>Webpack out of the box</li>
+<li>ES6 syntax and beyond</li>
+<li>Bluebird, window.fetch and other pollyfils</li>
+<li>PureRender everywhere</li>
+<li>Flux</li>
+<li>Store reducers</li>
+<li>Immutable app state</li>
+<li>Powerful inspired by React Router routing library</li>
+</ul>
+<h1 id="打包流程"><a href="#打包流程" class="headerlink" title="打包流程"></a>打包流程</h1><h3 id="rn官方的打包流程-ios版本"><a href="#rn官方的打包流程-ios版本" class="headerlink" title="rn官方的打包流程-ios版本"></a>rn官方的打包流程-ios版本</h3><h4 id="react-native-packager"><a href="#react-native-packager" class="headerlink" title="react-native-packager"></a>react-native-packager</h4><ul>
+<li>周边：<a href="https://github.com/facebook/react-native/issues/1924" target="_blank" rel="external">clean cache</a></li>
+<li>log:<br><img src="https://s16.postimg.org/k44c1qeat/2016_11_05_11_33_00.png" alt=""></li>
+</ul>
+<h3 id="替代方案：webpack打包，支持es6的优秀特性。"><a href="#替代方案：webpack打包，支持es6的优秀特性。" class="headerlink" title="替代方案：webpack打包，支持es6的优秀特性。"></a>替代方案：webpack打包，支持es6的优秀特性。</h3><h1 id="hotloading"><a href="#hotloading" class="headerlink" title="hotloading"></a>hotloading</h1><h3 id="react-native-webpack-server"><a href="#react-native-webpack-server" class="headerlink" title="react-native-webpack-server"></a><a href="https://github.com/mjohnston/react-native-webpack-server" target="_blank" rel="external">react-native-webpack-server</a></h3><h1 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h1><h3 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h3><p>在以前的项目中，我们选择 JSHint 和 JSCS 结合使用，WebStorm 等开发环境已经支持这些工具，使用起来很顺手。然而，最近使用 React JSX 语法时，却遇到了问题：JSHint 不支持 JSX 语法。虽然有 JSXHint 这样的 JSHint 衍生工具，但个人并不喜欢这样的实现方式：不是以插件的形式实现，而是重新重新包装了一个工具。Nicholas C. Zakas 也不喜欢，所以有了 ESLint</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://csspod.com/getting-started-with-eslint/" target="_blank" rel="external">https://csspod.com/getting-started-with-eslint/</a></p>
 
       
     </div>
@@ -238,18 +265,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/09/命令行工具/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          nodejs 制作命令行工具
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/03/weaknet/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">弱网络下的前端</div>
+    <a href="/2016/09/25/算法导论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -278,7 +296,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="浅谈前端的主流设计模式" data-title="浅谈前端的主流设计模式" data-url="superstarwulin.github.io/2016/05/09/浅谈前端的主流设计模式/"></div>
+	<div class="ds-thread" data-thread-key="rndevstack" data-title="react native 技术栈" data-url="superstarwulin.github.io/2016/11/05/rndevstack/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
