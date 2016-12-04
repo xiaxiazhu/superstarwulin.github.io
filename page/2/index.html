@@ -34,7 +34,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">leo(天猫五零)</a></h1>
+		  <h1 class="header-author"><a href="/">leo(武林)</a></h1>
 		</hgroup>
 
 		
@@ -131,7 +131,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">leo(天猫五零)</h1>
+  		<h1 class="header-author js-mobile-header hide">leo(武林)</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -139,7 +139,7 @@
 				<img lazy-src="http://gtms01.alicdn.com/tps/i1/TB1x_.vHVXXXXXvXVXX2YSA3pXX-540-960.jpg_180x180xz.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author">leo(天猫五零)</h1>
+			  <h1 class="header-author">leo(武林)</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">技术自由，耕耘点滴</p>
@@ -174,10 +174,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ES6中的一些新特性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/25/webpack/" class="article-date">
+      <a href="/2016/07/25/ES6中的一些新特性/" class="article-date">
   	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
 </a>
     </div>
@@ -191,7 +191,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/webpack/">webpack入门</a>
+      <a class="article-title" href="/2016/07/25/ES6中的一些新特性/">ES6中的一些新特性</a>
     </h1>
   
 
@@ -200,121 +200,71 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://webpack.github.io/assets/what-is-webpack.png" alt="enter image description here"></p>
-<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><blockquote>
-<p>demo 地址<br><a href="https://github.com/superstarwulin/webpackdemo.git" target="_blank" rel="external">https://github.com/superstarwulin/webpackdemo.git</a></p>
-</blockquote>
-<h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h1><p>This small tutorial will guide you through a simple example.</p>
-<p>You’ll learn:</p>
-<ul>
-<li>How to install webpack</li>
-<li>How to use webpack</li>
-<li>How to use loaders</li>
-<li>How to use the development server</li>
-</ul>
+        <p><img src="http://htmljs.b0.upaiyun.com/uploads/1388549547510-20130807-es6.png" alt="enter image description here"></p>
+<p>ES6带来了许多好东西，它们能够是我们开发出更快更好的web应用。现在我们就来看看其中几个最有用的几个。</p>
+<h1 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h1><p>在ES6中存在多个可以缩短开发时间并加快应用运行速度的语法糖：</p>
+<h2 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h2><p>这个特性非常有趣。例如，你可以吧一个对象结构为分开的变量：</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="built_in">point</span> = &#123;<span class="attribute">x</span>:<span class="number">1</span>,<span class="attribute">y</span>:<span class="number">2</span>&#125;;</div><div class="line"><span class="built_in">var</span> [x,y] = <span class="built_in">point</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//1</span></div><div class="line"><span class="built_in">console</span>.log(y); <span class="comment">//2</span></div></pre></td></tr></table></figure>
+<p>解构的另一个用途是在一个函数中返回不同的值 – 不在需要返回一个对象了。我们可以根据我们的需要省略一些返回值。看下面的代码：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">returnsFewValues</span>()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">&#123;</span></div><div class="line">        x:<span class="number">1</span>,</div><div class="line">        y:<span class="number">2</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>它与下面的代码等价：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">returnsFewValues</span>()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">[1,2]</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Let和Const"><a href="#Let和Const" class="headerlink" title="Let和Const"></a>Let和Const</h2><p>这两个关键字非常有用。它们都允许我们在一个作用域中锁定一个变量，因此在作用域意外它无法被获取：let用于普通变量，const用于常量 – 即值永远不会改变的变量。我们现在可以忘记使用丑陋的闭包了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">        a = a + <span class="number">2</span>;</div><div class="line">    &#125;());</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+<p>上面的代码可以被更加优雅的let语句所替代：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span><span class="params">()</span><span class="comment">&#123;</span></span></div><div class="line">    let a = 2;</div><div class="line">    a = a + 2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>console.log(a); //undefined</p>
+<h2 id="For-Of以及数组理解"><a href="#For-Of以及数组理解" class="headerlink" title="For-Of以及数组理解"></a>For-Of以及数组理解</h2><p>for-of是旧的for-in表述的小弟弟。使用它，我们可以迭代值，而不迭代键：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someArray = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (v <span class="keyword">of</span> someArray)&#123;</div><div class="line">    <span class="built_in">console</span>.log(v);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>它也可以用在数组理解中。它们都是受到了数学中集合标示符的启发。例如，如果你有一个包含名字的数组，你只想要抓取其中长度在八个或以上的名字。在ES6之前，你可能会这样做：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var eightLetterLongNames = [];</div><div class="line">someNamesArray.forEach(<span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">name</span>.length &gt;= <span class="number">8</span>) eightLetterLongNames.push(<span class="keyword">name</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>但是在ES6中，我们有更简单的写法：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var eightLetterLongNames = [x <span class="keyword">for</span> (<span class="built_in">name</span> <span class="keyword">of</span> someNamesArray) <span class="keyword">if</span> (<span class="built_in">name</span>.<span class="built_in">length</span>) &gt;= <span class="number">8</span>];</div></pre></td></tr></table></figure>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>你只需要从一个函数中返回一个值或者打印一些东西？通常，我们会这样做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="built_in">console</span>.log(e);&#125;);</div></pre></td></tr></table></figure>
+<p>ES6中的一个语法糖是箭头函数，它可以定义更好的一行函数：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="params">(e)</span> =&gt;</span> <span class="built_in">console</span>.log(e));</div></pre></td></tr></table></figure>
+<h2 id="延伸操作符，剩余变量，以及默认参数"><a href="#延伸操作符，剩余变量，以及默认参数" class="headerlink" title="延伸操作符，剩余变量，以及默认参数"></a>延伸操作符，剩余变量，以及默认参数</h2><p>现在来看最后一个。我们现在终于可以定义默认参数并且忘记老旧的argument = argument || “default value”咒语了。像下面的代码一样定义函数：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">(arg1 = <span class="string">"default value"</span>, arg2 = <span class="literal">false</span>, arg3)</span>&#123;</span></div><div class="line">    <span class="comment">//函数体</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>延伸操作符允许我们将一个数组想分开的参数那样传递给一个函数。原来的写法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someArray = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log.apply(<span class="built_in">window</span>,someArray);</div></pre></td></tr></table></figure>
+<p>你现在可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someArray = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(...someArray);</div></pre></td></tr></table></figure>
+<p>如果你想要你的函数接收几个命名的变量以及后面几个无数目限制的变量，那么剩余变量将是一个很好的解决方案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logWithTag</span>(<span class="params">tag</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> logs = [].slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</div><div class="line">    logs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">log</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(tag + <span class="string">': '</span> + log);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的代码是以前的写法，现在可以像下面这样写，而且更有可读性：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logWithTag</span><span class="params">(tag, <span class="rest_arg">...logs</span>)</span></span>&#123;</div><div class="line">    logs.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(log)</span></span>&#123;</div><div class="line">        console.log(tag + <span class="string">': '</span> + log);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者配合箭头函数可以更简单：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> logWithTag = <span class="function">(<span class="params">tag, ...logs</span>) = &gt; <span class="params">logs</span>.<span class="params">forEach</span>(<span class="params">(log</span>) =&gt;</span> <span class="built_in">console</span>.log(tag + <span class="string">': '</span> + log));</div></pre></td></tr></table></figure>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>最终，ES变成了一个真正的面向对象语言。由于类的引入，我们可以编写更加干净结构更加清晰的代码。我们现在不再需要使用一些流行的库来解决JavaScript中不包含类的问题了：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ExtJS   </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> SimpleClass = <span class="keyword">new</span> Ext.Class(&#123;</div><div class="line">    name: <span class="string">'John Doe'</span>,</div><div class="line">    initialize: <span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;,</div><div class="line">    say: <span class="function"><span class="keyword">function</span><span class="params">(message)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">": "</span> + message;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//PrototypeJS   </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> Person = Class.create();</div><div class="line">Person.prototype = &#123;</div><div class="line">    name: <span class="string">'John Doe'</span>,</div><div class="line">    initialize: <span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;,</div><div class="line">    say:<span class="function"><span class="keyword">function</span><span class="params">(message)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">': '</span> + message;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>现在我们可以用纯JavaScript来代替上面的代码：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> name: <span class="string">'John Doe'</span></div><div class="line"></div><div class="line">    initialize(name)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    say(message)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">': '</span> + message;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>ES6同样支持继承和扩展类，因此你完全可以使用JavaScript来编写像JAVA一样的面向对象应用。使用这种方式，你的带按摩变得更阿基简介并更容易阅读。</p>
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><p>ES6中另一个令人激动的特性是模块。现在，已经有很多解决方法来模块化你的应用，主要是CommonJS和AMD。下面是几个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//CommonJS   </span></div><div class="line"></div><div class="line"><span class="comment">//point.js   </span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.x = x;</div><div class="line">    <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = Point;   </div><div class="line"></div><div class="line"><span class="comment">//myapp.js   </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> Point = <span class="built_in">require</span>(<span class="string">"point"</span>);</div><div class="line"><span class="keyword">var</span> origin = <span class="keyword">new</span> Point(<span class="number">0</span>,<span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(origin);</div><div class="line"></div><div class="line"><span class="comment">//AMD   </span></div><div class="line"></div><div class="line"><span class="comment">//point.js   </span></div><div class="line">define(<span class="string">"point"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> Point;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//myapp.js   </span></div><div class="line">define(<span class="string">"my app"</span>,[<span class="string">"point"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">point</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> origin = <span class="keyword">new</span> Point(<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">    <span class="built_in">console</span>.log(origin);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在ES6中你不再需要这些库，你需要做的只是把你的代码分成小块。使用类，你可以获得更简洁更具有可维护性的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//point.js   </span></div><div class="line"></div><div class="line"><span class="built_in">module</span> <span class="string">"point"</span> &#123;</div><div class="line">    <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">        <span class="keyword">constructor</span> (x,y) &#123;</div><div class="line">            public x = x;</div><div class="line">            public y = y;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//myapp.js   </span></div><div class="line"><span class="built_in">module</span> point <span class="keyword">from</span> <span class="string">"/point.js"</span></div><div class="line"><span class="keyword">import</span> Point <span class="keyword">from</span> <span class="string">"point"</span>  </div><div class="line"></div><div class="line"><span class="keyword">var</span> origin = <span class="keyword">new</span> Point(<span class="number">0</span>,<span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(origin);</div></pre></td></tr></table></figure>
+<h1 id="映射和集合"><a href="#映射和集合" class="headerlink" title="映射和集合"></a>映射和集合</h1><p>映射和集合在JavaScript中缺失已经很久了。它们都通过使用对象来模拟，但是当你想要迭代它们时会产生很多麻烦 – 你需要检查属性是否存在原型中，以及属性是否是一个方法：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="built_in">map</span> = &#123;</div><div class="line">    a: <span class="number">1</span>,</div><div class="line">    b: <span class="number">2</span>,</div><div class="line">    c: <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> k <span class="keyword">in</span> <span class="built_in">map</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">map</span>.hasOwnProperty(k))&#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="built_in">map</span>[k]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> k <span class="keyword">in</span> <span class="built_in">map</span>)&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>.hasOwnProperty(k))&#123;</div><div class="line">        console.<span class="built_in">log</span>(k);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ES6中有更简单的方法：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="built_in">map</span> = <span class="literal">new</span> <span class="built_in">Map</span>;</div><div class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(<span class="string">"a"</span>, <span class="number">1</span>);</div><div class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(<span class="string">"b"</span>, <span class="number">2</span>);</div><div class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(<span class="string">"c"</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line">for (<span class="built_in">var</span> v <span class="keyword">in</span> <span class="built_in">map</span>.values()) &#123;</div><div class="line">   console.<span class="keyword">log</span>(v);</div><div class="line">&#125;</div><div class="line"></div><div class="line">for (<span class="built_in">var</span> k <span class="keyword">in</span> <span class="built_in">map</span>.keys()) &#123;</div><div class="line">   console.<span class="keyword">log</span>(k);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于集合，它们和数组类似，但是值是有序的而且不能重复。下面是一个创建一个集合的例子：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">set</span> = <span class="keyword">new</span> Set;</div><div class="line"></div><div class="line"><span class="keyword">set</span>.<span class="keyword">add</span>(<span class="number">1</span>);</div><div class="line"><span class="keyword">set</span>.<span class="keyword">add</span>(<span class="number">2</span>);</div><div class="line"><span class="keyword">set</span>.<span class="keyword">add</span>(<span class="number">3</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> v <span class="keyword">in</span> <span class="keyword">set</span>.values()) &#123;</div><div class="line">   console.log(v);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器是特殊的函数，它能帮助我们在一个自定义对象中进行迭代。它们也被称为发生器，因为当它们单独使用时，它们可以生成内容（例如斐波那契数列或者随机数）。前面提到的values()和keys()是图的迭代器。基本上来说，你可以像定义一个函数一样定义一个迭代器，但是在函数名和function关键字之间有一个*号：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> *<span class="title">fibonacci</span><span class="params">()</span></span>&#123;</div><div class="line">    let [ current, <span class="built_in">next</span> ] = [ <span class="number">0</span>, <span class="number">1</span> ];</div><div class="line">    <span class="keyword">for</span>(;;)&#123;//无限循环</div><div class="line">        [ current, <span class="built_in">next</span> ]= [ <span class="built_in">next</span>, current + <span class="built_in">next</span> ];</div><div class="line">        yield current;   </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用这种方法，作用域被挂起，并且你可以通过在返回值上调用next()来得到下一个值或者迭代它：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var fib = fibonacci();</div><div class="line"></div><div class="line">console.log(fib.<span class="keyword">next</span>()); <span class="regexp">//</span><span class="number">1</span></div><div class="line">console.log(fib.<span class="keyword">next</span>()); <span class="regexp">//</span><span class="number">2</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (var v <span class="keyword">of</span> <span class="class"><span class="keyword">lib</span>)&#123;</span></div><div class="line">    <span class="keyword">if</span>(v &gt; <span class="number">100</span>) <span class="keyword">break</span>;</div><div class="line">    console.log(v); <span class="regexp">//</span><span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="弱映射"><a href="#弱映射" class="headerlink" title="弱映射"></a>弱映射</h1><p>内存泄露一直是一个大问题，尤其是在一个web应用中。一个一般的资源是集合(collections)，它的键不是字符串或者数字（例如，你可以将对象作为键）。通常使用两个数组来实现 – 一个作为键一个作为值。这种方法很糟糕，因为作为键的数组并不能被垃圾回收因此内存泄露往往就在这里发生了。</p>
+<p>若映射的优势在于它能够弱引用键对象，这意味着它不会阻止垃圾回收器回收不再被引用的键对象。看看下面的例子：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> key1 = window, key2 = document;</div><div class="line"><span class="built_in">var</span> <span class="built_in">map</span> = <span class="literal">new</span> WeakMap(), map2 = <span class="literal">new</span> WeakMap();</div><div class="line"></div><div class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(key1, <span class="string">"some value"</span>);</div><div class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(key2, key1);</div><div class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(map2, <span class="built_in">map</span>); <span class="comment">//你甚至可以进行环形引用</span></div></pre></td></tr></table></figure>
+<h1 id="Proxies"><a href="#Proxies" class="headerlink" title="Proxies"></a>Proxies</h1><p>数据绑定在任何DOM造作库中都是非常有用的特性。现在，通过使用Proxies，它的语法和性能都将得到提升。同时，Proxies可以用来拦截对象中的改变并将改变打印出来，如果你需要的话。最大的改变在于你在被监控的对象上不再需要任何get()和set()函数了，因此你可以在以后的代码中移除日志功能而不需要改变任何代码。下面是一个日志代理的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> logger = <span class="function"><span class="keyword">function</span>(<span class="params">obj, info</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="built_in">Proxy</span>.create(&#123;</div><div class="line">      <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">receiver, prop</span>) </span>&#123;</div><div class="line">         info(<span class="string">'Getting '</span> + prop);</div><div class="line">         <span class="keyword">return</span> obj[prop];</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">set</span>: <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">receiver, prop, value</span>) </span>&#123;</div><div class="line">         info(<span class="string">'Setting '</span> + prop + <span class="string">' to '</span> + value + <span class="string">'; was '</span> + obj[prop]);</div><div class="line">         <span class="keyword">debugger</span>;</div><div class="line">         obj[prop] = value;</div><div class="line">      &#125;</div><div class="line">   &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> object = &#123; <span class="attr">a</span>: <span class="string">'some value'</span>, <span class="attr">b</span>: <span class="number">22</span> &#125;;</div><div class="line"><span class="comment">// 当你不需要日志的时候这里可以移除</span></div><div class="line">object = logger(object, <span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(msg);  </div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">document</span>.write(obejct.a);</div><div class="line">object.a = <span class="string">'new value'</span>;</div><div class="line"><span class="built_in">document</span>.write(object.a);</div></pre></td></tr></table></figure>
+<h1 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h1><p>许多人都很怀念JavaScript中的模板字符串。它们不仅允许我们轻松的在代码中插入变量，而且可以防止各种攻击来保证安全输出。模板字符串使用‘来定义。在其中，你可以使用一个$符号以及花括号来插入可执行的代码或者变量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"John"</span>, surname = <span class="string">"Doe"</span>;</div><div class="line"><span class="keyword">var</span> template1 = <span class="string">`Hello! My name id <span class="subst">$&#123;name&#125;</span> <span class="subst">$&#123;surname&#125;</span>!`</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(template); <span class="comment">//Hello! My name is John Doe </span></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">2</span>, c = <span class="number">3</span>;</div><div class="line"><span class="keyword">var</span> template = <span class="string">`<span class="subst">$&#123;a&#125;</span> + <span class="subst">$&#123;b&#125;</span> - <span class="subst">$&#123;c&#125;</span> / 2 = $ &#123; a + b - c / 2 &#125;`</span>;  </div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(template2); <span class="comment">// 1 + 2 - 3 / 2 = 1.5</span></div></pre></td></tr></table></figure>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>你也可以在模板字符串前面定义一个标签。标签是一个函数，它将解析模板字符串中的部分，因此你可以处理一些用户生成的内容。ES6中已经有一些默认的标签了。最有用的一个，我认为是safehtml标签。简单来说，它能探测出一些不安全的内容例如XSS攻击等等，并将它们转化为无害的值。下面是一个例子：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var template = safehtml`<span class="javascript">&lt;a href=<span class="string">"$&#123;someUserdefinedVariable&#125;"</span>&gt;Click me!<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span>`;</div></pre></td></tr></table></figure>
 <hr>
-<p><a id="installing-webpack"></a></p>
-<h1 id="Installing-webpack"><a href="#Installing-webpack" class="headerlink" title="Installing webpack"></a>Installing webpack</h1><p>You need to have <a href="https://nodejs.org" target="_blank" rel="external">node.js</a> installed.</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> webpack -g</div></pre></td></tr></table></figure>
-<blockquote>
-<p>This makes the webpack command available.</p>
-</blockquote>
-<hr>
-<p><a id="setup-compilation"></a></p>
-<h1 id="Setup-the-compilation"><a href="#Setup-the-compilation" class="headerlink" title="Setup the compilation"></a>Setup the compilation</h1><p>Start with a empty directory.</p>
-<p>Create these files:</p>
-<div class="panel panel-add"><br><br>### add <code>entry.js</code><br><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.write(<span class="string">"It works."</span>)<span class="comment">;</span></div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-add"><br><br>### add <code>index.html</code><br><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bundle.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure><br><br></div>
-
-<p>Then run the following:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
-<p>It will compile your file and create a bundle file.</p>
-<p>If successful it displays something like this:</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Version: webpack 1.12.11</div><div class="line"><span class="keyword">Time:</span> 51ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  1.42 kB       0  [emitted]  main</div><div class="line">chunk    &#123;0&#125; bundle.js (main) 28 bytes [rendered]</div><div class="line">    [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure>
-<p>Open <code>index.html</code> in your browser. It should display <code>It works.</code></p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/setup-compilation/index.html"></iframe>
-
-<hr>
-<p><a id="second-file"></a></p>
-<h1 id="Second-file"><a href="#Second-file" class="headerlink" title="Second file"></a>Second file</h1><p>Next, we will move some code into an extra file.</p>
-<div class="panel panel-add"><br><br>### add <code>content.js</code><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = <span class="string">"It works from content.js."</span>;</div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">document</span>.write(<span class="string">"It works."</span>);+ <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>And recompile with:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
-<p>Update your browser window and you should see the text <code>It works from content.js.</code>.</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/second-file/index.html"></iframe>
-
-<blockquote>
-<p>webpack will analyze your entry file for dependencies to other files. These files (called modules) are included in your <code>bundle.js</code> too. webpack will give each module a unique id and save all modules accessible by id in the <code>bundle.js</code> file. Only the entry module is executed on startup. A small runtime provides the <code>require</code> function and executes the dependencies when required.</p>
-</blockquote>
-<hr>
-<p><a id="first-loader"></a></p>
-<h1 id="The-first-loader"><a href="#The-first-loader" class="headerlink" title="The first loader"></a>The first loader</h1><p>We want to add a css file to our application.</p>
-<p>webpack can only handle JavaScript natively, so we need the <code>css-loader</code> to process CSS files. We also need the <code>style-loader</code> to apply the styles in the CSS file.</p>
-<p>Run <code>npm install css-loader style-loader</code> to install the loaders. (They need to be installed locally, without <code>-g</code>) This will create a <code>node_modules</code> folder for you, in which the loaders will live.</p>
-<p>Let’s use them:</p>
-<div class="panel panel-add"><br><br>### add <code>style.css</code><br><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+ <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Recompile and update your browser to see your application with yellow background.</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/first-loader/index.html"></iframe>
-
-<blockquote>
-<p>By prefixing loaders to a module request, the module went through a loader pipeline. These loaders transform the file content in specific ways. After these transformations are applied, the result is a JavaScript module.</p>
-</blockquote>
-<hr>
-<p><a id="binding-loaders"></a></p>
-<h1 id="Binding-loaders"><a href="#Binding-loaders" class="headerlink" title="Binding loaders"></a>Binding loaders</h1><p>We don’t want to write such long requires <code>require(&lt;span class=&quot;string&quot;&gt;&quot;!style!css!./style.css&quot;&lt;/span&gt;);</code>.</p>
-<p>We can bind file extensions to loaders so we just need to write: <code>require(&lt;span class=&quot;string&quot;&gt;&quot;./style.css&quot;&lt;/span&gt;)</code></p>
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">+ <span class="built_in">require</span>(<span class="string">"./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Run the compilation with:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack ./entry<span class="selector-class">.js</span> bundle<span class="selector-class">.js</span> --module-bind <span class="string">'css=style!css'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Some environments may require double quotes: –module-bind “css=style!css”</p>
-</blockquote>
-<p>You should see the same result:</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/binding-loaders/index.html"></iframe>
-
-<hr>
-<p><a id="config-file"></a></p>
-<h1 id="A-config-file"><a href="#A-config-file" class="headerlink" title="A config file"></a>A config file</h1><p>We want to move the config options into a config file:</p>
-<div class="panel panel-add"><br><br>### add <code>webpack.config.js</code><br><br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line"><span class="symbol">    entry:</span> <span class="string">"./entry.js"</span>,</div><div class="line"><span class="symbol">    output:</span> &#123;</div><div class="line"><span class="symbol">        path:</span> __dirname,</div><div class="line"><span class="symbol">        filename:</span> <span class="string">"bundle.js"</span></div><div class="line">    &#125;,</div><div class="line"><span class="symbol">    module:</span> &#123;</div><div class="line"><span class="symbol">        loaders:</span> [</div><div class="line">            &#123; test: /\.css$/, loader: <span class="string">"style!css"</span> &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Now we can just run:</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">webpack</span></div></pre></td></tr></table></figure>
-<p>to compile:</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">Version:</span> webpack <span class="number">1.12</span><span class="number">.11</span></div><div class="line"><span class="symbol">Time:</span> <span class="number">379</span>ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  <span class="number">10.7</span> kB       <span class="number">0</span>  [emitted]  main</div><div class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">8.86</span> kB [rendered]</div><div class="line">    [<span class="number">0</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>entry.js <span class="number">65</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">1</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">943</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">2</span>] ../~/css-loader!.<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">201</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">3</span>] ../~<span class="meta-keyword">/css-loader/</span>lib/css-base.js <span class="number">1.51</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">4</span>] ../~<span class="meta-keyword">/style-loader/</span>addStyles.js <span class="number">6.09</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">5</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>content.js <span class="number">45</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>The webpack command-line will try to load the file <code>webpack.config.js</code> in the current directory.</p>
-</blockquote>
-<hr>
-<p><a id="pretty-output"></a></p>
-<h1 id="A-prettier-output"><a href="#A-prettier-output" class="headerlink" title="A prettier output"></a>A prettier output</h1><p>If the project grows the compilation may take a bit longer. So we want to display some kind of progress bar. And we want colors…</p>
-<p>We can achieve this with</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
-<hr>
-<p><a id="watch-mode"></a></p>
-<h1 id="Watch-mode"><a href="#Watch-mode" class="headerlink" title="Watch mode"></a>Watch mode</h1><p>We don’t want to manually recompile after every change…</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">watch</span></div></pre></td></tr></table></figure>
-<p>Webpack can cache unchanged modules and output files between compilations.</p>
-<blockquote>
-<p>When using watch mode, webpack installs file watchers to all files, which were used in the compilation process. If any change is detected, it’ll run the compilation again. When caching is enabled, webpack keeps each module in memory and will reuse it if it isn’t changed.</p>
-</blockquote>
-<hr>
-<p><a id="development-server"></a></p>
-<h1 id="Development-server"><a href="#Development-server" class="headerlink" title="Development server"></a>Development server</h1><p>The development server is even better.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack-dev-<span class="keyword">server</span> -g</div></pre></td></tr></table></figure>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span><span class="literal">-</span><span class="comment">dev</span><span class="literal">-</span><span class="comment">server</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
-<p>This binds a small express server on localhost:8080 which serves your static assets as well as the bundle (compiled automatically). It automatically updates the browser page when a bundle is recompiled (SockJS). Open <a href="http://localhost:8080/webpack-dev-server/bundle" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/bundle</a> in your browser.</p>
-<blockquote>
-<p>The dev server uses webpack’s watch mode. It also prevents webpack from emitting the resulting files to disk. Instead it keeps and serves the resulting files from memory.</p>
-</blockquote>
-<p>参考：<br><a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">https://webpack.github.io/docs/tutorials/getting-started/</a></p>
 
       
     </div>
@@ -322,12 +272,100 @@
     <div class="article-info article-info-index">
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li></ul>
 	</div>
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
+	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Mobile Web Demo 库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/20/Mobile Web Demo 库/" class="article-date">
+  	<time datetime="2016-07-20T08:29:16.000Z" itemprop="datePublished">2016-07-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/20/Mobile Web Demo 库/">Mobile Web Demo 库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mobile-Web-Demo-库"><a href="#Mobile-Web-Demo-库" class="headerlink" title="Mobile Web Demo 库"></a>Mobile Web Demo 库</h1><style>
+.team{font-size:110%;font-weight:bold; /*color:#6ACCCB;*/ color:#a00;}
+</style>
+<style>
+._qr{display:inline-block;width:60px;height:60px;position:relative;top:0px;}
+._qr img{position:absolute;left:0px;bottom:0px;width:60px;height:60px;z-index:1000000;border:0px solid #ddd;
+            -webkit-transition: width .3s, height .3s;transition: width .3s, height .3s;}
+._qr img:hover{width:120px;height:120px;border:2px solid #ddd;}
+._lv1 img{z-index:1000001;}
+</style>
+
+<blockquote>
+<p>各种有趣的Demo，有助于快速了解api的功能特性，提供思路，降低入门门槛</p>
+</blockquote>
+<h2 id="Demo-站点"><a href="#Demo-站点" class="headerlink" title="Demo 站点"></a>Demo 站点</h2><ul>
+<li><a href="http://slides.html5rocks.com/#landing-slide" target="_blank" rel="external">HTML5 Presentation</a>【推荐】主流h5特性几乎都在里面了</li>
+<li><a href="http://simpl.info/" target="_blank" rel="external">simpl.info</a>，以短小精悍的demo著称，html5rocks也经常引用这里的demo，有不少mobile web专有的demo</li>
+<li><a href="http://html5demos.com" target="_blank" rel="external">html5demos.com</a>，知名demo站点</li>
+</ul>
+<h2 id="Demo-分类"><a href="#Demo-分类" class="headerlink" title="Demo 分类"></a>Demo 分类</h2><blockquote>
+<p>还没想好怎么分，欢迎大家提建议</p>
+</blockquote>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ul>
+<li><a href="http://mediaqueri.es/" target="_blank" rel="external">响应式网站设计gallery: http://mediaqueri.es</a></li>
+<li><a href="http://mountaindew.com" target="_blank" rel="external">mountaindew：页面布局自适应幅度比较大的处理案例</a></li>
+<li><a href="http://wiki.ued.taobao.net/doku.php?id=user:shuwen:macqq%E4%B8%8A%E7%9A%84%E8%B7%A8%E7%BB%88%E7%AB%AF" target="_blank" rel="external">Mac QQ的跨终端：iPhone App &amp; Mac App</a></li>
+<li>WebApp - <a href="http://m.ihaveu.com" target="_blank" rel="external">优众iPhone版</a></li>
+<li>WebApp - <a href="http://clear.evanyou.me/" target="_blank" rel="external">Clear HTML5 Version</a></li>
+<li>WebApp - <a href="http://pattern.dk/sun/" target="_blank" rel="external">Sun - simple weather app</a></li>
+<li><a href="http://www.chrome.com/supersyncsports/#/en-US" target="_blank" rel="external">Super Sync Sports，Chrome推出的跨终端游戏</a></li>
+<li><a href="http://xudafeng.github.io/autoResponsive/cat/custom/" target="_blank" rel="external">Auto Responsive</a>   * <a href="http://demo.tmall.net/sub-proto/demo/sub.html" target="_blank" rel="external">demo原型</a> <span class="_qr"><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdemo.tmall.net%2Fsub-proto%2Fdemo%2Fsub.html%23!0&chs=120x120&chld=L|2"></span>（可使用手机和pc打开）</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
 	</div>
 
 
@@ -454,94 +492,6 @@
 
 
   
-    <article id="post-Mobile Web Demo 库" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/20/Mobile Web Demo 库/" class="article-date">
-  	<time datetime="2016-07-20T08:29:16.000Z" itemprop="datePublished">2016-07-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/Mobile Web Demo 库/">Mobile Web Demo 库</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Mobile-Web-Demo-库"><a href="#Mobile-Web-Demo-库" class="headerlink" title="Mobile Web Demo 库"></a>Mobile Web Demo 库</h1><style>
-.team{font-size:110%;font-weight:bold; /*color:#6ACCCB;*/ color:#a00;}
-</style>
-<style>
-._qr{display:inline-block;width:60px;height:60px;position:relative;top:0px;}
-._qr img{position:absolute;left:0px;bottom:0px;width:60px;height:60px;z-index:1000000;border:0px solid #ddd;
-            -webkit-transition: width .3s, height .3s;transition: width .3s, height .3s;}
-._qr img:hover{width:120px;height:120px;border:2px solid #ddd;}
-._lv1 img{z-index:1000001;}
-</style>
-
-<blockquote>
-<p>各种有趣的Demo，有助于快速了解api的功能特性，提供思路，降低入门门槛</p>
-</blockquote>
-<h2 id="Demo-站点"><a href="#Demo-站点" class="headerlink" title="Demo 站点"></a>Demo 站点</h2><ul>
-<li><a href="http://slides.html5rocks.com/#landing-slide" target="_blank" rel="external">HTML5 Presentation</a>【推荐】主流h5特性几乎都在里面了</li>
-<li><a href="http://simpl.info/" target="_blank" rel="external">simpl.info</a>，以短小精悍的demo著称，html5rocks也经常引用这里的demo，有不少mobile web专有的demo</li>
-<li><a href="http://html5demos.com" target="_blank" rel="external">html5demos.com</a>，知名demo站点</li>
-</ul>
-<h2 id="Demo-分类"><a href="#Demo-分类" class="headerlink" title="Demo 分类"></a>Demo 分类</h2><blockquote>
-<p>还没想好怎么分，欢迎大家提建议</p>
-</blockquote>
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ul>
-<li><a href="http://mediaqueri.es/" target="_blank" rel="external">响应式网站设计gallery: http://mediaqueri.es</a></li>
-<li><a href="http://mountaindew.com" target="_blank" rel="external">mountaindew：页面布局自适应幅度比较大的处理案例</a></li>
-<li><a href="http://wiki.ued.taobao.net/doku.php?id=user:shuwen:macqq%E4%B8%8A%E7%9A%84%E8%B7%A8%E7%BB%88%E7%AB%AF" target="_blank" rel="external">Mac QQ的跨终端：iPhone App &amp; Mac App</a></li>
-<li>WebApp - <a href="http://m.ihaveu.com" target="_blank" rel="external">优众iPhone版</a></li>
-<li>WebApp - <a href="http://clear.evanyou.me/" target="_blank" rel="external">Clear HTML5 Version</a></li>
-<li>WebApp - <a href="http://pattern.dk/sun/" target="_blank" rel="external">Sun - simple weather app</a></li>
-<li><a href="http://www.chrome.com/supersyncsports/#/en-US" target="_blank" rel="external">Super Sync Sports，Chrome推出的跨终端游戏</a></li>
-<li><a href="http://xudafeng.github.io/autoResponsive/cat/custom/" target="_blank" rel="external">Auto Responsive</a>   * <a href="http://demo.tmall.net/sub-proto/demo/sub.html" target="_blank" rel="external">demo原型</a> <span class="_qr"><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdemo.tmall.net%2Fsub-proto%2Fdemo%2Fsub.html%23!0&chs=120x120&chld=L|2"></span>（可使用手机和pc打开）</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-前端安全一些积累" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -627,6 +577,74 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/前端安全/">前端安全</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
+  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
+<p>涵盖兼容性手册、API 文档，退化处理建议</p>
+</blockquote>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
+<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
+<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
+<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
+</ul>
+<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
+<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
+</ul>
+<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
 	</div>
 
 
@@ -851,74 +869,6 @@ int main(int argc, char *argv[])
 
 
   
-    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
-  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
-<p>涵盖兼容性手册、API 文档，退化处理建议</p>
-</blockquote>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
-<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
-<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
-<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
-</ul>
-<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
-<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
-<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
-</ul>
-<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-jquery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -970,6 +920,65 @@ int main(int argc, char *argv[])
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/基础/">基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-js的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/js的封装和继承/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/js的封装和继承/">js的封装和继承</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">封装</a></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">构造函数的继承</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">分构造函数的继承</a></p>
+<h3 id="参考阮一峰大大的博客"><a href="#参考阮一峰大大的博客" class="headerlink" title="参考阮一峰大大的博客"></a>参考阮一峰大大的博客</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
 	</div>
 
 
@@ -1050,71 +1059,6 @@ int main(int argc, char *argv[])
 
 
   
-    <article id="post-浅谈前端的主流设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/浅谈前端的主流设计模式/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/浅谈前端的主流设计模式/">浅谈前端的主流设计模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。</p>
-<h1 id="前端的设计模式"><a href="#前端的设计模式" class="headerlink" title="前端的设计模式"></a>前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题– UI和逻辑是一起的，但他们却不是一起的。</strong></p>
-<p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
-<p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
-<h2 id="Model-View-Control"><a href="#Model-View-Control" class="headerlink" title="Model View Control"></a>Model View Control</h2><p><img src="http://i.stack.imgur.com/ocEWx.png" alt=""></p>
-<p>最原始的模型架构细分管理模型，MVC，相互关系如上图：推动业务的事件由用户与view交互，通过view向controller发动，然后触发数据更新。而mvc的使用发现的问题是当有变化发生时候，需要维护三个对象和三个三个交互，这让事情复杂化了。</p>
-<p>mvc的三角关系被认为给一些人带来了麻烦，所以需要催生更好的解决方案。</p>
-<h2 id="Model-View-Presenter"><a href="#Model-View-Presenter" class="headerlink" title="Model View Presenter"></a>Model View Presenter</h2><h2 id="Model-View-ViewModel"><a href="#Model-View-ViewModel" class="headerlink" title="Model View ViewModel"></a>Model View ViewModel</h2><p><img src="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg" alt=""></p>
-<p>ViewModel大致上就是MVP的Presenter和MVC的Controller了，而View和ViewModel间没有了MVP的界面接口，而是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1125,7 +1069,7 @@ int main(int argc, char *argv[])
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 leo(天猫五零)
+    		&copy; 2016 leo(武林)
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
