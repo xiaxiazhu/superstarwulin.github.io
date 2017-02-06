@@ -174,10 +174,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-mac上配置opencv的副本" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-web性能的极致优化" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/08/mac上配置opencv的副本/" class="article-date">
+      <a href="/2017/02/08/web性能的极致优化/" class="article-date">
   	<time datetime="2017-02-08T08:29:16.000Z" itemprop="datePublished">2017-02-08</time>
 </a>
     </div>
@@ -191,7 +191,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/08/mac上配置opencv的副本/">web性能的极致优化</a>
+      <a class="article-title" href="/2017/02/08/web性能的极致优化/">web性能的极致优化</a>
     </h1>
   
 
@@ -270,11 +270,11 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
 
 
   
-    <article id="post-web性能的极致优化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-瀑布流可视懒加载" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/06/web性能的极致优化/" class="article-date">
-  	<time datetime="2017-02-06T06:51:23.000Z" itemprop="datePublished">2017-02-06</time>
+      <a href="/2016/09/25/瀑布流可视懒加载/" class="article-date">
+  	<time datetime="2016-09-25T03:31:12.000Z" itemprop="datePublished">2016-09-25</time>
 </a>
     </div>
   
@@ -285,46 +285,10 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="web性能的极致优化"><a href="#web性能的极致优化" class="headerlink" title="web性能的极致优化"></a>web性能的极致优化</h1><h2 id="前人经验"><a href="#前人经验" class="headerlink" title="前人经验"></a>前人经验</h2><p>web前端性能优化WPO，相信大多数前端同学或多或少都不会模式，在各自负责的业务中也有过实践。在业内，也有成熟的技术理论和大牛给出的法则供参考：</p>
-<ol>
-<li><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">Yahoo的web站点性能优化黄金法则</a></li>
-<li>以及大名鼎鼎的优化大师<a href="http://stevesouders.com" target="_blank" rel="external">Steve Souders</a></li>
-</ol>
-<p>我们依葫芦画瓢，正常情况下，根据前人的经验，把性能优化的法则与我们的页面一一对照，可以有成倍的提升。<br>也即是：</p>
-<pre><code>小图片的合并，形成CSS Sprite，并优化图片
-使用cdn,cdn域名差分
-模块的异步加载    
-图片的懒加载
-设置缓存
-CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代码压缩
-缩小cookie体积
-减少dns查找
-…
-</code></pre><p>众多优化中，效果最大的就是第一条规则，减少http请求的数量。图片的处理和css sprite的合并以及图片的懒加载。</p>
-<p>以商品详情为例：</p>
-<ol>
-<li>所有图片直接输出，浏览器阻塞非常大。</li>
-<li>无懒加载</li>
-<li>无spirit</li>
-</ol>
-<h2 id="立规则"><a href="#立规则" class="headerlink" title="立规则"></a>立规则</h2><ul>
-<li>用规则规范大家的编码，保持性能持续的优良。</li>
-<li>性能优化不是前端同学自己的事情，需要业务各合作方的共同认同和支持。性能是最重要的业务功能点</li>
-<li>前端同学要增强自己的技术判断力，正确评估业务需求对性能的影响。同时要提升自身的沟通和影响力。</li>
-</ul>
-<h2 id="观点"><a href="#观点" class="headerlink" title="观点"></a>观点</h2><h3 id="用户感知和开发者关心的性能有差距"><a href="#用户感知和开发者关心的性能有差距" class="headerlink" title="用户感知和开发者关心的性能有差距"></a>用户感知和开发者关心的性能有差距</h3><ul>
-<li>User Perception 用户感知： <ul>
-<li>例子1： 首屏大图的快速渲染而其他具体信息懒加载给到用户的体验，相比于整体onload减少几秒要好很多<ul>
-<li>例子2：在非常大加载量的页面中，纯粹的从比如10秒的加载减少到5秒，web qq中进度条过度页面出现会给用户良好的进度感知</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>network Time (TTLB) 网络加载数据</li>
-<li>browser events (onload)</li>
-<li>AFT Finish Render 首屏完全加载完毕</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>待续</p>
+        <p>title:瀑布流可视懒加载<br>date: 2016-07-25 15:25:15<br>categories: 前端基础<br>tags:  </p>
+<h1 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h1><p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
+<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://output.jsbin.com/qirikayalo" target="_blank" rel="external">https://output.jsbin.com/qirikayalo</a></p>
+<h1 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h1><p><a href="https://wicg.github.io/IntersectionObserver/" target="_blank" rel="external">https://wicg.github.io/IntersectionObserver/</a></p>
 
       
     </div>
@@ -369,47 +333,6 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
 <li>迭代法 （猜解&gt;&gt;&gt; 数学归纳法 &gt;&gt;&gt; 证明成立）</li>
 <li></li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-瀑布流可视懒加载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/25/瀑布流可视懒加载/" class="article-date">
-  	<time datetime="2016-09-25T03:31:12.000Z" itemprop="datePublished">2016-09-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title:瀑布流可视懒加载<br>date: 2016-07-25 15:25:15<br>categories: 前端基础<br>tags:  </p>
-<h1 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h1><p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
-<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://output.jsbin.com/qirikayalo" target="_blank" rel="external">https://output.jsbin.com/qirikayalo</a></p>
-<h1 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h1><p><a href="https://wicg.github.io/IntersectionObserver/" target="_blank" rel="external">https://wicg.github.io/IntersectionObserver/</a></p>
 
       
     </div>
@@ -1076,6 +999,68 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-browserify" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/browserify/" class="article-date">
+  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/browserify/">browserify入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>First install node, which ships with npm. Then do:<br>Hello World With Browserify<br>BUNDLE UP YOUR FIRST MODULE</p>
+<p>Browsers don’t have the require method defined, but Node.js does. With Browserify you can write code that uses require in the same way that you would use it in Node.</p>
+<p>Here is a tutorial on how to use Browserify on the command line to bundle up a simple file called main.js along with all of its dependencies:</p>
+<p>main.js<br>var unique = require(‘uniq’);</p>
+<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
+<p>console.log(unique(data));<br>Install the uniq module with npm:<br>npm install uniq<br>Now recursively bundle up all the required modules starting at main.js into a single file called bundle.js with the browserify command:<br>browserify main.js -o bundle.js<br>Browserify parses the AST for require() calls to traverse the entire dependency graph of your project.<br>Drop a single <script> tag into your html and you’re done!</p>
+<script src="bundle.js"></script></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
 	</div>
 
 
