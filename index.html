@@ -216,12 +216,6 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
 减少dns查找
 …
 </code></pre><p>众多优化中，效果最大的就是第一条规则，减少http请求的数量。图片的处理和css sprite的合并以及图片的懒加载。</p>
-<p>以商品详情为例：</p>
-<ol>
-<li>所有图片直接输出，浏览器阻塞非常大。</li>
-<li>无懒加载</li>
-<li>无spirit</li>
-</ol>
 <h2 id="立规则"><a href="#立规则" class="headerlink" title="立规则"></a>立规则</h2><ul>
 <li>用规则规范大家的编码，保持性能持续的优良。</li>
 <li>性能优化不是前端同学自己的事情，需要业务各合作方的共同认同和支持。性能是最重要的业务功能点</li>
@@ -270,47 +264,6 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
 
 
   
-    <article id="post-瀑布流可视懒加载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/25/瀑布流可视懒加载/" class="article-date">
-  	<time datetime="2016-09-25T03:31:12.000Z" itemprop="datePublished">2016-09-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title:瀑布流可视懒加载<br>date: 2016-07-25 15:25:15<br>categories: 前端基础<br>tags:  </p>
-<h1 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h1><p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
-<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://output.jsbin.com/qirikayalo" target="_blank" rel="external">https://output.jsbin.com/qirikayalo</a></p>
-<h1 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h1><p><a href="https://wicg.github.io/IntersectionObserver/" target="_blank" rel="external">https://wicg.github.io/IntersectionObserver/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-算法导论" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -333,6 +286,47 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
 <li>迭代法 （猜解&gt;&gt;&gt; 数学归纳法 &gt;&gt;&gt; 证明成立）</li>
 <li></li>
 </ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-瀑布流可视懒加载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/25/瀑布流可视懒加载/" class="article-date">
+  	<time datetime="2016-09-25T03:31:12.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title:瀑布流可视懒加载<br>date: 2016-07-25 15:25:15<br>categories: 前端基础<br>tags:  </p>
+<h1 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h1><p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport.</p>
+<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a href="https://output.jsbin.com/qirikayalo" target="_blank" rel="external">https://output.jsbin.com/qirikayalo</a></p>
+<h1 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h1><p><a href="https://wicg.github.io/IntersectionObserver/" target="_blank" rel="external">https://wicg.github.io/IntersectionObserver/</a></p>
 
       
     </div>
@@ -895,6 +889,177 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
 
 
   
+    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/webpack/" class="article-date">
+  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/webpack/">webpack入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://webpack.github.io/assets/what-is-webpack.png" alt="enter image description here"></p>
+<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><blockquote>
+<p>demo 地址<br><a href="https://github.com/superstarwulin/webpackdemo.git" target="_blank" rel="external">https://github.com/superstarwulin/webpackdemo.git</a></p>
+</blockquote>
+<h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h1><p>This small tutorial will guide you through a simple example.</p>
+<p>You’ll learn:</p>
+<ul>
+<li>How to install webpack</li>
+<li>How to use webpack</li>
+<li>How to use loaders</li>
+<li>How to use the development server</li>
+</ul>
+<hr>
+<p><a id="installing-webpack"></a></p>
+<h1 id="Installing-webpack"><a href="#Installing-webpack" class="headerlink" title="Installing webpack"></a>Installing webpack</h1><p>You need to have <a href="https://nodejs.org" target="_blank" rel="external">node.js</a> installed.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> webpack -g</div></pre></td></tr></table></figure>
+<blockquote>
+<p>This makes the webpack command available.</p>
+</blockquote>
+<hr>
+<p><a id="setup-compilation"></a></p>
+<h1 id="Setup-the-compilation"><a href="#Setup-the-compilation" class="headerlink" title="Setup the compilation"></a>Setup the compilation</h1><p>Start with a empty directory.</p>
+<p>Create these files:</p>
+<div class="panel panel-add"><br><br>### add <code>entry.js</code><br><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.write(<span class="string">"It works."</span>)<span class="comment">;</span></div></pre></td></tr></table></figure><br><br></div>
+
+<div class="panel panel-add"><br><br>### add <code>index.html</code><br><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bundle.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>Then run the following:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
+<p>It will compile your file and create a bundle file.</p>
+<p>If successful it displays something like this:</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Version: webpack 1.12.11</div><div class="line"><span class="keyword">Time:</span> 51ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  1.42 kB       0  [emitted]  main</div><div class="line">chunk    &#123;0&#125; bundle.js (main) 28 bytes [rendered]</div><div class="line">    [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure>
+<p>Open <code>index.html</code> in your browser. It should display <code>It works.</code></p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/setup-compilation/index.html"></iframe>
+
+<hr>
+<p><a id="second-file"></a></p>
+<h1 id="Second-file"><a href="#Second-file" class="headerlink" title="Second file"></a>Second file</h1><p>Next, we will move some code into an extra file.</p>
+<div class="panel panel-add"><br><br>### add <code>content.js</code><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = <span class="string">"It works from content.js."</span>;</div></pre></td></tr></table></figure><br><br></div>
+
+<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">document</span>.write(<span class="string">"It works."</span>);+ <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
+
+<p>And recompile with:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
+<p>Update your browser window and you should see the text <code>It works from content.js.</code>.</p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/second-file/index.html"></iframe>
+
+<blockquote>
+<p>webpack will analyze your entry file for dependencies to other files. These files (called modules) are included in your <code>bundle.js</code> too. webpack will give each module a unique id and save all modules accessible by id in the <code>bundle.js</code> file. Only the entry module is executed on startup. A small runtime provides the <code>require</code> function and executes the dependencies when required.</p>
+</blockquote>
+<hr>
+<p><a id="first-loader"></a></p>
+<h1 id="The-first-loader"><a href="#The-first-loader" class="headerlink" title="The first loader"></a>The first loader</h1><p>We want to add a css file to our application.</p>
+<p>webpack can only handle JavaScript natively, so we need the <code>css-loader</code> to process CSS files. We also need the <code>style-loader</code> to apply the styles in the CSS file.</p>
+<p>Run <code>npm install css-loader style-loader</code> to install the loaders. (They need to be installed locally, without <code>-g</code>) This will create a <code>node_modules</code> folder for you, in which the loaders will live.</p>
+<p>Let’s use them:</p>
+<div class="panel panel-add"><br><br>### add <code>style.css</code><br><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div>
+
+<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+ <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
+
+<p>Recompile and update your browser to see your application with yellow background.</p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/first-loader/index.html"></iframe>
+
+<blockquote>
+<p>By prefixing loaders to a module request, the module went through a loader pipeline. These loaders transform the file content in specific ways. After these transformations are applied, the result is a JavaScript module.</p>
+</blockquote>
+<hr>
+<p><a id="binding-loaders"></a></p>
+<h1 id="Binding-loaders"><a href="#Binding-loaders" class="headerlink" title="Binding loaders"></a>Binding loaders</h1><p>We don’t want to write such long requires <code>require(&lt;span class=&quot;string&quot;&gt;&quot;!style!css!./style.css&quot;&lt;/span&gt;);</code>.</p>
+<p>We can bind file extensions to loaders so we just need to write: <code>require(&lt;span class=&quot;string&quot;&gt;&quot;./style.css&quot;&lt;/span&gt;)</code></p>
+<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">+ <span class="built_in">require</span>(<span class="string">"./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
+
+<p>Run the compilation with:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack ./entry<span class="selector-class">.js</span> bundle<span class="selector-class">.js</span> --module-bind <span class="string">'css=style!css'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Some environments may require double quotes: –module-bind “css=style!css”</p>
+</blockquote>
+<p>You should see the same result:</p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/binding-loaders/index.html"></iframe>
+
+<hr>
+<p><a id="config-file"></a></p>
+<h1 id="A-config-file"><a href="#A-config-file" class="headerlink" title="A config file"></a>A config file</h1><p>We want to move the config options into a config file:</p>
+<div class="panel panel-add"><br><br>### add <code>webpack.config.js</code><br><br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line"><span class="symbol">    entry:</span> <span class="string">"./entry.js"</span>,</div><div class="line"><span class="symbol">    output:</span> &#123;</div><div class="line"><span class="symbol">        path:</span> __dirname,</div><div class="line"><span class="symbol">        filename:</span> <span class="string">"bundle.js"</span></div><div class="line">    &#125;,</div><div class="line"><span class="symbol">    module:</span> &#123;</div><div class="line"><span class="symbol">        loaders:</span> [</div><div class="line">            &#123; test: /\.css$/, loader: <span class="string">"style!css"</span> &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br><br></div>
+
+<p>Now we can just run:</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">webpack</span></div></pre></td></tr></table></figure>
+<p>to compile:</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">Version:</span> webpack <span class="number">1.12</span><span class="number">.11</span></div><div class="line"><span class="symbol">Time:</span> <span class="number">379</span>ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  <span class="number">10.7</span> kB       <span class="number">0</span>  [emitted]  main</div><div class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">8.86</span> kB [rendered]</div><div class="line">    [<span class="number">0</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>entry.js <span class="number">65</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">1</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">943</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">2</span>] ../~/css-loader!.<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">201</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">3</span>] ../~<span class="meta-keyword">/css-loader/</span>lib/css-base.js <span class="number">1.51</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">4</span>] ../~<span class="meta-keyword">/style-loader/</span>addStyles.js <span class="number">6.09</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">5</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>content.js <span class="number">45</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>The webpack command-line will try to load the file <code>webpack.config.js</code> in the current directory.</p>
+</blockquote>
+<hr>
+<p><a id="pretty-output"></a></p>
+<h1 id="A-prettier-output"><a href="#A-prettier-output" class="headerlink" title="A prettier output"></a>A prettier output</h1><p>If the project grows the compilation may take a bit longer. So we want to display some kind of progress bar. And we want colors…</p>
+<p>We can achieve this with</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
+<hr>
+<p><a id="watch-mode"></a></p>
+<h1 id="Watch-mode"><a href="#Watch-mode" class="headerlink" title="Watch mode"></a>Watch mode</h1><p>We don’t want to manually recompile after every change…</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">watch</span></div></pre></td></tr></table></figure>
+<p>Webpack can cache unchanged modules and output files between compilations.</p>
+<blockquote>
+<p>When using watch mode, webpack installs file watchers to all files, which were used in the compilation process. If any change is detected, it’ll run the compilation again. When caching is enabled, webpack keeps each module in memory and will reuse it if it isn’t changed.</p>
+</blockquote>
+<hr>
+<p><a id="development-server"></a></p>
+<h1 id="Development-server"><a href="#Development-server" class="headerlink" title="Development server"></a>Development server</h1><p>The development server is even better.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack-dev-<span class="keyword">server</span> -g</div></pre></td></tr></table></figure>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span><span class="literal">-</span><span class="comment">dev</span><span class="literal">-</span><span class="comment">server</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
+<p>This binds a small express server on localhost:8080 which serves your static assets as well as the bundle (compiled automatically). It automatically updates the browser page when a bundle is recompiled (SockJS). Open <a href="http://localhost:8080/webpack-dev-server/bundle" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/bundle</a> in your browser.</p>
+<blockquote>
+<p>The dev server uses webpack’s watch mode. It also prevents webpack from emitting the resulting files to disk. Instead it keeps and serves the resulting files from memory.</p>
+</blockquote>
+<p>参考：<br><a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">https://webpack.github.io/docs/tutorials/getting-started/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-ES6中的一些新特性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -999,68 +1164,6 @@ CSS文件引用放在页面顶部，JS文件引用放在页面底部，并对代
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/前端基础/">前端基础</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-browserify" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/25/browserify/" class="article-date">
-  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/browserify/">browserify入门</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>First install node, which ships with npm. Then do:<br>Hello World With Browserify<br>BUNDLE UP YOUR FIRST MODULE</p>
-<p>Browsers don’t have the require method defined, but Node.js does. With Browserify you can write code that uses require in the same way that you would use it in Node.</p>
-<p>Here is a tutorial on how to use Browserify on the command line to bundle up a simple file called main.js along with all of its dependencies:</p>
-<p>main.js<br>var unique = require(‘uniq’);</p>
-<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
-<p>console.log(unique(data));<br>Install the uniq module with npm:<br>npm install uniq<br>Now recursively bundle up all the required modules starting at main.js into a single file called bundle.js with the browserify command:<br>browserify main.js -o bundle.js<br>Browserify parses the AST for require() calls to traverse the entire dependency graph of your project.<br>Drop a single <script> tag into your html and you’re done!</p>
-<script src="bundle.js"></script></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
 	</div>
 
 
