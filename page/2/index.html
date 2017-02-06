@@ -473,134 +473,6 @@
 
 
   
-    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
-  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
-<p>涵盖兼容性手册、API 文档，退化处理建议</p>
-</blockquote>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
-<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
-<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
-<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
-</ul>
-<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
-<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
-<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
-</ul>
-<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
-  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
-<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-mac上配置opencv" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -731,6 +603,134 @@ int main(int argc, char *argv[])
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/opencv/">opencv</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
+  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
+<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
+  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
+<p>涵盖兼容性手册、API 文档，退化处理建议</p>
+</blockquote>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
+<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
+<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
+<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
+</ul>
+<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
+<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
+</ul>
+<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
 	</div>
 
 
