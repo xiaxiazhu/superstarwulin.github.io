@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git-extras/" style="font-size: 10px;">git extras</a> <a href="/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/weex/" style="font-size: 10px;">weex</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/微架构/" style="font-size: 13.33px;">微架构</a>
+						<a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git-extras/" style="font-size: 10px;">git extras</a> <a href="/tags/reactnative/" style="font-size: 10px;">reactnative</a> <a href="/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/weex/" style="font-size: 10px;">weex</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/微架构/" style="font-size: 13.33px;">微架构</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,68 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-browserify" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/browserify/" class="article-date">
+  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/browserify/">browserify入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>First install node, which ships with npm. Then do:<br>Hello World With Browserify<br>BUNDLE UP YOUR FIRST MODULE</p>
+<p>Browsers don’t have the require method defined, but Node.js does. With Browserify you can write code that uses require in the same way that you would use it in Node.</p>
+<p>Here is a tutorial on how to use Browserify on the command line to bundle up a simple file called main.js along with all of its dependencies:</p>
+<p>main.js<br>var unique = require(‘uniq’);</p>
+<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
+<p>console.log(unique(data));<br>Install the uniq module with npm:<br>npm install uniq<br>Now recursively bundle up all the required modules starting at main.js into a single file called bundle.js with the browserify command:<br>browserify main.js -o bundle.js<br>Browserify parses the AST for require() calls to traverse the entire dependency graph of your project.<br>Drop a single <script> tag into your html and you’re done!</p>
+<script src="bundle.js"></script></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -644,10 +706,10 @@
 
 
   
-    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
+      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
   	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
 </a>
     </div>
@@ -661,7 +723,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
+      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
     </h1>
   
 
@@ -670,11 +732,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
-<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
-
+        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
+<p>涵盖兼容性手册、API 文档，退化处理建议</p>
+</blockquote>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
+<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
+<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
+<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
+</ul>
+<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
+<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
+</ul>
+<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
       
     </div>
     
@@ -851,10 +921,10 @@ int main(int argc, char *argv[])
 
 
   
-    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
+      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
   	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
 </a>
     </div>
@@ -868,7 +938,7 @@ int main(int argc, char *argv[])
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
+      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
     </h1>
   
 
@@ -877,19 +947,11 @@ int main(int argc, char *argv[])
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
-<p>涵盖兼容性手册、API 文档，退化处理建议</p>
-</blockquote>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
-<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
-<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
-<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
-</ul>
-<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
-<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
-<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
-</ul>
-<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
+        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
+<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
+
       
     </div>
     
@@ -902,6 +964,69 @@ int main(int argc, char *argv[])
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/数据库/">数据库</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/命令行工具/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/命令行工具/">nodejs 制作命令行工具</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="制作命令行工具"><a href="#制作命令行工具" class="headerlink" title="制作命令行工具"></a>制作命令行工具</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://jslite.io/2015/06/19/Nodejs-%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" target="_blank" rel="external">Nodejs-制作命令行工具</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">Node.js 命令行程序开发教程
+</a></li>
+<li><a href="node.js command-line interfaces made easy">node.js command-line interfaces made easy</a></li>
+<li><a href="http://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="external">Building a simple command line tool with npm</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/基础/">基础</a>
 	</div>
 
 
@@ -970,130 +1095,6 @@ int main(int argc, char *argv[])
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/基础/">基础</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-js的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/js的封装和继承/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/js的封装和继承/">js的封装和继承</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">封装</a></p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">构造函数的继承</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">分构造函数的继承</a></p>
-<h3 id="参考阮一峰大大的博客"><a href="#参考阮一峰大大的博客" class="headerlink" title="参考阮一峰大大的博客"></a>参考阮一峰大大的博客</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-浅谈前端的主流设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/浅谈前端的主流设计模式/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/浅谈前端的主流设计模式/">浅谈前端的主流设计模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。</p>
-<h1 id="前端的设计模式"><a href="#前端的设计模式" class="headerlink" title="前端的设计模式"></a>前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题– UI和逻辑是一起的，但他们却不是一起的。</strong></p>
-<p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
-<p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
-<h2 id="Model-View-Control"><a href="#Model-View-Control" class="headerlink" title="Model View Control"></a>Model View Control</h2><p><img src="http://i.stack.imgur.com/ocEWx.png" alt=""></p>
-<p>最原始的模型架构细分管理模型，MVC，相互关系如上图：推动业务的事件由用户与view交互，通过view向controller发动，然后触发数据更新。而mvc的使用发现的问题是当有变化发生时候，需要维护三个对象和三个三个交互，这让事情复杂化了。</p>
-<p>mvc的三角关系被认为给一些人带来了麻烦，所以需要催生更好的解决方案。</p>
-<h2 id="Model-View-Presenter"><a href="#Model-View-Presenter" class="headerlink" title="Model View Presenter"></a>Model View Presenter</h2><h2 id="Model-View-ViewModel"><a href="#Model-View-ViewModel" class="headerlink" title="Model View ViewModel"></a>Model View ViewModel</h2><p><img src="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg" alt=""></p>
-<p>ViewModel大致上就是MVP的Presenter和MVC的Controller了，而View和ViewModel间没有了MVP的界面接口，而是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
 	</div>
 
 

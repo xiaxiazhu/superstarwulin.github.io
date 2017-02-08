@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>react native 技术栈简析（一） | 武林的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概要
+Webpack out of the box
+ES6 syntax and beyond
+Bluebird, window.fetch and other pollyfils
+PureRender everywhere
+Flux
+Store reducers
+Immutable app state
+Powerful inspired by React Router routing libra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react native 技术栈简析（一）">
+<meta property="og:url" content="superstarwulin.github.io/2016/11/09/rndevstack/index.html">
+<meta property="og:site_name" content="武林的博客">
+<meta property="og:description" content="概要
+Webpack out of the box
+ES6 syntax and beyond
+Bluebird, window.fetch and other pollyfils
+PureRender everywhere
+Flux
+Store reducers
+Immutable app state
+Powerful inspired by React Router routing libra">
+<meta property="og:image" content="http://i4.piimg.com/567571/aa7a345dbcf0bd53.jpg">
+<meta property="og:image" content="https://github.com/superstarwulin/mdtext/blob/master/img/687474703a2f2f686f6f70382e636f6d2f31363131422f505765585344674b2e706e67.png">
+<meta property="og:image" content="https://s16.postimg.org/k44c1qeat/2016_11_05_11_33_00.png">
+<meta property="og:image" content="http://qiutc.me/img/redux.jpeg">
+<meta property="og:image" content="http://hoop8.com/1612A/qcbZTCVI.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/4c698f4cef2ae6b69873aa7de91f6d10f28162e1/687474703a2f2f696d672e616c6963646e2e636f6d2f7470732f69312f544231796b395f4b585858585862565846585845745848387058582d3930302d3334322e706e67">
+<meta property="og:updated_time" content="2017-02-08T01:54:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react native 技术栈简析（一）">
+<meta name="twitter:description" content="概要
+Webpack out of the box
+ES6 syntax and beyond
+Bluebird, window.fetch and other pollyfils
+PureRender everywhere
+Flux
+Store reducers
+Immutable app state
+Powerful inspired by React Router routing libra">
+<meta name="twitter:image" content="http://i4.piimg.com/567571/aa7a345dbcf0bd53.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="武林的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img lazy-src="http://gtms01.alicdn.com/tps/i1/TB1x_.vHVXXXXXvXVXX2YSA3pXX-540-960.jpg_180x180xz.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">leo(武林)</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">技术自由，耕耘点滴</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/photo/">相册</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/superstarwulin" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/2434748684/profile?topnav=1&wvr=6" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="/wulin.zwl@taobao.com" title="mail">mail</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/zhuwulin" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git-extras/" style="font-size: 10px;">git extras</a> <a href="/tags/reactnative/" style="font-size: 10px;">reactnative</a> <a href="/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/tags/webpack/" style="font-size: 13.33px;">webpack</a> <a href="/tags/weex/" style="font-size: 10px;">weex</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/基础/" style="font-size: 20px;">基础</a> <a href="/tags/工具/" style="font-size: 13.33px;">工具</a> <a href="/tags/微架构/" style="font-size: 13.33px;">微架构</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">朱武林，2013年毕业于华南理工大学电子与信息学院，获得硕士学位。曾就职于百度hao123团队，现就职于阿里巴巴天猫前端团队，花名五零；geek精神，技术自由。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">leo(武林)</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://gtms01.alicdn.com/tps/i1/TB1x_.vHVXXXXXvXVXX2YSA3pXX-540-960.jpg_180x180xz.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">leo(武林)</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">技术自由，耕耘点滴</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/photo/">相册</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/superstarwulin" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/2434748684/profile?topnav=1&wvr=6" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="/wulin.zwl@taobao.com" title="mail">mail</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/zhuwulin" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-rndevstack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/09/rndevstack/" class="article-date">
+  	<time datetime="2016-11-09T07:25:15.000Z" itemprop="datePublished">2016-11-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      react native 技术栈简析（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactnative/">reactnative</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/reactnative/">reactnative</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><ul>
+<li>Webpack out of the box</li>
+<li>ES6 syntax and beyond</li>
+<li>Bluebird, window.fetch and other pollyfils</li>
+<li>PureRender everywhere</li>
+<li>Flux</li>
+<li>Store reducers</li>
+<li>Immutable app state</li>
+<li>Powerful inspired by React Router routing library</li>
+</ul>
+<h1 id="rn整体流程"><a href="#rn整体流程" class="headerlink" title="rn整体流程"></a>rn整体流程</h1><p><img src="http://i4.piimg.com/567571/aa7a345dbcf0bd53.jpg" alt=""></p>
+<h1 id="包管理工具，从入门到入坑"><a href="#包管理工具，从入门到入坑" class="headerlink" title="包管理工具，从入门到入坑"></a>包管理工具，从入门到入坑</h1><p>打包工具众多，万恶之源就是它，npm。域名地址: <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a>.<br>首先，我们ping一下，外国服务器，速度炒鸡慢，一个包几十个依赖，好了，号称5g的网络，<code>npm install</code>安装，喝杯水出去走一圈，没有下完，一上午过去，还没有下完。（别怪vpn了，vpn翻墙也不会太快）</p>
+<p>淘宝node包居然开源了，<a href="https://npm.taobao.org/" target="_blank" rel="external">淘宝 NPM 镜像</a>，国内服务器，淘宝cdn，速度以3M计，几乎都是瞬间下完。所以首先做的是把预先的<code>npm</code>注册成为<code>cnpm</code>，命令行敲一下命令<br><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<p>现在速度是快了，里面体验就不一样，但是有一个问题，淘宝的cnpm管理工具，管理方法是，在cnpm自身安装目录下面建立的软连接，二这样在xcode的打包工程里面可能会存在问题的哦。（不知道软连接的请移步：<a href="http://www.cnblogs.com/itech/archive/2009/04/10/1433052.html" target="_blank" rel="external">#软连接</a>）。<br>所以，更科学的方法是设置npm镜像。</p>
+<p><code>npm config set registry https://registry.npm.taobao.org --global</code></p>
+<p>好了，物理链接到npm目录下面，实打实的。</p>
+<p>rn 提供了rnpm用来专门作为rn的打包工具，rnpm link之后，可以link的检测。<br><img src="https://github.com/superstarwulin/mdtext/blob/master/img/687474703a2f2f686f6f70382e636f6d2f31363131422f505765585344674b2e706e67.png" alt=""></p>
+<h1 id="打包流程"><a href="#打包流程" class="headerlink" title="打包流程"></a>打包流程</h1><h3 id="rn官方的打包流程-ios版本"><a href="#rn官方的打包流程-ios版本" class="headerlink" title="rn官方的打包流程-ios版本"></a>rn官方的打包流程-ios版本</h3><h4 id="react-native-packager"><a href="#react-native-packager" class="headerlink" title="react-native-packager"></a>react-native-packager</h4><ul>
+<li>log:<br><img src="https://s16.postimg.org/k44c1qeat/2016_11_05_11_33_00.png" alt=""></li>
+<li>躲坑操作：<a href="https://github.com/facebook/react-native/issues/1924" target="_blank" rel="external">clean cache</a></li>
+</ul>
+<h3 id="commond-line"><a href="#commond-line" class="headerlink" title="commond line"></a>commond line</h3><ol>
+<li>react-native 打包工具</li>
+</ol>
+<p><code>react-native bundle --entry-file index.ios.js --bundle-output ios/dj/main.bundle</code></p>
+<p>entry and output 为了打包</p>
+<ol>
+<li><a href="https://yarnpkg.com" target="_blank" rel="external">https://yarnpkg.com</a>  更快。。</li>
+</ol>
+<p>Facebook发布Node模块管理器<a href="yarnpkg.com">Yarn</a>，用来取代npm。它支持离线安装，并让依赖的安装行为更合理。</p>
+<h3 id="替代方案：webpack打包，支持es6的优秀特性。"><a href="#替代方案：webpack打包，支持es6的优秀特性。" class="headerlink" title="替代方案：webpack打包，支持es6的优秀特性。"></a>替代方案：webpack打包，支持es6的优秀特性。</h3><ul>
+<li>未完</li>
+</ul>
+<h3 id="code-push"><a href="#code-push" class="headerlink" title="code push"></a><a href="https://github.com/Microsoft/code-push" target="_blank" rel="external">code push</a></h3><p> 版本华的推送rn组件到app里面。</p>
+<h1 id="ES6基本语法"><a href="#ES6基本语法" class="headerlink" title="ES6基本语法"></a>ES6基本语法</h1><p>如果你是新手，那直接上es6，没有污染，可以直接用上科班教你的class等语法。我等被污染的老鸟，可以用babel提供出来的实时编译工具查看es6中特殊语法的转化。<a href="https://babeljs.io/repl/#?babili=false&amp;evaluate=true&amp;lineWrap=false&amp;presets=es2015%2Creact%2Cstage-2&amp;code=" target="_blank" rel="external">babel实时编译工具</a></p>
+<p>具体可以查看的可以是<a href="http://superstarwulin.github.io/2016/07/25/ES6%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7/">本人的一些基本用法</a>，以及google给出的<a href="https://www.chromestatus.com/samples#es6" target="_blank" rel="external">demo</a></p>
+<h1 id="react-入门"><a href="#react-入门" class="headerlink" title="react 入门"></a>react 入门</h1><ul>
+<li><p><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">阮一峰大大的文章足以入门</a> 里面有七八个demo供君赏玩。</p>
+</li>
+<li><p><a href="https://react-guide.github.io/react-router-cn/" target="_blank" rel="external">路由</a>:也即是React Router 保持 UI 与 URL 同步。它拥有简单的 API 与强大的功能例如代码缓冲加载、动态路由匹配、以及建立正确的位置过渡处理。</p>
+</li>
+</ul>
+<h1 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h1><blockquote>
+<p><a href="http://cn.redux.js.org/docs/advanced/Middleware.html" target="_blank" rel="external">官方中文站点文档</a></p>
+</blockquote>
+<h3 id="牛逼时间："><a href="#牛逼时间：" class="headerlink" title="牛逼时间："></a>牛逼时间：</h3><p>以前也写过相关的数据管理的组件，是以单个数据节点的形式来做数据的监听。例如：a节点load之后，可以无限被调用，在a被change的时候，可以被监听到。 然后很多这样的a节点的集合组成了数据管理模型。这也是天猫详情的数据管理方式。有兴趣可以<a href="http://superstarwulin.github.io/2015/05/29/%E5%8A%A0%E8%BD%BD%E5%87%BD%E6%95%B0/">参考</a>。</p>
+<blockquote>
+<pre><code>如果你要问为什么要数据管理，那你可以去看看杂乱无章时代的数据是跟着view的，也即是，你管理数据是无章法的，没有章法和模式最大的缺点是扩展性的缺失以及超级不方便的更新监听。简单一致带来了更大架构上的支撑。
+</code></pre></blockquote>
+<h3 id="redux时间"><a href="#redux时间" class="headerlink" title="redux时间"></a>redux时间</h3><p>redux本质上是一种数据管理组件，一图以蔽之：<br><img src="http://qiutc.me/img/redux.jpeg" alt=""><br>解释：<code>store、dispatcher、view、action</code>。 action反应了用户的操作，也可以fire。</p>
+<h4 id="redux-核心概念"><a href="#redux-核心概念" class="headerlink" title="redux 核心概念"></a>redux 核心概念</h4><ul>
+<li>所有的状体存在store，组件每次渲染，都必须有状态变化引起。</li>
+<li>用户在UI上发出action</li>
+<li>reducer函数接受action，然后根据当前的state，计算出新的state</li>
+</ul>
+<h5 id="举例说明："><a href="#举例说明：" class="headerlink" title="举例说明："></a>举例说明：</h5><ul>
+<li><a href="https://github.com/superstarwulin/mdtext/blob/master/demo/redux-demo/app/App.js#L4" target="_blank" rel="external">store用来描述组件UI账户和state之间的映射</a></li>
+</ul>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 用来描述UI组件参数与<span class="keyword">state</span>之间的映射</div><div class="line">function mapStateToProps(<span class="keyword">state</span>) &#123;</div><div class="line">  return &#123;</div><div class="line">    text: <span class="keyword">state</span>.text,</div><div class="line">    name: <span class="keyword">state</span>.name</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/superstarwulin/mdtext/blob/master/demo/redux-demo/app/App.js#L16" target="_blank" rel="external">dispatch用来描述UI与action的映射</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// dispatch用来描述UI与action的映射。</span></div><div class="line"><span class="comment">// Map Redux actions to component props</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapDispatchToProps</span>(<span class="params">dispatch</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">onChange</span>: <span class="function">(<span class="params">e</span>) =&gt;</span> dispatch(&#123;</div><div class="line">      <span class="attr">type</span>: <span class="string">'change'</span>,</div><div class="line">      <span class="attr">payload</span>: e.target.value</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/superstarwulin/mdtext/blob/master/demo/redux-demo/app/App.js#L27" target="_blank" rel="external">容器在用户给出配置之后，有redux生成</a></li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 容器组件在用户给出配置之后，由Redux生成。</span></div><div class="line"><span class="comment">// Connected Component</span></div><div class="line"><span class="keyword">const</span> App = <span class="built_in">connect</span>(</div><div class="line">  mapStateToProps,</div><div class="line">  mapDispatchToProps</div><div class="line">)(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/superstarwulin/mdtext/blob/master/demo/redux-demo/app/main.jsx#L10" target="_blank" rel="external">为了把stroe传入组件，西药redux提供的provider在组件外面包一层</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//为了把store传入组件，必须使用redux提供的provider在组件外包一层。</span></div><div class="line"><span class="keyword">const</span> store = createStore(reducer);</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">App</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>,</div><div class="line">  <span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.createElement(<span class="string">'div'</span>))</div><div class="line">);</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://github.com/superstarwulin/mdtext/blob/master/demo/redux-demo/app/reducer.js" target="_blank" rel="external">纯函数，用来接受aciton，算出新的state</a></li>
+</ul>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用来接收action，算出新的state，纯函数逻辑</span></div><div class="line">function reducer(state = &#123;</div><div class="line">  <span class="built_in">text</span>: <span class="string">'你好，访问者'</span>,</div><div class="line">  <span class="built_in">name</span>: <span class="string">'访问者'</span></div><div class="line">&#125;, <span class="built_in">action</span>) &#123;</div><div class="line">  <span class="keyword">switch</span> (<span class="built_in">action</span>.<span class="built_in">type</span>) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'change'</span>:</div><div class="line">      return &#123;</div><div class="line">        <span class="built_in">name</span>: <span class="built_in">action</span>.payload,</div><div class="line">        <span class="built_in">text</span>: <span class="string">'你好，'</span> + <span class="built_in">action</span>.payload</div><div class="line">      &#125;;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      return state;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><p>它提供的是位于 action 被发起之后，到达 reducer 之前的扩展点.<br>例如，可以利用中间件来解决例如日志记录，创建奔溃报告，调用异步借口，或者路由。</p>
+<p>redux是flux的基础上发展起来的，相比来说，有一些改进的地方：<br>例如：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// flux create action</span></div><div class="line">export <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span><span class="params">(text)</span> &#123;</span></div><div class="line">  AppDispatcher.dispatch(&#123;</div><div class="line">    type: ActionTypes.ADD_TODO,</div><div class="line">    <span class="built_in">text</span>: <span class="built_in">text</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// redux create action,与dispatch解耦，更优</span></div><div class="line">export <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span><span class="params">(text)</span> &#123;</span></div><div class="line">  return &#123;</div><div class="line">    type: ActionTypes.ADD_TODO,</div><div class="line">    <span class="built_in">text</span>: <span class="built_in">text</span></div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="常用的中间件"><a href="#常用的中间件" class="headerlink" title="常用的中间件"></a>常用的中间件</h3><h4 id="手动容器的生成"><a href="#手动容器的生成" class="headerlink" title="手动容器的生成"></a>手动容器的生成</h4><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Connected Component</div><div class="line">const App = connect(</div><div class="line">  <span class="name">mapStateToProps</span>,</div><div class="line">  mapDispatchToProps</div><div class="line">)(<span class="name">MyComponent</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h4 id="redux-actions"><a href="#redux-actions" class="headerlink" title="redux-actions"></a><a href="https://github.com/acdlite/redux-actions" target="_blank" rel="external">redux-actions</a></h4><ul>
+<li>redux-actions托管容器生产</li>
+</ul>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">export <span class="keyword">default</span> handleActions(&#123;</div><div class="line">  [ADD_NEW_COUNTER]: (<span class="keyword">state</span>, action) =&gt; &#123;</div><div class="line">    const &#123; idGen &#125; = <span class="keyword">state</span></div><div class="line">    const newId = idGen + <span class="number">1</span></div><div class="line"></div><div class="line">    //this reducer basically generate a new id <span class="keyword">for</span> new counter and</div><div class="line">    //assign value <span class="number">0</span> <span class="keyword">to</span> that id.</div><div class="line"></div><div class="line">    return &#123;</div><div class="line">      idGen: newId,</div><div class="line">      <span class="keyword">counters</span>: &#123;</div><div class="line">        ...<span class="keyword">state</span>.<span class="keyword">counters</span>,</div><div class="line">        [newId]: <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  [INCREMENT]: (<span class="keyword">state</span>, action) =&gt; &#123;</div><div class="line">    const &#123; payload: &#123; id &#125; &#125; = action</div><div class="line"></div><div class="line">    //because payload contains the id and we already know that we are about</div><div class="line">    //<span class="keyword">to</span> increment the value of that id, we modify only that value by one</div><div class="line"></div><div class="line">    return &#123;</div><div class="line">      ...<span class="keyword">state</span>,</div><div class="line">      <span class="keyword">counters</span>: &#123;</div><div class="line">        ...<span class="keyword">state</span>.<span class="keyword">counters</span>,</div><div class="line">        [id]: <span class="keyword">state</span>.<span class="keyword">counters</span>[id] + <span class="number">1</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  [DECREMENT]: (<span class="keyword">state</span>, action) =&gt; &#123;</div><div class="line">    const &#123; payload: &#123; id &#125; &#125; = action</div><div class="line"></div><div class="line">    //this is exatcly similar as previous reducer, except we are decrementing</div><div class="line"></div><div class="line">    return &#123;</div><div class="line">      ...<span class="keyword">state</span>,</div><div class="line">      <span class="keyword">counters</span>: &#123;</div><div class="line">        ...<span class="keyword">state</span>.<span class="keyword">counters</span>,</div><div class="line">        [id]: <span class="keyword">state</span>.<span class="keyword">counters</span>[id] - <span class="number">1</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">&#125;, initialState)</div></pre></td></tr></table></figure>
+<p>调试：<br>你会发现，redux也是经过webpack打包成es5的bundlejs来运行的，所以，调试是一个问题。</p>
+<p>工具来了：<a href="https://github.com/gaearon/redux-devtools" target="_blank" rel="external">https://github.com/gaearon/redux-devtools</a><br>也有浏览器插件。</p>
+<p> <code>talk is cheap ，show me the demo</code>。</p>
+<h1 id="开发环境-根据自己喜好"><a href="#开发环境-根据自己喜好" class="headerlink" title="开发环境(根据自己喜好)"></a>开发环境(根据自己喜好)</h1><ul>
+<li><a href="http://www.jianshu.com/p/2ddfff095e90" target="_blank" rel="external">http://www.jianshu.com/p/2ddfff095e90</a></li>
+<li><a href="https://github.com/facebookarchive/sublime-react" target="_blank" rel="external">代码提示，高亮显示 </a></li>
+<li><a href="https://github.com/Shrugs/react-native-snippets" target="_blank" rel="external">代码简写</a></li>
+</ul>
+<h1 id="react-native"><a href="#react-native" class="headerlink" title="react native"></a>react native</h1><ul>
+<li><p>rn本质上是在native端实现了相应的语法改造，最终将前端代码切换为native的UI。可以简单形象的理解为<a href="https://docs.google.com/presentation/d/1ZRIQbUKw9Tf077odCh66OrrwRIVNLvI_nhLm2Gi__F0/embed?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.p" target="_blank" rel="external">native的webkit</a></p>
+</li>
+<li><p>[组件库]（<a href="http://reactnative.cn/docs/0.38/using-a-listview.html#content）" target="_blank" rel="external">http://reactnative.cn/docs/0.38/using-a-listview.html#content）</a></p>
+</li>
+</ul>
+<h2 id="快速进入状态"><a href="#快速进入状态" class="headerlink" title="快速进入状态"></a><a href="https://github.com/superstarwulin/mdtext/issues/9" target="_blank" rel="external">快速进入状态</a></h2><h3 id="网格布局"><a href="#网格布局" class="headerlink" title="网格布局"></a>网格布局</h3><ul>
+<li><a href="https://github.com/tmallfe/tmallfe.github.io/issues/19" target="_blank" rel="external">布局</a></li>
+</ul>
+<h3 id="网络请求"><a href="#网络请求" class="headerlink" title="网络请求"></a>网络请求</h3><ul>
+<li><a href="https://facebook.github.io/react-native/docs/network.html" target="_blank" rel="external">fetch</a></li>
+</ul>
+<h3 id="redux-1"><a href="#redux-1" class="headerlink" title="redux"></a>redux</h3><h3 id="html与rn组件的对应关系"><a href="#html与rn组件的对应关系" class="headerlink" title="html与rn组件的对应关系"></a>html与rn组件的对应关系</h3><ul>
+<li>待整理</li>
+</ul>
+<h3 id="css转化工具"><a href="#css转化工具" class="headerlink" title="css转化工具"></a>css转化工具</h3><ul>
+<li>自己在用，后续给出整理好的方案</li>
+</ul>
+<blockquote>
+<p>buytheway：很自然的一个看network的请求的功能，rn默认的debug工具，可以看请求，但是，居然不提供copy功能，那我怎么去跟后端谈判啊，用刀么。还是装一个Charles吧。<br><img src="http://hoop8.com/1612A/qcbZTCVI.png" alt=""></p>
+</blockquote>
+<h3 id="用第三方组件"><a href="#用第三方组件" class="headerlink" title="用第三方组件"></a>用第三方组件</h3><h4 id="Awesome-React-Native-star-8000"><a href="#Awesome-React-Native-star-8000" class="headerlink" title="Awesome React Native  (star 8000+ )"></a><a href="https://github.com/jondot/awesome-react-native" target="_blank" rel="external">Awesome React Native </a> (star 8000+ )</h4><h3 id="debuger"><a href="#debuger" class="headerlink" title="debuger"></a>debuger</h3><p>rn提供了超级方便的debuger工具和体验。<br>首先，xcode中启动程序,模拟器开启，页面出现。<br><code>cmd +R</code> hot reload，意思是，本地代码修改，直接更新到native的模拟视窗。<br><code>cmd + D</code> dev Menu.debuger类型选择： 包括重载，远程js模拟器，hot reloading等。</p>
+<p><code>http://localhost:8081/debugger-ui</code> 允许在devtools中debug。</p>
+<h3 id="rn中坑的海洋"><a href="#rn中坑的海洋" class="headerlink" title="rn中坑的海洋"></a>rn中坑的海洋</h3><ul>
+<li><a href="https://github.com/facebook/react-native/issues" target="_blank" rel="external">facebook issues</a></li>
+<li><p>有意思的bug，在一次端口冲突之后，简单的demo：<br><code>react-native init projectname</code><br>之后，你可以得到简单的demo程序，可是发现重复的rebuild居然会报错，这tmd可是react-native官方给出的demo啊，代码肯定是不会出错的，那为什么relaod之后会报错呢？<br>现象大概是：在端口冲突之后，就算是把端口kill掉，也会有问题。没有办法进入transforming 的流程。<br>暂时的解决：把端口kill掉，把product删掉,再不行，换端口，<a href="http://facebook.github.io/react-native/docs/troubleshooting.html" target="_blank" rel="external">把8081换掉</a>。找ios的同学debug一下，这东西是没有挂的，以此类推，很多自己开发的app都会有此问题。</p>
+</li>
+<li><p><a href="http://cheng.logdown.com/posts/2016/03/26/683329" target="_blank" rel="external">super constrctor</a> :解决在构造函数中传递prop参数。</p>
+</li>
+<li><p>rn最大的问题是，客户端里面，做渲染的时候，不显示的部分内存是销毁的，而对于rn来说，js的document是隐藏的一个长列表，在转化成native的时候，就会遇到内存泄漏的问题。</p>
+</li>
+</ul>
+<h1 id="槽点"><a href="#槽点" class="headerlink" title="槽点"></a>槽点</h1><p>class style需要按照facebook提供的写法，我就不喜欢。所以，用工具代替之。</p>
+<ul>
+<li>是不是习惯问题呢? 其实除了习惯之外，还有工具链的支持。</li>
+</ul>
+<h1 id="immutable"><a href="#immutable" class="headerlink" title="immutable"></a><a href="https://github.com/camsong/blog/issues/3" target="_blank" rel="external">immutable</a></h1><ul>
+<li>一言以蔽之：在对象以及对象引用被修改的时候，返回新的对象来保证在immutable声明的数据结构内存空间里面的数据不会被意外修改。当然，人家做了很多优化，包括不限于并发、内存复用。</li>
+<li><img src="https://camo.githubusercontent.com/4c698f4cef2ae6b69873aa7de91f6d10f28162e1/687474703a2f2f696d672e616c6963646e2e636f6d2f7470732f69312f544231796b395f4b585858585862565846585845745848387058582d3930302d3334322e706e67" alt=""></li>
+</ul>
+<h1 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h1><h3 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h3><p>在以前的项目中，我们选择 JSHint 和 JSCS 结合使用，WebStorm 等开发环境已经支持这些工具，使用起来很顺手。然而，最近使用 React JSX 语法时，却遇到了问题：JSHint 不支持 JSX 语法。虽然有 JSXHint 这样的 JSHint 衍生工具，但个人并不喜欢这样的实现方式：不是以插件的形式实现，而是重新重新包装了一个工具。Nicholas C. Zakas 也不喜欢，所以有了 ESLint</p>
+<h1 id="主流框架横向比较整理"><a href="#主流框架横向比较整理" class="headerlink" title="主流框架横向比较整理"></a><a href="https://zhuanlan.zhihu.com/p/21677103" target="_blank" rel="external">主流框架横向比较整理</a></h1><table>
+<thead>
+<tr>
+<th>`</th>
+<th>weex</th>
+<th>rn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>js引擎</td>
+<td>v8</td>
+<td>jsCore</td>
+</tr>
+<tr>
+<td>js开发框架</td>
+<td>vue(virtual dom 2.0加入)</td>
+<td>组件化，数据绑定，virtual dom</td>
+</tr>
+<tr>
+<td>andriod</td>
+<td>Choreographer（API16以上）</td>
+<td>Choreographer(api14以上)</td>
+</tr>
+<tr>
+<td>js开发框架</td>
+<td>v8</td>
+<td>jsCore</td>
+</tr>
+<tr>
+<td>js引擎</td>
+<td>vue.js(小巧轻量的前端开发框架，组件化，数据绑定，2.0引入virtual dom)</td>
+<td>react(革命性的前端开发框架，组件化，数据绑定，virtual dom)</td>
+</tr>
+<tr>
+<td>vue vs react</td>
+<td>react模板JSX学习使用有一定的成本</td>
+<td>vue更接近常用的web开发方式，模板就是普通的html，数据绑定使用mustache风格，样式直接使用css</td>
+</tr>
+<tr>
+<td>andriod版本要求</td>
+<td>weex使用handler来代替Choreographer，可以在API14以上使用</td>
+<td>ReactNative使用了Choreographer，因此必须在API16以上才可以使用</td>
+</tr>
+<tr>
+<td>环境配置</td>
+<td>麻烦，很多依赖工具</td>
+<td>weex安装cli之后就可以使用</td>
+</tr>
+<tr>
+<td>sdk使用</td>
+<td>ReactNative需要解决mvn依赖的问题，因此必须自己修改源码，打包发布</td>
+<td>weex可以直接在mvn项目中使用</td>
+</tr>
+<tr>
+<td>调试</td>
+<td>都可以在chrome中调试JS代码</td>
+<td>weex支持在chrome中预览页面dom节点，ReactNative不支持</td>
+</tr>
+<tr>
+<td>页面开发</td>
+<td>ReactNative开发一个页面，需要建立一个native工程，然后编译运行</td>
+<td>weex提供了一个playground，可以方便的预览正在开发的页面</td>
+</tr>
+<tr>
+<td>即时预览</td>
+<td>hot reload</td>
+<td>hot reload</td>
+</tr>
+<tr>
+<td>打包bundle</td>
+<td>ReactNative官方只能将ReactNative基础js库和业务js一起打成一个js bundle，没有提供分包的功能，需要制作分包打包工具</td>
+<td>weex默认打的js bundle只包含业务js代码，体积小很多，基础js库包含在weex sdk中</td>
+</tr>
+<tr>
+<td>扩展性</td>
+<td>ReactNative需要自己修改源码</td>
+<td>三方库的接入上，weex对网络，图片，统计等常见的用户可能想自己定制的功能，提供了相应的适配接口，可以由用户方便的定制，</td>
+</tr>
+<tr>
+<td>跨平台</td>
+<td>支持Android iOS两个平台</td>
+<td>Android iOS web三个平台</td>
+</tr>
+<tr>
+<td>Moudle方法调用线程</td>
+<td>weex 可以通过注解标注是否在UI线程执行</td>
+<td>ReactNative在native_modules线程执行</td>
+</tr>
+<tr>
+<td>异步</td>
+<td>weex只支持callback</td>
+<td>ReactNative提供了Promise的支持</td>
+</tr>
+<tr>
+<td>分包加载</td>
+<td>ReactNative需要自己实现，从而优化JS加载执行时间</td>
+<td>weex默认提供分包实现</td>
+</tr>
+<tr>
+<td>官方支持</td>
+<td>ReactNative官方关注的重心目前并不在性能上</td>
+<td>weex持续关注性能优化</td>
+</tr>
+<tr>
+<td>大块view</td>
+<td>ReactNative默认没有优化机制，长view渲染性能会比较差</td>
+<td>weex提供了node和tree两种渲染模式，优化长view的渲染</td>
+</tr>
+<tr>
+<td>ListView Android</td>
+<td>ReactNative目前采用scrollView使用，有一些性能问题</td>
+<td>weex使用recyclerview实现，性能稍好</td>
+</tr>
+</tbody>
+</table>
+<h1 id="建议和关键点（一般人我不告诉他）"><a href="#建议和关键点（一般人我不告诉他）" class="headerlink" title="建议和关键点（一般人我不告诉他）"></a>建议和关键点（一般人我不告诉他）</h1><h3 id="hotloading"><a href="#hotloading" class="headerlink" title="hotloading"></a>hotloading</h3><h3 id="react-native-webpack-server"><a href="#react-native-webpack-server" class="headerlink" title="react-native-webpack-server"></a><a href="https://github.com/mjohnston/react-native-webpack-server" target="_blank" rel="external">react-native-webpack-server</a></h3><h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://csspod.com/getting-started-with-eslint/" target="_blank" rel="external">https://csspod.com/getting-started-with-eslint/</a><br><a href="https://hulufei.gitbooks.io/react-tutorial/content/flux-evolution.html" target="_blank" rel="external">https://hulufei.gitbooks.io/react-tutorial/content/flux-evolution.html</a><br><a href="http://dev.qq.com/topic/577e16a7640ad7b4682c64a7" target="_blank" rel="external">http://dev.qq.com/topic/577e16a7640ad7b4682c64a7</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/08/web性能的极致优化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          web性能的极致优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/25/算法导论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="rndevstack" data-title="react native 技术栈简析（一）" data-url="superstarwulin.github.io/2016/11/09/rndevstack/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 leo(武林)
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/mobile.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
