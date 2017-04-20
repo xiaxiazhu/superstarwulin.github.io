@@ -706,66 +706,6 @@
 
 
   
-    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
-  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
-<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-mac上配置opencv" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -913,6 +853,66 @@ int main(int argc, char *argv[])
 
 
   
+    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
+  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
+<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -981,74 +981,6 @@ int main(int argc, char *argv[])
 
 
   
-    <article id="post-jquery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/jquery源码解析/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/jquery源码解析/">jquery源码学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" target="_blank" rel="external">version 2.0.3 googlecdn</a></p>
-<h1 id="大框架"><a href="#大框架" class="headerlink" title="大框架"></a>大框架</h1><h4 id="自调匿名函数"><a href="#自调匿名函数" class="headerlink" title="自调匿名函数"></a>自调匿名函数</h4><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">(<span class="name">funciton</span>()&#123;</div><div class="line">	var a = <span class="number">10</span><span class="comment">;</span></div><div class="line">	(<span class="name">21</span>,<span class="number">94</span>) 定义了一些变量和函数。 </div><div class="line">	// 包括 </div><div class="line">	JQuery = funciton(<span class="name">selector</span> ,context)&#123;</div><div class="line">		return new JQuery.fn.int(<span class="name">selector</span>,context,rootjQuery)<span class="comment">;</span></div><div class="line">	&#125;</div><div class="line">		</div><div class="line">	funciton $()&#123;</div><div class="line">	</div><div class="line">	</div><div class="line">	&#125;   // 变成局部函数和变量，与外部环境独立开来</div><div class="line">	</div><div class="line">	(<span class="name">96</span>,<span class="number">283</span>) // 面向对象的程序，给jq对象添加属性和方法。 $().css()<span class="comment">;</span></div><div class="line">	</div><div class="line">	(<span class="name">285</span>,<span class="number">347</span>) //  jq的继承方法 （类似继承，原型继承）后期扩展，以及插件扩展</div><div class="line">	jQuery.extend =  </div><div class="line">	</div><div class="line">	(<span class="name">349</span>,<span class="number">817</span>) jquery.extend() : // 扩展一些工具方法 $.trim()<span class="comment">;</span></div><div class="line">	</div><div class="line">	(<span class="name">877</span>,<span class="number">2856</span>) sizzle :复杂选择器的实现，$(<span class="symbol">'ul</span> li + p input.class')<span class="comment">;</span></div><div class="line">	</div><div class="line">	(<span class="name">2880</span>,<span class="number">3042</span>) jQuery.Callbacks :回调对象 ：通过回调对象去管理函数，函数的统一管理</div><div class="line">	</div><div class="line">	(<span class="name">3043</span>,<span class="number">3183</span>) jQuery.extend(<span class="name">Deferrred</span>) : 延迟对象：对异步的统一管理</div><div class="line">	</div><div class="line">	(<span class="name">3184</span>,<span class="number">3295</span>) support: 功能检测   // 判断浏览器版本不靠谱，判断功能</div><div class="line">	</div><div class="line">	（3308，3652）data()： 数据缓存 // 操作方法避免元素内存泄漏</div><div class="line">	</div><div class="line">	(<span class="name">3653</span>,<span class="number">3797</span>) queue()、 dqueue(): 队列管理 //</div><div class="line">	</div><div class="line">	(<span class="name">3803</span>,<span class="number">4299</span>) attr() prop() val() addClass() 等： 对元素属性的操作</div><div class="line">	</div><div class="line">   （4300，5128） on() rigger(): 事件操作相关方法</div><div class="line">	</div><div class="line">	(<span class="name">5140</span>,<span class="number">6057</span>) DOM操作：添加，删除，获取，包装 ，innertHMTL，筛选</div><div class="line">	</div><div class="line">	(<span class="name">6058</span>,<span class="number">6620</span>) css()：针对样式的操作，兼容性 boxsize</div><div class="line">	</div><div class="line">	(<span class="name">6621</span>,<span class="number">7854</span>) 提交数据和ajax(): ajax()load() getJSON()</div><div class="line">	</div><div class="line">	(<span class="name">7855</span>,<span class="number">8584</span>) animate(): 运动方法</div><div class="line">	</div><div class="line">	（8585，8792） offset(): 位置与尺寸</div><div class="line">	</div><div class="line">	（8804，8821）Jq支持模块化模式</div><div class="line">	</div><div class="line">	// 对外提供接口$</div><div class="line">	(<span class="name">8826</span>) window.JQuery=window.$= JQuery<span class="comment">;</span></div><div class="line">	</div><div class="line">&#125;)()<span class="comment">;</span></div></pre></td></tr></table></figure>
-<h3 id="回调对象函数的统一管理"><a href="#回调对象函数的统一管理" class="headerlink" title="回调对象函数的统一管理"></a>回调对象函数的统一管理</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function">funciton <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="function">function <span class="title">fun2</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cb = $Callbacks();</div><div class="line">cb.<span class="keyword">add</span>(fn1)</div><div class="line">cb.<span class="keyword">add</span>(fn2)</div><div class="line">cb.fire(); <span class="comment">// 1,2</span></div><div class="line"></div><div class="line">cb.<span class="keyword">remove</span>(fn2)</div><div class="line">c.fire(); <span class="comment">//1</span></div></pre></td></tr></table></figure>
-<h3 id="异步调用统一管理"><a href="#异步调用统一管理" class="headerlink" title="异步调用统一管理"></a>异步调用统一管理</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">setTimeout<span class="comment">(funciton()</span>&#123;</div><div class="line">	alert<span class="comment">(1)</span></div><div class="line">&#125;,<span class="number">1000</span>)</div><div class="line">alert<span class="comment">(2)</span></div><div class="line"><span class="comment">// 2,1</span></div><div class="line"></div><div class="line"><span class="comment">// 来回嵌套不易理解</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// deffer</span></div><div class="line">var def= $.Defferred<span class="comment">()</span>;</div><div class="line">setTimeout<span class="comment">(funciton()</span>&#123;</div><div class="line">	alert<span class="comment">(1)</span></div><div class="line">	def.resolve<span class="comment">()</span></div><div class="line">		</div><div class="line">&#125;,<span class="number">1000</span>)</div><div class="line"></div><div class="line"><span class="comment">// def.done(funciton()&#123;</span></div><div class="line">alert<span class="comment">(2)</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="数据缓存"><a href="#数据缓存" class="headerlink" title="数据缓存"></a>数据缓存</h3><p>$(‘#div1’).data(‘name’,’hello’);<br>$(‘#div’).data(‘name’);</p>
-<h3 id="extend"><a href="#extend" class="headerlink" title="extend"></a>extend</h3><p> 一个对象自变量时候</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 扩展工具方法</span></div><div class="line">$.extend(&#123;</div><div class="line"><span class="attr">aa</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line"><span class="attr">bb</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 1 ,2</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  </span></div><div class="line">$.fn.extend(&#123;</div><div class="line"><span class="attr">aa</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line"><span class="attr">bb</span>:funciton()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>当多个对象自变量时候，后面对象都是扩展到第一个对象身上</p>
-<p>var a = {};<br>$extend{a,{name:’hello’},{age:30}}</p>
-<p>// 还可以做深拷贝和浅拷贝。</p>
-<h3 id="常用方法的实现"><a href="#常用方法的实现" class="headerlink" title="常用方法的实现"></a>常用方法的实现</h3><p>isArray: Array.isArray</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/基础/">基础</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-js的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1091,6 +1023,69 @@ int main(int argc, char *argv[])
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/命令行工具/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/命令行工具/">nodejs 制作命令行工具</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="制作命令行工具"><a href="#制作命令行工具" class="headerlink" title="制作命令行工具"></a>制作命令行工具</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://jslite.io/2015/06/19/Nodejs-%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" target="_blank" rel="external">Nodejs-制作命令行工具</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">Node.js 命令行程序开发教程
+</a></li>
+<li><a href="node.js command-line interfaces made easy">node.js command-line interfaces made easy</a></li>
+<li><a href="http://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="external">Building a simple command line tool with npm</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/基础/">基础</a>
 	</div>
 
 
