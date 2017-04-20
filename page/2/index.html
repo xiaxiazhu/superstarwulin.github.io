@@ -295,6 +295,68 @@
 
 
   
+    <article id="post-browserify" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/browserify/" class="article-date">
+  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/browserify/">browserify入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>First install node, which ships with npm. Then do:<br>Hello World With Browserify<br>BUNDLE UP YOUR FIRST MODULE</p>
+<p>Browsers don’t have the require method defined, but Node.js does. With Browserify you can write code that uses require in the same way that you would use it in Node.</p>
+<p>Here is a tutorial on how to use Browserify on the command line to bundle up a simple file called main.js along with all of its dependencies:</p>
+<p>main.js<br>var unique = require(‘uniq’);</p>
+<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
+<p>console.log(unique(data));<br>Install the uniq module with npm:<br>npm install uniq<br>Now recursively bundle up all the required modules starting at main.js into a single file called bundle.js with the browserify command:<br>browserify main.js -o bundle.js<br>Browserify parses the AST for require() calls to traverse the entire dependency graph of your project.<br>Drop a single <script> tag into your html and you’re done!</p>
+<script src="bundle.js"></script></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -444,68 +506,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-browserify" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/25/browserify/" class="article-date">
-  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/browserify/">browserify入门</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>First install node, which ships with npm. Then do:<br>Hello World With Browserify<br>BUNDLE UP YOUR FIRST MODULE</p>
-<p>Browsers don’t have the require method defined, but Node.js does. With Browserify you can write code that uses require in the same way that you would use it in Node.</p>
-<p>Here is a tutorial on how to use Browserify on the command line to bundle up a simple file called main.js along with all of its dependencies:</p>
-<p>main.js<br>var unique = require(‘uniq’);</p>
-<p>var data = [1, 2, 2, 3, 4, 5, 5, 5, 6];</p>
-<p>console.log(unique(data));<br>Install the uniq module with npm:<br>npm install uniq<br>Now recursively bundle up all the required modules starting at main.js into a single file called bundle.js with the browserify command:<br>browserify main.js -o bundle.js<br>Browserify parses the AST for require() calls to traverse the entire dependency graph of your project.<br>Drop a single <script> tag into your html and you’re done!</p>
-<script src="bundle.js"></script></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
 	</div>
 
       
@@ -827,6 +827,74 @@
 
 
   
+    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
+  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
+<p>涵盖兼容性手册、API 文档，退化处理建议</p>
+</blockquote>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
+<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
+<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
+<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
+</ul>
+<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
+<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
+</ul>
+<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-mac上配置opencv" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1005,74 +1073,6 @@ int main(int argc, char *argv[])
 <p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Mobile Web 兼容性工具库" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/Mobile Web 兼容性工具库/" class="article-date">
-  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/Mobile Web 兼容性工具库/">Mobile Web 兼容性工具库</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Mobile-Web-兼容性工具库"><a href="#Mobile-Web-兼容性工具库" class="headerlink" title="Mobile Web 兼容性工具库"></a>Mobile Web 兼容性工具库</h1><blockquote>
-<p>涵盖兼容性手册、API 文档，退化处理建议</p>
-</blockquote>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul>
-<li><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a> 最流行的兼容性手册</li>
-<li><a href="http://mobilehtml5.org/" target="_blank" rel="external">mobilehtml5.org</a> 和caniuse不同的兼容性视图</li>
-<li><a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a> 最流行html5特性检测库</li>
-</ul>
-<h2 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h2><ul>
-<li><a href="https://developer.mozilla.org/en-US/docs" target="_blank" rel="external">Mozilla Doc Center</a></li>
-<li><a href="https://github.com/rgarcia/dochub" target="_blank" rel="external">dochub</a>，数据来自mozilla，使用更方便，可以考虑本地搭建个环境</li>
-</ul>
-<h2 id="退化处理"><a href="#退化处理" class="headerlink" title="退化处理"></a>退化处理</h2>
       
     </div>
     
