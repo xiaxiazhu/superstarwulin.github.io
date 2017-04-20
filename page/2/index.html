@@ -174,177 +174,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/25/webpack/" class="article-date">
-  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/webpack/">webpack入门</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://webpack.github.io/assets/what-is-webpack.png" alt="enter image description here"></p>
-<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><blockquote>
-<p>demo 地址<br><a href="https://github.com/superstarwulin/webpackdemo.git" target="_blank" rel="external">https://github.com/superstarwulin/webpackdemo.git</a></p>
-</blockquote>
-<h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h1><p>This small tutorial will guide you through a simple example.</p>
-<p>You’ll learn:</p>
-<ul>
-<li>How to install webpack</li>
-<li>How to use webpack</li>
-<li>How to use loaders</li>
-<li>How to use the development server</li>
-</ul>
-<hr>
-<p><a id="installing-webpack"></a></p>
-<h1 id="Installing-webpack"><a href="#Installing-webpack" class="headerlink" title="Installing webpack"></a>Installing webpack</h1><p>You need to have <a href="https://nodejs.org" target="_blank" rel="external">node.js</a> installed.</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> webpack -g</div></pre></td></tr></table></figure>
-<blockquote>
-<p>This makes the webpack command available.</p>
-</blockquote>
-<hr>
-<p><a id="setup-compilation"></a></p>
-<h1 id="Setup-the-compilation"><a href="#Setup-the-compilation" class="headerlink" title="Setup the compilation"></a>Setup the compilation</h1><p>Start with a empty directory.</p>
-<p>Create these files:</p>
-<div class="panel panel-add"><br><br>### add <code>entry.js</code><br><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.write(<span class="string">"It works."</span>)<span class="comment">;</span></div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-add"><br><br>### add <code>index.html</code><br><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bundle.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure><br><br></div>
-
-<p>Then run the following:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
-<p>It will compile your file and create a bundle file.</p>
-<p>If successful it displays something like this:</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Version: webpack 1.12.11</div><div class="line"><span class="keyword">Time:</span> 51ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  1.42 kB       0  [emitted]  main</div><div class="line">chunk    &#123;0&#125; bundle.js (main) 28 bytes [rendered]</div><div class="line">    [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure>
-<p>Open <code>index.html</code> in your browser. It should display <code>It works.</code></p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/setup-compilation/index.html"></iframe>
-
-<hr>
-<p><a id="second-file"></a></p>
-<h1 id="Second-file"><a href="#Second-file" class="headerlink" title="Second file"></a>Second file</h1><p>Next, we will move some code into an extra file.</p>
-<div class="panel panel-add"><br><br>### add <code>content.js</code><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = <span class="string">"It works from content.js."</span>;</div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">document</span>.write(<span class="string">"It works."</span>);+ <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>And recompile with:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
-<p>Update your browser window and you should see the text <code>It works from content.js.</code>.</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/second-file/index.html"></iframe>
-
-<blockquote>
-<p>webpack will analyze your entry file for dependencies to other files. These files (called modules) are included in your <code>bundle.js</code> too. webpack will give each module a unique id and save all modules accessible by id in the <code>bundle.js</code> file. Only the entry module is executed on startup. A small runtime provides the <code>require</code> function and executes the dependencies when required.</p>
-</blockquote>
-<hr>
-<p><a id="first-loader"></a></p>
-<h1 id="The-first-loader"><a href="#The-first-loader" class="headerlink" title="The first loader"></a>The first loader</h1><p>We want to add a css file to our application.</p>
-<p>webpack can only handle JavaScript natively, so we need the <code>css-loader</code> to process CSS files. We also need the <code>style-loader</code> to apply the styles in the CSS file.</p>
-<p>Run <code>npm install css-loader style-loader</code> to install the loaders. (They need to be installed locally, without <code>-g</code>) This will create a <code>node_modules</code> folder for you, in which the loaders will live.</p>
-<p>Let’s use them:</p>
-<div class="panel panel-add"><br><br>### add <code>style.css</code><br><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div>
-
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+ <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Recompile and update your browser to see your application with yellow background.</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/first-loader/index.html"></iframe>
-
-<blockquote>
-<p>By prefixing loaders to a module request, the module went through a loader pipeline. These loaders transform the file content in specific ways. After these transformations are applied, the result is a JavaScript module.</p>
-</blockquote>
-<hr>
-<p><a id="binding-loaders"></a></p>
-<h1 id="Binding-loaders"><a href="#Binding-loaders" class="headerlink" title="Binding loaders"></a>Binding loaders</h1><p>We don’t want to write such long requires <code>require(&lt;span class=&quot;string&quot;&gt;&quot;!style!css!./style.css&quot;&lt;/span&gt;);</code>.</p>
-<p>We can bind file extensions to loaders so we just need to write: <code>require(&lt;span class=&quot;string&quot;&gt;&quot;./style.css&quot;&lt;/span&gt;)</code></p>
-<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">+ <span class="built_in">require</span>(<span class="string">"./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Run the compilation with:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack ./entry<span class="selector-class">.js</span> bundle<span class="selector-class">.js</span> --module-bind <span class="string">'css=style!css'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>Some environments may require double quotes: –module-bind “css=style!css”</p>
-</blockquote>
-<p>You should see the same result:</p>
-<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/binding-loaders/index.html"></iframe>
-
-<hr>
-<p><a id="config-file"></a></p>
-<h1 id="A-config-file"><a href="#A-config-file" class="headerlink" title="A config file"></a>A config file</h1><p>We want to move the config options into a config file:</p>
-<div class="panel panel-add"><br><br>### add <code>webpack.config.js</code><br><br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line"><span class="symbol">    entry:</span> <span class="string">"./entry.js"</span>,</div><div class="line"><span class="symbol">    output:</span> &#123;</div><div class="line"><span class="symbol">        path:</span> __dirname,</div><div class="line"><span class="symbol">        filename:</span> <span class="string">"bundle.js"</span></div><div class="line">    &#125;,</div><div class="line"><span class="symbol">    module:</span> &#123;</div><div class="line"><span class="symbol">        loaders:</span> [</div><div class="line">            &#123; test: /\.css$/, loader: <span class="string">"style!css"</span> &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br><br></div>
-
-<p>Now we can just run:</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">webpack</span></div></pre></td></tr></table></figure>
-<p>to compile:</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">Version:</span> webpack <span class="number">1.12</span><span class="number">.11</span></div><div class="line"><span class="symbol">Time:</span> <span class="number">379</span>ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  <span class="number">10.7</span> kB       <span class="number">0</span>  [emitted]  main</div><div class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">8.86</span> kB [rendered]</div><div class="line">    [<span class="number">0</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>entry.js <span class="number">65</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">1</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">943</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">2</span>] ../~/css-loader!.<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">201</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">3</span>] ../~<span class="meta-keyword">/css-loader/</span>lib/css-base.js <span class="number">1.51</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">4</span>] ../~<span class="meta-keyword">/style-loader/</span>addStyles.js <span class="number">6.09</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">5</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>content.js <span class="number">45</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>The webpack command-line will try to load the file <code>webpack.config.js</code> in the current directory.</p>
-</blockquote>
-<hr>
-<p><a id="pretty-output"></a></p>
-<h1 id="A-prettier-output"><a href="#A-prettier-output" class="headerlink" title="A prettier output"></a>A prettier output</h1><p>If the project grows the compilation may take a bit longer. So we want to display some kind of progress bar. And we want colors…</p>
-<p>We can achieve this with</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
-<hr>
-<p><a id="watch-mode"></a></p>
-<h1 id="Watch-mode"><a href="#Watch-mode" class="headerlink" title="Watch mode"></a>Watch mode</h1><p>We don’t want to manually recompile after every change…</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">watch</span></div></pre></td></tr></table></figure>
-<p>Webpack can cache unchanged modules and output files between compilations.</p>
-<blockquote>
-<p>When using watch mode, webpack installs file watchers to all files, which were used in the compilation process. If any change is detected, it’ll run the compilation again. When caching is enabled, webpack keeps each module in memory and will reuse it if it isn’t changed.</p>
-</blockquote>
-<hr>
-<p><a id="development-server"></a></p>
-<h1 id="Development-server"><a href="#Development-server" class="headerlink" title="Development server"></a>Development server</h1><p>The development server is even better.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack-dev-<span class="keyword">server</span> -g</div></pre></td></tr></table></figure>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span><span class="literal">-</span><span class="comment">dev</span><span class="literal">-</span><span class="comment">server</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
-<p>This binds a small express server on localhost:8080 which serves your static assets as well as the bundle (compiled automatically). It automatically updates the browser page when a bundle is recompiled (SockJS). Open <a href="http://localhost:8080/webpack-dev-server/bundle" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/bundle</a> in your browser.</p>
-<blockquote>
-<p>The dev server uses webpack’s watch mode. It also prevents webpack from emitting the resulting files to disk. Instead it keeps and serves the resulting files from memory.</p>
-</blockquote>
-<p>参考：<br><a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">https://webpack.github.io/docs/tutorials/getting-started/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/工具/">工具</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-ES6中的一些新特性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -506,6 +335,177 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browserify/">browserify</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具/">工具</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/25/webpack/" class="article-date">
+  	<time datetime="2016-07-25T07:25:15.000Z" itemprop="datePublished">2016-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/webpack/">webpack入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://webpack.github.io/assets/what-is-webpack.png" alt="enter image description here"></p>
+<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><blockquote>
+<p>demo 地址<br><a href="https://github.com/superstarwulin/webpackdemo.git" target="_blank" rel="external">https://github.com/superstarwulin/webpackdemo.git</a></p>
+</blockquote>
+<h1 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h1><p>This small tutorial will guide you through a simple example.</p>
+<p>You’ll learn:</p>
+<ul>
+<li>How to install webpack</li>
+<li>How to use webpack</li>
+<li>How to use loaders</li>
+<li>How to use the development server</li>
+</ul>
+<hr>
+<p><a id="installing-webpack"></a></p>
+<h1 id="Installing-webpack"><a href="#Installing-webpack" class="headerlink" title="Installing webpack"></a>Installing webpack</h1><p>You need to have <a href="https://nodejs.org" target="_blank" rel="external">node.js</a> installed.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> webpack -g</div></pre></td></tr></table></figure>
+<blockquote>
+<p>This makes the webpack command available.</p>
+</blockquote>
+<hr>
+<p><a id="setup-compilation"></a></p>
+<h1 id="Setup-the-compilation"><a href="#Setup-the-compilation" class="headerlink" title="Setup the compilation"></a>Setup the compilation</h1><p>Start with a empty directory.</p>
+<p>Create these files:</p>
+<div class="panel panel-add"><br><br>### add <code>entry.js</code><br><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.write(<span class="string">"It works."</span>)<span class="comment">;</span></div></pre></td></tr></table></figure><br><br></div>
+
+<div class="panel panel-add"><br><br>### add <code>index.html</code><br><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bundle.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure><br><br></div>
+
+<p>Then run the following:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
+<p>It will compile your file and create a bundle file.</p>
+<p>If successful it displays something like this:</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Version: webpack 1.12.11</div><div class="line"><span class="keyword">Time:</span> 51ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  1.42 kB       0  [emitted]  main</div><div class="line">chunk    &#123;0&#125; bundle.js (main) 28 bytes [rendered]</div><div class="line">    [0] ./tutorials/getting-started/setup-compilation/entry.js 28 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure>
+<p>Open <code>index.html</code> in your browser. It should display <code>It works.</code></p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/setup-compilation/index.html"></iframe>
+
+<hr>
+<p><a id="second-file"></a></p>
+<h1 id="Second-file"><a href="#Second-file" class="headerlink" title="Second file"></a>Second file</h1><p>Next, we will move some code into an extra file.</p>
+<div class="panel panel-add"><br><br>### add <code>content.js</code><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = <span class="string">"It works from content.js."</span>;</div></pre></td></tr></table></figure><br><br></div>
+
+<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">document</span>.write(<span class="string">"It works."</span>);+ <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
+
+<p>And recompile with:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack ./entry<span class="selector-class">.js</span> bundle.js</div></pre></td></tr></table></figure>
+<p>Update your browser window and you should see the text <code>It works from content.js.</code>.</p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/second-file/index.html"></iframe>
+
+<blockquote>
+<p>webpack will analyze your entry file for dependencies to other files. These files (called modules) are included in your <code>bundle.js</code> too. webpack will give each module a unique id and save all modules accessible by id in the <code>bundle.js</code> file. Only the entry module is executed on startup. A small runtime provides the <code>require</code> function and executes the dependencies when required.</p>
+</blockquote>
+<hr>
+<p><a id="first-loader"></a></p>
+<h1 id="The-first-loader"><a href="#The-first-loader" class="headerlink" title="The first loader"></a>The first loader</h1><p>We want to add a css file to our application.</p>
+<p>webpack can only handle JavaScript natively, so we need the <code>css-loader</code> to process CSS files. We also need the <code>style-loader</code> to apply the styles in the CSS file.</p>
+<p>Run <code>npm install css-loader style-loader</code> to install the loaders. (They need to be installed locally, without <code>-g</code>) This will create a <code>node_modules</code> folder for you, in which the loaders will live.</p>
+<p>Let’s use them:</p>
+<div class="panel panel-add"><br><br>### add <code>style.css</code><br><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div>
+
+<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+ <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
+
+<p>Recompile and update your browser to see your application with yellow background.</p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/first-loader/index.html"></iframe>
+
+<blockquote>
+<p>By prefixing loaders to a module request, the module went through a loader pipeline. These loaders transform the file content in specific ways. After these transformations are applied, the result is a JavaScript module.</p>
+</blockquote>
+<hr>
+<p><a id="binding-loaders"></a></p>
+<h1 id="Binding-loaders"><a href="#Binding-loaders" class="headerlink" title="Binding loaders"></a>Binding loaders</h1><p>We don’t want to write such long requires <code>require(&lt;span class=&quot;string&quot;&gt;&quot;!style!css!./style.css&quot;&lt;/span&gt;);</code>.</p>
+<p>We can bind file extensions to loaders so we just need to write: <code>require(&lt;span class=&quot;string&quot;&gt;&quot;./style.css&quot;&lt;/span&gt;)</code></p>
+<div class="panel panel-update"><br><br>### update <code>entry.js</code><br><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</div><div class="line">+ <span class="built_in">require</span>(<span class="string">"./style.css"</span>);</div><div class="line">  <span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</div></pre></td></tr></table></figure><br><br></div>
+
+<p>Run the compilation with:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack ./entry<span class="selector-class">.js</span> bundle<span class="selector-class">.js</span> --module-bind <span class="string">'css=style!css'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Some environments may require double quotes: –module-bind “css=style!css”</p>
+</blockquote>
+<p>You should see the same result:</p>
+<iframe class="tutorial-iframe" seamless src="tutorials/getting-started/binding-loaders/index.html"></iframe>
+
+<hr>
+<p><a id="config-file"></a></p>
+<h1 id="A-config-file"><a href="#A-config-file" class="headerlink" title="A config file"></a>A config file</h1><p>We want to move the config options into a config file:</p>
+<div class="panel panel-add"><br><br>### add <code>webpack.config.js</code><br><br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line"><span class="symbol">    entry:</span> <span class="string">"./entry.js"</span>,</div><div class="line"><span class="symbol">    output:</span> &#123;</div><div class="line"><span class="symbol">        path:</span> __dirname,</div><div class="line"><span class="symbol">        filename:</span> <span class="string">"bundle.js"</span></div><div class="line">    &#125;,</div><div class="line"><span class="symbol">    module:</span> &#123;</div><div class="line"><span class="symbol">        loaders:</span> [</div><div class="line">            &#123; test: /\.css$/, loader: <span class="string">"style!css"</span> &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure><br><br></div>
+
+<p>Now we can just run:</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">webpack</span></div></pre></td></tr></table></figure>
+<p>to compile:</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">Version:</span> webpack <span class="number">1.12</span><span class="number">.11</span></div><div class="line"><span class="symbol">Time:</span> <span class="number">379</span>ms</div><div class="line">    Asset     Size  Chunks             Chunk Names</div><div class="line">bundle.js  <span class="number">10.7</span> kB       <span class="number">0</span>  [emitted]  main</div><div class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">8.86</span> kB [rendered]</div><div class="line">    [<span class="number">0</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>entry.js <span class="number">65</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">1</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">943</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">2</span>] ../~/css-loader!.<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>style.css <span class="number">201</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">3</span>] ../~<span class="meta-keyword">/css-loader/</span>lib/css-base.js <span class="number">1.51</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">4</span>] ../~<span class="meta-keyword">/style-loader/</span>addStyles.js <span class="number">6.09</span> <span class="class">kB </span>&#123;<span class="number">0</span>&#125; [built]</div><div class="line">    [<span class="number">5</span>] .<span class="meta-keyword">/tutorials/</span>getting-started<span class="meta-keyword">/config-file/</span>content.js <span class="number">45</span> <span class="class">bytes </span>&#123;<span class="number">0</span>&#125; [built]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>The webpack command-line will try to load the file <code>webpack.config.js</code> in the current directory.</p>
+</blockquote>
+<hr>
+<p><a id="pretty-output"></a></p>
+<h1 id="A-prettier-output"><a href="#A-prettier-output" class="headerlink" title="A prettier output"></a>A prettier output</h1><p>If the project grows the compilation may take a bit longer. So we want to display some kind of progress bar. And we want colors…</p>
+<p>We can achieve this with</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
+<hr>
+<p><a id="watch-mode"></a></p>
+<h1 id="Watch-mode"><a href="#Watch-mode" class="headerlink" title="Watch mode"></a>Watch mode</h1><p>We don’t want to manually recompile after every change…</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">watch</span></div></pre></td></tr></table></figure>
+<p>Webpack can cache unchanged modules and output files between compilations.</p>
+<blockquote>
+<p>When using watch mode, webpack installs file watchers to all files, which were used in the compilation process. If any change is detected, it’ll run the compilation again. When caching is enabled, webpack keeps each module in memory and will reuse it if it isn’t changed.</p>
+</blockquote>
+<hr>
+<p><a id="development-server"></a></p>
+<h1 id="Development-server"><a href="#Development-server" class="headerlink" title="Development server"></a>Development server</h1><p>The development server is even better.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack-dev-<span class="keyword">server</span> -g</div></pre></td></tr></table></figure>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">webpack</span><span class="literal">-</span><span class="comment">dev</span><span class="literal">-</span><span class="comment">server</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">progress</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">colors</span></div></pre></td></tr></table></figure>
+<p>This binds a small express server on localhost:8080 which serves your static assets as well as the bundle (compiled automatically). It automatically updates the browser page when a bundle is recompiled (SockJS). Open <a href="http://localhost:8080/webpack-dev-server/bundle" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/bundle</a> in your browser.</p>
+<blockquote>
+<p>The dev server uses webpack’s watch mode. It also prevents webpack from emitting the resulting files to disk. Instead it keeps and serves the resulting files from memory.</p>
+</blockquote>
+<p>参考：<br><a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">https://webpack.github.io/docs/tutorials/getting-started/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
 	</div>
 
       
@@ -895,6 +895,66 @@
 
 
   
+    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
+  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
+<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-mac上配置opencv" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1042,70 +1102,10 @@ int main(int argc, char *argv[])
 
 
   
-    <article id="post-nodejs链接mysql" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/08/nodejs链接mysql/" class="article-date">
-  	<time datetime="2016-07-08T08:29:16.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/nodejs链接mysql/">nodejs 链接 mysql</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="nodejs-链接-mysql"><a href="#nodejs-链接-mysql" class="headerlink" title="nodejs 链接 mysql"></a>nodejs 链接 mysql</h1><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>参见： <a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html" target="_blank" rel="external">https://aaaaaashu.gitbooks.io/mac-dev-setup/content/MySql/index.html</a>,<br>在mysql中建立数据库以及数据表可使用GUI工具mysqlworkbench.</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>);</div><div class="line"></div><div class="line"><span class="comment">// First you need to create a connection to the db</span></div><div class="line"><span class="keyword">var</span> con = mysql.createConnection(&#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">user</span>: <span class="string">"root"</span>,</div><div class="line">    <span class="attr">password</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">database</span>:<span class="string">'supstarwulin'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">con.connect(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(err)&#123;</div><div class="line">        <span class="built_in">console</span>.log(err);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Connection established'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// read date</span></div><div class="line">    con.query(<span class="string">' SELECT * FROM employees'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,rows</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Data received from Db:\n'</span>);</div><div class="line">        <span class="built_in">console</span>.log(rows);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//con.end(function(err) &#123;</span></div><div class="line"><span class="comment">//    console.log('end');</span></div><div class="line"><span class="comment">//    // The connection is terminated gracefully</span></div><div class="line"><span class="comment">//    // Ensures all previously enqueued queries are still</span></div><div class="line"><span class="comment">//    // before sending a COM_QUIT packet to the MySQL server.</span></div><div class="line"><span class="comment">//&#125;);</span></div></pre></td></tr></table></figure>
-<p><a href="https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js" target="_blank" rel="external">https://github.com/superstarwulin/nodejs-msql-demo/blob/master/simple.js</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/" target="_blank" rel="external">https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/</a><br><a href="https://www.sitepoint.com/using-node-mysql-javascript-client/" target="_blank" rel="external">https://www.sitepoint.com/using-node-mysql-javascript-client/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-浅谈前端的主流设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/浅谈前端的主流设计模式/" class="article-date">
+      <a href="/2016/05/09/js的封装和继承/" class="article-date">
   	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
 </a>
     </div>
@@ -1119,7 +1119,7 @@ int main(int argc, char *argv[])
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/浅谈前端的主流设计模式/">浅谈前端的主流设计模式</a>
+      <a class="article-title" href="/2016/05/09/js的封装和继承/">js的封装和继承</a>
     </h1>
   
 
@@ -1128,16 +1128,10 @@ int main(int argc, char *argv[])
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。</p>
-<h1 id="前端的设计模式"><a href="#前端的设计模式" class="headerlink" title="前端的设计模式"></a>前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题– UI和逻辑是一起的，但他们却不是一起的。</strong></p>
-<p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
-<p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
-<h2 id="Model-View-Control"><a href="#Model-View-Control" class="headerlink" title="Model View Control"></a>Model View Control</h2><p><img src="http://i.stack.imgur.com/ocEWx.png" alt=""></p>
-<p>最原始的模型架构细分管理模型，MVC，相互关系如上图：推动业务的事件由用户与view交互，通过view向controller发动，然后触发数据更新。而mvc的使用发现的问题是当有变化发生时候，需要维护三个对象和三个三个交互，这让事情复杂化了。</p>
-<p>mvc的三角关系被认为给一些人带来了麻烦，所以需要催生更好的解决方案。</p>
-<h2 id="Model-View-Presenter"><a href="#Model-View-Presenter" class="headerlink" title="Model View Presenter"></a>Model View Presenter</h2><h2 id="Model-View-ViewModel"><a href="#Model-View-ViewModel" class="headerlink" title="Model View ViewModel"></a>Model View ViewModel</h2><p><img src="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg" alt=""></p>
-<p>ViewModel大致上就是MVP的Presenter和MVC的Controller了，而View和ViewModel间没有了MVP的界面接口，而是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
-
+        <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">封装</a></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">构造函数的继承</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">分构造函数的继承</a></p>
+<h3 id="参考阮一峰大大的博客"><a href="#参考阮一峰大大的博客" class="headerlink" title="参考阮一峰大大的博客"></a>参考阮一峰大大的博客</h3>
       
     </div>
     
