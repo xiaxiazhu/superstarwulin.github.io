@@ -174,71 +174,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-浅谈前端的主流设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/浅谈前端的主流设计模式/" class="article-date">
-  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/浅谈前端的主流设计模式/">浅谈前端的主流设计模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。</p>
-<h1 id="前端的设计模式"><a href="#前端的设计模式" class="headerlink" title="前端的设计模式"></a>前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题– UI和逻辑是一起的，但他们却不是一起的。</strong></p>
-<p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
-<p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
-<h2 id="Model-View-Control"><a href="#Model-View-Control" class="headerlink" title="Model View Control"></a>Model View Control</h2><p><img src="http://i.stack.imgur.com/ocEWx.png" alt=""></p>
-<p>最原始的模型架构细分管理模型，MVC，相互关系如上图：推动业务的事件由用户与view交互，通过view向controller发动，然后触发数据更新。而mvc的使用发现的问题是当有变化发生时候，需要维护三个对象和三个三个交互，这让事情复杂化了。</p>
-<p>mvc的三角关系被认为给一些人带来了麻烦，所以需要催生更好的解决方案。</p>
-<h2 id="Model-View-Presenter"><a href="#Model-View-Presenter" class="headerlink" title="Model View Presenter"></a>Model View Presenter</h2><h2 id="Model-View-ViewModel"><a href="#Model-View-ViewModel" class="headerlink" title="Model View ViewModel"></a>Model View ViewModel</h2><p><img src="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg" alt=""></p>
-<p>ViewModel大致上就是MVP的Presenter和MVC的Controller了，而View和ViewModel间没有了MVP的界面接口，而是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
     <article id="post-js的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -298,10 +233,10 @@
 
 
   
-    <article id="post-jquery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-命令行工具" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/09/jquery源码解析/" class="article-date">
+      <a href="/2016/05/09/命令行工具/" class="article-date">
   	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
 </a>
     </div>
@@ -315,7 +250,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/jquery源码解析/">jquery源码学习</a>
+      <a class="article-title" href="/2016/05/09/命令行工具/">nodejs 制作命令行工具</a>
     </h1>
   
 
@@ -324,18 +259,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" target="_blank" rel="external">version 2.0.3 googlecdn</a></p>
-<h1 id="大框架"><a href="#大框架" class="headerlink" title="大框架"></a>大框架</h1><h4 id="自调匿名函数"><a href="#自调匿名函数" class="headerlink" title="自调匿名函数"></a>自调匿名函数</h4><figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">(<span class="name">funciton</span>()&#123;</div><div class="line">	var a = <span class="number">10</span><span class="comment">;</span></div><div class="line">	(<span class="name">21</span>,<span class="number">94</span>) 定义了一些变量和函数。 </div><div class="line">	// 包括 </div><div class="line">	JQuery = funciton(<span class="name">selector</span> ,context)&#123;</div><div class="line">		return new JQuery.fn.int(<span class="name">selector</span>,context,rootjQuery)<span class="comment">;</span></div><div class="line">	&#125;</div><div class="line">		</div><div class="line">	funciton $()&#123;</div><div class="line">	</div><div class="line">	</div><div class="line">	&#125;   // 变成局部函数和变量，与外部环境独立开来</div><div class="line">	</div><div class="line">	(<span class="name">96</span>,<span class="number">283</span>) // 面向对象的程序，给jq对象添加属性和方法。 $().css()<span class="comment">;</span></div><div class="line">	</div><div class="line">	(<span class="name">285</span>,<span class="number">347</span>) //  jq的继承方法 （类似继承，原型继承）后期扩展，以及插件扩展</div><div class="line">	jQuery.extend =  </div><div class="line">	</div><div class="line">	(<span class="name">349</span>,<span class="number">817</span>) jquery.extend() : // 扩展一些工具方法 $.trim()<span class="comment">;</span></div><div class="line">	</div><div class="line">	(<span class="name">877</span>,<span class="number">2856</span>) sizzle :复杂选择器的实现，$(<span class="symbol">'ul</span> li + p input.class')<span class="comment">;</span></div><div class="line">	</div><div class="line">	(<span class="name">2880</span>,<span class="number">3042</span>) jQuery.Callbacks :回调对象 ：通过回调对象去管理函数，函数的统一管理</div><div class="line">	</div><div class="line">	(<span class="name">3043</span>,<span class="number">3183</span>) jQuery.extend(<span class="name">Deferrred</span>) : 延迟对象：对异步的统一管理</div><div class="line">	</div><div class="line">	(<span class="name">3184</span>,<span class="number">3295</span>) support: 功能检测   // 判断浏览器版本不靠谱，判断功能</div><div class="line">	</div><div class="line">	（3308，3652）data()： 数据缓存 // 操作方法避免元素内存泄漏</div><div class="line">	</div><div class="line">	(<span class="name">3653</span>,<span class="number">3797</span>) queue()、 dqueue(): 队列管理 //</div><div class="line">	</div><div class="line">	(<span class="name">3803</span>,<span class="number">4299</span>) attr() prop() val() addClass() 等： 对元素属性的操作</div><div class="line">	</div><div class="line">   （4300，5128） on() rigger(): 事件操作相关方法</div><div class="line">	</div><div class="line">	(<span class="name">5140</span>,<span class="number">6057</span>) DOM操作：添加，删除，获取，包装 ，innertHMTL，筛选</div><div class="line">	</div><div class="line">	(<span class="name">6058</span>,<span class="number">6620</span>) css()：针对样式的操作，兼容性 boxsize</div><div class="line">	</div><div class="line">	(<span class="name">6621</span>,<span class="number">7854</span>) 提交数据和ajax(): ajax()load() getJSON()</div><div class="line">	</div><div class="line">	(<span class="name">7855</span>,<span class="number">8584</span>) animate(): 运动方法</div><div class="line">	</div><div class="line">	（8585，8792） offset(): 位置与尺寸</div><div class="line">	</div><div class="line">	（8804，8821）Jq支持模块化模式</div><div class="line">	</div><div class="line">	// 对外提供接口$</div><div class="line">	(<span class="name">8826</span>) window.JQuery=window.$= JQuery<span class="comment">;</span></div><div class="line">	</div><div class="line">&#125;)()<span class="comment">;</span></div></pre></td></tr></table></figure>
-<h3 id="回调对象函数的统一管理"><a href="#回调对象函数的统一管理" class="headerlink" title="回调对象函数的统一管理"></a>回调对象函数的统一管理</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function">funciton <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="function">function <span class="title">fun2</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cb = $Callbacks();</div><div class="line">cb.<span class="keyword">add</span>(fn1)</div><div class="line">cb.<span class="keyword">add</span>(fn2)</div><div class="line">cb.fire(); <span class="comment">// 1,2</span></div><div class="line"></div><div class="line">cb.<span class="keyword">remove</span>(fn2)</div><div class="line">c.fire(); <span class="comment">//1</span></div></pre></td></tr></table></figure>
-<h3 id="异步调用统一管理"><a href="#异步调用统一管理" class="headerlink" title="异步调用统一管理"></a>异步调用统一管理</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">setTimeout<span class="comment">(funciton()</span>&#123;</div><div class="line">	alert<span class="comment">(1)</span></div><div class="line">&#125;,<span class="number">1000</span>)</div><div class="line">alert<span class="comment">(2)</span></div><div class="line"><span class="comment">// 2,1</span></div><div class="line"></div><div class="line"><span class="comment">// 来回嵌套不易理解</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// deffer</span></div><div class="line">var def= $.Defferred<span class="comment">()</span>;</div><div class="line">setTimeout<span class="comment">(funciton()</span>&#123;</div><div class="line">	alert<span class="comment">(1)</span></div><div class="line">	def.resolve<span class="comment">()</span></div><div class="line">		</div><div class="line">&#125;,<span class="number">1000</span>)</div><div class="line"></div><div class="line"><span class="comment">// def.done(funciton()&#123;</span></div><div class="line">alert<span class="comment">(2)</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="数据缓存"><a href="#数据缓存" class="headerlink" title="数据缓存"></a>数据缓存</h3><p>$(‘#div1’).data(‘name’,’hello’);<br>$(‘#div’).data(‘name’);</p>
-<h3 id="extend"><a href="#extend" class="headerlink" title="extend"></a>extend</h3><p> 一个对象自变量时候</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 扩展工具方法</span></div><div class="line">$.extend(&#123;</div><div class="line"><span class="attr">aa</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line"><span class="attr">bb</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 1 ,2</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  </span></div><div class="line">$.fn.extend(&#123;</div><div class="line"><span class="attr">aa</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line"><span class="attr">bb</span>:funciton()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>当多个对象自变量时候，后面对象都是扩展到第一个对象身上</p>
-<p>var a = {};<br>$extend{a,{name:’hello’},{age:30}}</p>
-<p>// 还可以做深拷贝和浅拷贝。</p>
-<h3 id="常用方法的实现"><a href="#常用方法的实现" class="headerlink" title="常用方法的实现"></a>常用方法的实现</h3><p>isArray: Array.isArray</p>
+        <h2 id="制作命令行工具"><a href="#制作命令行工具" class="headerlink" title="制作命令行工具"></a>制作命令行工具</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://jslite.io/2015/06/19/Nodejs-%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" target="_blank" rel="external">Nodejs-制作命令行工具</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html" target="_blank" rel="external">Node.js 命令行程序开发教程
+</a></li>
+<li><a href="node.js command-line interfaces made easy">node.js command-line interfaces made easy</a></li>
+<li><a href="http://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm" target="_blank" rel="external">Building a simple command line tool with npm</a></li>
+</ul>
 
       
     </div>
@@ -343,7 +273,7 @@
     <div class="article-info article-info-index">
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 	</div>
 
       
@@ -366,11 +296,11 @@
 
 
   
-    <article id="post-weaknet" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-浅谈前端的主流设计模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/03/weaknet/" class="article-date">
-  	<time datetime="2016-05-03T08:48:28.000Z" itemprop="datePublished">2016-05-03</time>
+      <a href="/2016/05/09/浅谈前端的主流设计模式/" class="article-date">
+  	<time datetime="2016-05-09T07:02:34.000Z" itemprop="datePublished">2016-05-09</time>
 </a>
     </div>
   
@@ -383,7 +313,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/weaknet/">弱网络下的前端</a>
+      <a class="article-title" href="/2016/05/09/浅谈前端的主流设计模式/">浅谈前端的主流设计模式</a>
     </h1>
   
 
@@ -392,14 +322,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="网络情况"><a href="#网络情况" class="headerlink" title="网络情况"></a>网络情况</h2><p>本文主要针对移动端。移动端用户客户端的网络情况大致为：wifi，2g，3g，4g。在网络无线带宽较小的时候，用wifi下同样的处理方法来做前端的UI初始化展现以及交互，会给用户带来不好的体验，所以针对这一类问题做处理。</p>
-<h2 id="弱网判断方案"><a href="#弱网判断方案" class="headerlink" title="弱网判断方案"></a>弱网判断方案</h2><ol>
-<li>通过对服务器打点时间来判断当前的网络状况</li>
-</ol>
-<h2 id="弱网下主要考虑的优化方案"><a href="#弱网下主要考虑的优化方案" class="headerlink" title="弱网下主要考虑的优化方案"></a>弱网下主要考虑的优化方案</h2><ol>
-<li>图片的处理：弱网下在家清晰度较低、图片大小更小的图片。具体工程指标可参考天猫详情的主图   </li>
-<li>css处理：弱网络下加载不一样的css来做全局的处理</li>
-</ol>
+        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>设计模式之所有是个计算机学科里面各类语言一直以来研究的问题，是因为他和架构相关，解决亘古不变的问题 – 当代码规模大到一定程度是否可以符合业务变更、性能、可持续开发的要求。代码规模变大，解决方案变得复杂，随之出现细分，以及细分之后的管理关系，这些管理关系就是我们要聊的。</p>
+<h1 id="前端的设计模式"><a href="#前端的设计模式" class="headerlink" title="前端的设计模式"></a>前端的设计模式</h1><p>前端通常情况下是在一定的逻辑下展现相应的UI，UI和逻辑的解耦可以提高迭代的效率，比如：模板与前端脚本分开来写让改UI和改逻辑更加清晰化。<strong>然而谁也没办法解决一个逻辑和UI分化之后的一个哲学问题– UI和逻辑是一起的，但他们却不是一起的。</strong></p>
+<p>软件从处理一件事物发展到处理许多事物，各各事物之间有包含、主次、顺序等等的关系，变得越来越浮渣。因为数据和逻辑庞大了，所以<strong>数据</strong>与<strong>逻辑</strong>就分离了，然后<strong>事件</strong>和<strong>业务</strong>分离。如果还要细分，当然还会有更多的说法。</p>
+<p><strong>当一个问题出现一次的时候它是一个问题，当一个问题出现无数次它会成为历史，当一个问题将会出现无数次的时候，它将需要一个明确的定义和解决方案。</strong>那么，数据的更新和界面的更新这一问题本放大了无数次呗，因为它就是前端需要解决的主要问题。那我们来看下这一主要问题前端工程里面出现的关系。</p>
+<h2 id="Model-View-Control"><a href="#Model-View-Control" class="headerlink" title="Model View Control"></a>Model View Control</h2><p><img src="http://i.stack.imgur.com/ocEWx.png" alt=""></p>
+<p>最原始的模型架构细分管理模型，MVC，相互关系如上图：推动业务的事件由用户与view交互，通过view向controller发动，然后触发数据更新。而mvc的使用发现的问题是当有变化发生时候，需要维护三个对象和三个三个交互，这让事情复杂化了。</p>
+<p>mvc的三角关系被认为给一些人带来了麻烦，所以需要催生更好的解决方案。</p>
+<h2 id="Model-View-Presenter"><a href="#Model-View-Presenter" class="headerlink" title="Model View Presenter"></a>Model View Presenter</h2><h2 id="Model-View-ViewModel"><a href="#Model-View-ViewModel" class="headerlink" title="Model View ViewModel"></a>Model View ViewModel</h2><p><img src="http://www.c-sharpcorner.com/UploadFile/yusufkaratoprak/Asp-Net-mvc-with-knockout-js/Images/MVVM_Relation.jpg" alt=""></p>
+<p>ViewModel大致上就是MVP的Presenter和MVC的Controller了，而View和ViewModel间没有了MVP的界面接口，而是直接交互，用数据“绑定”的形式让数据更新的事件不需要开发人员手动去编写特殊用例，而是自动地双向同步。数据绑定你可以认为是Observer模式或者是Publish/Subscribe模式，原理都是为了用一种统一的集中的方式实现频繁需要被实现的数据更新问题。</p>
 
       
     </div>
@@ -407,12 +338,12 @@
     <div class="article-info article-info-index">
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微架构/">微架构</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/体验优化/">体验优化</a>
+	<a class="article-category-link" href="/categories/面向对象/">面向对象</a>
 	</div>
 
 
@@ -548,6 +479,224 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/正则表达式/">正则表达式</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-weaknet" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/03/weaknet/" class="article-date">
+  	<time datetime="2016-05-03T08:48:28.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/weaknet/">弱网络下的前端</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网络情况"><a href="#网络情况" class="headerlink" title="网络情况"></a>网络情况</h2><p>本文主要针对移动端。移动端用户客户端的网络情况大致为：wifi，2g，3g，4g。在网络无线带宽较小的时候，用wifi下同样的处理方法来做前端的UI初始化展现以及交互，会给用户带来不好的体验，所以针对这一类问题做处理。</p>
+<h2 id="弱网判断方案"><a href="#弱网判断方案" class="headerlink" title="弱网判断方案"></a>弱网判断方案</h2><ol>
+<li>通过对服务器打点时间来判断当前的网络状况</li>
+</ol>
+<h2 id="弱网下主要考虑的优化方案"><a href="#弱网下主要考虑的优化方案" class="headerlink" title="弱网下主要考虑的优化方案"></a>弱网下主要考虑的优化方案</h2><ol>
+<li>图片的处理：弱网下在家清晰度较低、图片大小更小的图片。具体工程指标可参考天猫详情的主图   </li>
+<li>css处理：弱网络下加载不一样的css来做全局的处理</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微架构/">微架构</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/体验优化/">体验优化</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-基础学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/03/基础学习/" class="article-date">
+  	<time datetime="2016-05-03T08:29:16.000Z" itemprop="datePublished">2016-05-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/03/基础学习/">学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学无止境"><a href="#学无止境" class="headerlink" title="学无止境"></a>学无止境</h1><blockquote>
+<p>记录一些常用的学习资料</p>
+</blockquote>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
+<li><a href="https://segmentfault.com/t/javascript" target="_blank" rel="external">segmentfault</a></li>
+<li><a href="http://stackoverflow.com/questions/tagged/javascript" target="_blank" rel="external">stackoverflow</a></li>
+<li><a href="http://javascript.ruanyifeng.com/" target="_blank" rel="external">javascript基础</a></li>
+<li><a href="http://superstarwulin.github.io/2016/05/03/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%94%B6%E9%9B%86/">面试题基础</a></li>
+</ul>
+<h3 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h3><p>-<a href="http://www.html-js.com/" target="_blank" rel="external">html-js</a></p>
+<h4 id="一些精彩的例子"><a href="#一些精彩的例子" class="headerlink" title="一些精彩的例子"></a>一些精彩的例子</h4><h3 id="最新技术"><a href="#最新技术" class="headerlink" title="最新技术"></a>最新技术</h3><h4 id="类库"><a href="#类库" class="headerlink" title="类库"></a>类库</h4><ul>
+<li><a href="https://checkcheckzz.gitbooks.io/angularjs-learning-notes/content/chapter7/7-3.html" target="_blank" rel="external">angular</a> </li>
+</ul>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p><a href="https://searchcode.com/" target="_blank" rel="external">search code</a><br><a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/index.html" target="_blank" rel="external">开发环境配置</a><br><a href="https://itunes.apple.com/us/app/snippetslab/id1006087419" target="_blank" rel="external">代码片段snippetslab</a><br><a href="http://matrix.h5jun.com/slide/show?id=120#/" target="_blank" rel="external">babel</a></p>
+<h3 id="高大上"><a href="#高大上" class="headerlink" title="高大上"></a>高大上</h3><ul>
+<li><a href="http://study.163.com/course/courseMain.htm?courseId=465001" target="_blank" rel="external">jquery源码解析</a></li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li><a href="http://open.163.com/special/opencourse/algorithms.html" target="_blank" rel="external">麻省理工学院公开课：算法导论</a><ul>
+<li><a href="http://cimg3.163.com/edu/open/ocw/suanfayudaolun.zip" target="_blank" rel="external">课件</a></li>
+</ul>
+</li>
+<li><a href="http://open.163.com/special/Khan/linearalgebra.html" target="_blank" rel="external">线性代数</a></li>
+<li><a href="http://open.163.com/special/Khan/probability.html" target="_blank" rel="external">概率论</a></li>
+<li><a href="http://open.163.com/special/Khan/khstatistics.html" target="_blank" rel="external">统计学</a></li>
+<li><a href="http://open.163.com/special/opencourse/machinelearning.html" target="_blank" rel="external"> 斯坦福大学公开课 ：机器学习课程</a></li>
+<li><a href="http://open.163.com/special/opencourse/learningfromdata.html" target="_blank" rel="external">加州理工学院公开课：机器学习与数据挖掘</a></li>
+</ul>
+<h3 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h3><p>-<a href="http://open.163.com/special/opencourse/nutrition.html" target="_blank" rel="external">美国加州大学电视台公开课：饮食与营养</a></p>
+<h3 id="推荐书单"><a href="#推荐书单" class="headerlink" title="推荐书单"></a>推荐书单</h3><p><a href="https://www.amazon.com/Books/b?ie=UTF8&amp;node=549028" target="_blank" rel="external">纽约时报畅销书排行</a><br><a href="https://www.douban.com/people/135785535/doulists/all" target="_blank" rel="external">我的豆列</a></p>
+<table>
+<thead>
+<tr>
+<th>书名</th>
+<th>作者</th>
+<th>作者画像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://pan.baidu.com/s/1mhQjSUG" target="_blank" rel="external">生命的重建</a></td>
+<td>露易丝·海</td>
+<td><img src="http://b.hiphotos.baidu.com/baike/s%3D220/sign=fa3e9aaea61ea8d38e227306a70b30cf/0824ab18972bd407fc3efee87b899e510fb3092d.jpg" alt=""></td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1dFyUdSd" target="_blank" rel="external">人生定位</a></td>
+<td><a href="http://wiki.mbalib.com/wiki/%E9%98%BF%E5%B0%94%C2%B7%E9%87%8C%E6%96%AF" target="_blank" rel="external">阿尔·里斯</a><a href=""></a></td>
+<td><img src="http://wiki.mbalib.com/w/images/3/37/Al_Ries.jpg" alt=""></td>
+</tr>
+<tr>
+<td>用安静改变世界</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1c10HJLu" target="_blank" rel="external">精力管理</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1boTkgDT" target="_blank" rel="external">你原本无需那么辛苦</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.amazon.cn/%E6%88%98%E8%83%9C%E5%BF%83%E9%AD%94-%E8%B5%B0%E5%90%91%E8%87%AA%E7%94%B1%E5%92%8C%E6%88%90%E5%8A%9F%E7%9A%84%E7%A7%98%E5%AF%86-%E6%8B%BF%E7%A0%B4%E4%BB%91%E2%80%A2%E5%B8%8C%E5%B0%94/dp/B005EVBY0A/ref=sr_1_124?s=books&amp;ie=UTF8&amp;qid=1469960099&amp;sr=1-124&amp;keywords=%E7%BA%BD%E7%BA%A6%E6%97%B6%E6%8A%A5%E7%95%85%E9%94%80%E4%B9%A6" target="_blank" rel="external">战胜心魔:走向自由和成功的秘密</a></td>
+<td>拿破仑•希尔</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://vdisk.weibo.com/s/FaZ_rZnf-h0e7?category_id=11&amp;parents_ref=FaZ_rZng8NnqQ,FaZ_rZng8YOMw,FaZ_rZnf-h0e7,FaZ_rZnf-hEQx" target="_blank" rel="external">巴菲特</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://pan.baidu.com/s/1eS4rHku" target="_blank" rel="external">巴菲特资产配置法:摩根士丹利投资大师倾囊相授的财富增长秘诀</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>追缉国家宝藏:FBI首席艺术犯罪探员卧底破案实录</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>大地</td>
+<td>赛珍珠</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/学习/">学习</a>
 	</div>
 
 
@@ -2497,160 +2646,6 @@ JS 分文件夹存放 命名以该JS功能为准的英文翻译。
 <li><p><a href="https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md" target="_blank" rel="external">https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md</a></p>
 </li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/学习/">学习</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-基础学习" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/03/基础学习/" class="article-date">
-  	<time datetime="2016-05-03T08:29:16.000Z" itemprop="datePublished">2016-05-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/03/基础学习/">学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="学无止境"><a href="#学无止境" class="headerlink" title="学无止境"></a>学无止境</h1><blockquote>
-<p>记录一些常用的学习资料</p>
-</blockquote>
-<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
-<li><a href="https://segmentfault.com/t/javascript" target="_blank" rel="external">segmentfault</a></li>
-<li><a href="http://stackoverflow.com/questions/tagged/javascript" target="_blank" rel="external">stackoverflow</a></li>
-<li><a href="http://javascript.ruanyifeng.com/" target="_blank" rel="external">javascript基础</a></li>
-<li><a href="http://superstarwulin.github.io/2016/05/03/%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%94%B6%E9%9B%86/">面试题基础</a></li>
-</ul>
-<h3 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h3><p>-<a href="http://www.html-js.com/" target="_blank" rel="external">html-js</a></p>
-<h4 id="一些精彩的例子"><a href="#一些精彩的例子" class="headerlink" title="一些精彩的例子"></a>一些精彩的例子</h4><h3 id="最新技术"><a href="#最新技术" class="headerlink" title="最新技术"></a>最新技术</h3><h4 id="类库"><a href="#类库" class="headerlink" title="类库"></a>类库</h4><ul>
-<li><a href="https://checkcheckzz.gitbooks.io/angularjs-learning-notes/content/chapter7/7-3.html" target="_blank" rel="external">angular</a> </li>
-</ul>
-<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p><a href="https://searchcode.com/" target="_blank" rel="external">search code</a><br><a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/index.html" target="_blank" rel="external">开发环境配置</a><br><a href="https://itunes.apple.com/us/app/snippetslab/id1006087419" target="_blank" rel="external">代码片段snippetslab</a><br><a href="http://matrix.h5jun.com/slide/show?id=120#/" target="_blank" rel="external">babel</a></p>
-<h3 id="高大上"><a href="#高大上" class="headerlink" title="高大上"></a>高大上</h3><ul>
-<li><a href="http://study.163.com/course/courseMain.htm?courseId=465001" target="_blank" rel="external">jquery源码解析</a></li>
-</ul>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
-<li><a href="http://open.163.com/special/opencourse/algorithms.html" target="_blank" rel="external">麻省理工学院公开课：算法导论</a><ul>
-<li><a href="http://cimg3.163.com/edu/open/ocw/suanfayudaolun.zip" target="_blank" rel="external">课件</a></li>
-</ul>
-</li>
-<li><a href="http://open.163.com/special/Khan/linearalgebra.html" target="_blank" rel="external">线性代数</a></li>
-<li><a href="http://open.163.com/special/Khan/probability.html" target="_blank" rel="external">概率论</a></li>
-<li><a href="http://open.163.com/special/Khan/khstatistics.html" target="_blank" rel="external">统计学</a></li>
-<li><a href="http://open.163.com/special/opencourse/machinelearning.html" target="_blank" rel="external"> 斯坦福大学公开课 ：机器学习课程</a></li>
-<li><a href="http://open.163.com/special/opencourse/learningfromdata.html" target="_blank" rel="external">加州理工学院公开课：机器学习与数据挖掘</a></li>
-</ul>
-<h3 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h3><p>-<a href="http://open.163.com/special/opencourse/nutrition.html" target="_blank" rel="external">美国加州大学电视台公开课：饮食与营养</a></p>
-<h3 id="推荐书单"><a href="#推荐书单" class="headerlink" title="推荐书单"></a>推荐书单</h3><p><a href="https://www.amazon.com/Books/b?ie=UTF8&amp;node=549028" target="_blank" rel="external">纽约时报畅销书排行</a><br><a href="https://www.douban.com/people/135785535/doulists/all" target="_blank" rel="external">我的豆列</a></p>
-<table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>作者画像</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://pan.baidu.com/s/1mhQjSUG" target="_blank" rel="external">生命的重建</a></td>
-<td>露易丝·海</td>
-<td><img src="http://b.hiphotos.baidu.com/baike/s%3D220/sign=fa3e9aaea61ea8d38e227306a70b30cf/0824ab18972bd407fc3efee87b899e510fb3092d.jpg" alt=""></td>
-</tr>
-<tr>
-<td><a href="https://pan.baidu.com/s/1dFyUdSd" target="_blank" rel="external">人生定位</a></td>
-<td><a href="http://wiki.mbalib.com/wiki/%E9%98%BF%E5%B0%94%C2%B7%E9%87%8C%E6%96%AF" target="_blank" rel="external">阿尔·里斯</a><a href=""></a></td>
-<td><img src="http://wiki.mbalib.com/w/images/3/37/Al_Ries.jpg" alt=""></td>
-</tr>
-<tr>
-<td>用安静改变世界</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://pan.baidu.com/s/1c10HJLu" target="_blank" rel="external">精力管理</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://pan.baidu.com/s/1boTkgDT" target="_blank" rel="external">你原本无需那么辛苦</a></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.amazon.cn/%E6%88%98%E8%83%9C%E5%BF%83%E9%AD%94-%E8%B5%B0%E5%90%91%E8%87%AA%E7%94%B1%E5%92%8C%E6%88%90%E5%8A%9F%E7%9A%84%E7%A7%98%E5%AF%86-%E6%8B%BF%E7%A0%B4%E4%BB%91%E2%80%A2%E5%B8%8C%E5%B0%94/dp/B005EVBY0A/ref=sr_1_124?s=books&amp;ie=UTF8&amp;qid=1469960099&amp;sr=1-124&amp;keywords=%E7%BA%BD%E7%BA%A6%E6%97%B6%E6%8A%A5%E7%95%85%E9%94%80%E4%B9%A6" target="_blank" rel="external">战胜心魔:走向自由和成功的秘密</a></td>
-<td>拿破仑•希尔</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="http://vdisk.weibo.com/s/FaZ_rZnf-h0e7?category_id=11&amp;parents_ref=FaZ_rZng8NnqQ,FaZ_rZng8YOMw,FaZ_rZnf-h0e7,FaZ_rZnf-hEQx" target="_blank" rel="external">巴菲特</a></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://pan.baidu.com/s/1eS4rHku" target="_blank" rel="external">巴菲特资产配置法:摩根士丹利投资大师倾囊相授的财富增长秘诀</a></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>追缉国家宝藏:FBI首席艺术犯罪探员卧底破案实录</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>大地</td>
-<td>赛珍珠</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
       
     </div>
